@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/about', function () {
+    return view('singlePages.aboutUs');
+});
+Route::get('/reg', function () {
+    return view('team_registration');
+});
+Route::post('/reg','teamController@store');

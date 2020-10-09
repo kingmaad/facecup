@@ -84,3 +84,11 @@ textarea{
 .content-speakers{
     text-align: right;
 }
+.rtl {
+    direction: rtl;
+  }
+  
+  .rtl .dropdown-menu-right {
+    text-align: right;
+    width: 200px;
+  }

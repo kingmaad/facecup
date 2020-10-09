@@ -144,19 +144,41 @@ jQuery(document).ready(function( $ ) {
 
 // custom code
 
-var revapi;
 
-revapi = jQuery('.tp-banner').revolution(
-    {
-      delay:3000,
-      startwidth:1170,
-      startheight:500,
-      hideThumbs:10,
-      fullWidth:"off",
-      fullScreen:"on",
-      fullScreenOffsetContainer: ""
-
-    });
+$( 'body' ).on( 'keypress', 'input.persian', function( e ) {
+	// backspace, delete, tab, escape, enter
+	if ( $.inArray(e.keyCode, [ 46, 8, 9, 27, 13 ]) !== -1 ||
+		 // Ctrl+A
+		( ( e.charCode == 65 || e.charCode == 97 ) && e.ctrlKey === true ) || 
+		 // home, end, left, right
+		( e.keyCode >= 35 && e.keyCode <= 39 ) ) {
+       
+      return;
+	}
+ 
+	if ( -1 == $.inArray( String.fromCharCode( e.charCode ), ['1','2','3','4','5','6','7','8','9','0','‌', ' ', 'آ','ا','ب','پ','ت','ث','ج','چ','ح','خ','د','ذ','ر','ز','ژ','س','ش','ص','ض','ط','ظ','ع','غ','ف','ق','ک','گ','ل','م','ن','و','ه','ی','ي','ك','ة'] ) ) {
+    alert('لطفا فقط حروف فارسی را وارد نمایید')
+    e.preventDefault();
+	}
+ 
+} );
+$( 'body' ).on( 'keypress', 'input.english', function( e ) {
+	// backspace, delete, tab, escape, enter
+	if ( $.inArray(e.keyCode, [ 46, 8, 9, 27, 13 ]) !== -1 ||
+		 // Ctrl+A
+		( ( e.charCode == 65 || e.charCode == 97 ) && e.ctrlKey === true ) || 
+		 // home, end, left, right
+		( e.keyCode >= 35 && e.keyCode <= 39 ) ) {
+       
+      return;
+	}
+ 
+	if ( -1 == $.inArray( String.fromCharCode( e.charCode ), ['1','2','3','4','5','6','7','8','9','0','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','j','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'] ) ) {
+    alert('لطفا فقط حروف انگلیسی بدون فاصله را وارد نمایید')
+    e.preventDefault();
+	}
+ 
+} );
 // end custom code
 
 });
