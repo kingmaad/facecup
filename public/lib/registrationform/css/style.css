@@ -37,6 +37,11 @@ body {
 	display: flex;
 	display: -webkit-flex;
 }
+.form-v3-content
+{
+	width: 1200px;
+	text-align: right;
+}
 .form-v2-content .form-left {
 	margin-bottom: -4px;
 	position: relative;
@@ -159,7 +164,7 @@ body {
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
-    right: 320px;
+    right: 0px;
     top: -31px;
     color: red;
     font-size: 18px;

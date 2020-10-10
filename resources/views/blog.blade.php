@@ -242,132 +242,65 @@ if (!c3.error) {
       <!--==========================
       Speaker Details Section
     ============================-->
-      <section id="speakers-details" class="wow fadeIn">
-        <div class="container">
-          <div class="section-header">
-            <h2>درباره ما</h2>
+  
+<section class="home-blog bg-sand rtl">
+    <div class="container">
+        <!-- section title -->
+        <br><br><br><br>
+		<div class="row justify-content-md-center mb-5">
+			<div class="col-xl-5 col-lg-6 col-md-8">
+				<div class="section-title text-center title-ex1">
+					<h2>وبلاگ</h2>
+					<p>آخرین اخبار دنیای هوش مصنوعی را اینجا دنبال کنید</p>
+				</div>
+			</div>
+		</div>
+		<!-- section title ends -->
+		<div class="row mb-5">
+			<div class="col-md-6">
+				<div class="media blog-media bg-white p-2 rounded">
+				  <a href="/how-face-recognition-works"><img class="d-flex" src="{{ url('img/blog1.png') }}" alt="Generic placeholder image"></a>
+				  <div class="circle">
+				  	<h5 class="day"></h5>
+				  	<span class="month"></span>
+				  </div>
+				  <div class="media-body text-right">
+				    <a href="/how-face-recognition-works"><h5 class="mt-0">فناوری تشخیص چهره چگونه کار می کند</h5></a>
+				    اولین راه ارتباطی با شخص برای صحبت کردن معمولا نگاه کردن به چهره و حالت صورت فرد است. حالات و ویژگی های خاص صورت، قدرت تمایز بیشتری نسبت به اثر انگشت 
+				    <a href="/how-face-recognition-works" class="post-link p-1 rounded" style="background-color: #fb6834;color:#fff;">ادامه مطلب</a>
+				    
+				  </div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="media blog-media bg-white p-2 rounded">
+				  <a href="/artificial-intelligence-progress"><img class="d-flex" src="{{ url('img/blog2.jpg') }}" alt="Generic placeholder image"></a>
+				  <div class="circle">
+  				  	<h5 class="day"></h5>
+  				  	<span class="month"></span>
+  				  </div>
+                    <div class="media-body text-right">
+                        <a href="/artificial-intelligence-progress"><h5 class="mt-0">مسیر پیشرفت  هوش مصنوعی</h5></a>
+                        در دنیای امروز هوش مصنوعی  به یکی از مهم ترین چالش های پیشرفت تکنولوژی و همسان سازی رایانه و انسان تبدیل شده است، در این مبحث نیز هدف بر این تنطیم شده است . 
+
+                        <a href="/artificial-intelligence-progress" class="post-link p-1 rounded" style="background-color: #fb6834;color:#fff;">ادامه مطلب</a>
+                        
+                      </div>
+				</div>
+            </div>
            
-          </div>
-
-          <div class="row">
-            <div class="col-md-6">
-              <img src="img/speakers/1.jpg" alt="Speaker 1" class="img-fluid" />
-            </div>
-
-            <div class="col-md-6 content-speakers">
-              <div class="details">
-                <h2>درباره ی ما چه می دانید؟</h2>
-                <p>ما اینجاییم تا با برگزاری یک رویداد جذاب پیرامون حوزه هوش مصنوعی، علاقه مندان به این حوزه را دورهم جمع کنیم.
-                  مرکز نوآوری نکسترا به عنوان فعال در عرصه اکوسیستم نوآوری وکارافرینی کشورمان با مشارکت پارک علم و فناوری دانشگاه تهران، قصد برگزاری رویداد در حوزه هوش مصنوعی، با موضوع تشخیص چهره دارد، رویدادی تحت عنوان فیس کاپ که هدف این رویداد شناسایی تیم ها و افراد مستعد و علاقه مند به فناوری تشخیص چهره است که به شناسایی فرصت ها و چالش های موجود منجر میشود.
-                   </p>
-
-                <p>
-                  در جوامع امروزی، تشخیص چهره پاسخ مناسبی برای افزایش امنیت و جلوگیری از بروز حوادث است و برگزاری رویدادFaceCup  موجب خواهد شد تا ذی‌نفعان به سمت ایجاد راه حل های قدرتمند بینایی ماشین سوق داده شوند که در نهایت باعث می شود محیط های عمومی ایمن تر و هوشمندتر شوند.
-                </p>
-
-                <p>
-                  این رویداد به عنوان مرجعی قابل اعتماد و پیشرو، کیفیت محصولات موجود را با معیار های مختلف خواهد سنجید و فرصتی برای علاقه‌مندان ایجاد خواهد کرد تا عملکرد الگوریتم‌های خود را بیازمایند.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-            <!--==========================
-      Contact Section
-    ============================-->
-    <section id="contact" class="section-bg wow fadeInUp">
-      <div class="container">
-        <div class="section-header">
-          <h2>تماس با ما</h2>
-          <p>جهت برقراری تماس با ما میتوانید از اطلاعات زیر و یا پیام خود را از طریق فرم ذیل برای ما ارسال نمایید</p>
-        </div>
-
-        <div class="row contact-info">
-          <div class="col-md-6">
-            <div class="contact-address">
-              <i class="ion-ios-location-outline"></i>
-              <h3>آدرس</h3>
-              <address>تهران، بالاتراز تقاطع خیابان کارگرشمالی وخیابان جلال آل احمد، پردیس فنی دانشگاه تهران، ساختمان مکانیک قدیم، مرکز نوآوری نکسترا</address>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="contact-phone">
-              <i class="ion-ios-telephone-outline"></i>
-              <h3>شماره تلفن</h3>
-              <p><a href="tel:+155895548855">02191090395</a></p>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="form">
-          <div id="sendmessage">پیام شما با موفقیت ارسال شد</div>
-          <div id="errormessage"></div>
-          <form action="" method="post" role="form" class="contactForm">
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <input
-                  type="text"
-                  name="name"
-                  class="form-control"
-                  id="name"
-                  placeholder="نام"
-                  data-rule="minlen:4"
-                  data-msg="بیشتر از 4 کاراکتر وارد کنید"
-                />
-                <div class="validation"></div>
-              </div>
-              <div class="form-group col-md-6">
-                <input
-                  type="email"
-                  class="form-control"
-                  name="email"
-                  id="email"
-                  placeholder="ایمیل"
-                  data-rule="email"
-                  data-msg="لطفا یک ایمیل معتبر وارد کنید"
-                />
-                <div class="validation"></div>
-              </div>
-            </div>
-            <div class="form-group">
-              <input
-                type="text"
-                class="form-control"
-                name="subject"
-                id="subject"
-                placeholder="موضوع"
-                data-rule="minlen:4"
-                data-msg="بیشتر از 8 کاراکتر وارد کنید"
-              />
-              <div class="validation"></div>
-            </div>
-            <div class="form-group">
-              <textarea
-                class="form-control"
-                name="message"
-                rows="5"
-                data-rule="required"
-                data-msg="لطفا یک پیام وارد کنید"
-                placeholder="پیام"
-              ></textarea>
-              <div class="validation"></div>
-            </div>
-            <div class="text-center">
-              <button type="submit">ارسال کنید</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-    <!-- #contact -->
+			
+			
+		</div>
+	</div>
+</section>
+     
     </main>
 
      <!--==========================
     Footer
   ============================-->
+  <br><br><br>
   <footer id="footer">
      
 

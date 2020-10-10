@@ -20,6 +20,14 @@ class CreateTeamsTable extends Migration
             $table->string('en_name')->unique();
             $table->string('fa_name')->unique();
             $table->boolean('isVerified')->default(0);
+            $table->string('team_type')->nullable();
+            $table->string('organ_dependence')->nullable();
+            $table->string('team_leader_name')->nullable();
+            $table->string('team_leader_family')->nullable();
+            $table->string('degree')->nullable();
+            $table->string('major')->nullable();
+            $table->string('university')->nullable();
+            $table->string('cv_url')->nullable();
             $table->timestamps();
         });
     }

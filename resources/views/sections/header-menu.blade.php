@@ -13,20 +13,22 @@
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li><a href="#contact">تماس با ما</a></li>
+          <li><a href="/aboutUs">تماس با ما</a></li>
+          <li><a href="/blog">وبلاگ</a></li>
+          <li><a href="#gallery">هیات داوری</a></li>
+          <li><a href="#hotels">فرصت های شغلی</a></li>
 
-          <li><a href="#faq">سوالات</a></li>
-          <li><a href="#supporters">اسپانسر ها</a></li>
-          <li><a href="#gallery">گالری</a></li>
-          <li><a href="#hotels">هتل ها</a></li>
-
-          <li><a href="#venue">محل همایش</a></li>
-
-          <li><a href="#schedule">برنامه همایش</a></li>
-          <li><a href="#speakers">سخنگو ها</a></li>
-          <li><a href="#about">درباره همایش</a></li>
-          <li class="menu-active"><a href="#intro">خانه</a></li>
-          <li class="buy-tickets"><a href="#buy-tickets">خرید بلیط</a></li>
+          <li><a href="#venue">جوایز</a></li>
+          <li><a href="#speakers">حامیان</a></li>
+          <li class="dropdown rtl">
+            <a href="#about">درباره مسابقه</a>
+            <ul class="dropdown-menu dropdown-menu-right">
+                <li><a href="/exeRules">قوانین اجرایی</a></li>
+                <li><a href="/techRules">قوانین فنی</a></li>
+            </ul>
+          </li>
+          <li class="menu-active"><a href="/">خانه</a></li>
+          <li class="buy-tickets"><a href="/signupTeam">ثبت نام تیم ها</a></li>
         </ul>
       </nav>
       <!-- #nav-menu-container -->

@@ -205,8 +205,8 @@ if (!c3.error) {
 
         <nav id="nav-menu-container">
           <ul class="nav-menu">
-            <li><a href="#contact">تماس با ما</a></li>
-            <li><a href="#supporters">وبلاگ</a></li>
+            <li><a href="/aboutUs">تماس با ما</a></li>
+            <li><a href="/blog">وبلاگ</a></li>
             <li><a href="#gallery">هیات داوری</a></li>
             <li><a href="#hotels">فرصت های شغلی</a></li>
 
@@ -215,12 +215,12 @@ if (!c3.error) {
             <li class="dropdown rtl">
               <a href="#about">درباره مسابقه</a>
               <ul class="dropdown-menu dropdown-menu-right">
-                  <li><a href="#">قوانین اجرایی</a></li>
-                  <li><a href="#">قوانین فنی</a></li>
+                  <li><a href="/exeRules">قوانین اجرایی</a></li>
+                  <li><a href="/techRules">قوانین فنی</a></li>
               </ul>
             </li>
-            <li class="menu-active"><a href="#intro">خانه</a></li>
-            <li class="buy-tickets"><a href="#buy-tickets">ثبت نام تیم ها</a></li>
+            <li class="menu-active"><a href="/">خانه</a></li>
+            <li class="buy-tickets"><a href="/signupTeam">ثبت نام تیم ها</a></li>
           </ul>
         </nav>
         <!-- #nav-menu-container -->
@@ -498,7 +498,7 @@ if (!c3.error) {
         <div class="container wow fadeInUp">
           <div class="section-header">
             <h2>خبر نامه</h2>
-            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</p>
+            <p>جهت دریافت ایمیل اطلاع رسانی اخبار و رخدادهای مهم، در خبرنامه ی ما عضو شوید</p>
           </div>
 
           <form method="POST" action="#">
@@ -527,7 +527,7 @@ if (!c3.error) {
         <div class="container">
           <div class="section-header">
             <h2>تماس با ما</h2>
-            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</p>
+            <p>جهت برقراری تماس با ما میتوانید از اطلاعات زیر و یا پیام خود را از طریق فرم ذیل برای ما ارسال نمایید</p>
           </div>
 
           <div class="row contact-info">
