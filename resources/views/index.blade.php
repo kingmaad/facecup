@@ -535,7 +535,8 @@ if (!c3.error) {
               <div class="contact-address">
                 <i class="ion-ios-location-outline"></i>
                 <h3>آدرس</h3>
-                <address>ایران تهران خیابان ایکس</address>
+                <address>تهران، بالاتراز تقاطع خیابان کارگرشمالی وخیابان جلال آل احمد، پردیس فنی دانشگاه تهران، ساختمان مکانیک قدیم، مرکز نوآوری نکسترا
+                </address>
               </div>
             </div>
 
@@ -543,17 +544,10 @@ if (!c3.error) {
               <div class="contact-phone">
                 <i class="ion-ios-telephone-outline"></i>
                 <h3>شماره تلفن</h3>
-                <p><a href="tel:+155895548855">+1 5589 55488 55</a></p>
+                <p><a href="tel:+155895548855">02191090395</a></p>
               </div>
             </div>
 
-            <div class="col-md-4">
-              <div class="contact-email">
-                <i class="ion-ios-email-outline"></i>
-                <h3>ایمیل</h3>
-                <p><a href="mailto:info@example.com">info@example.com</a></p>
-              </div>
-            </div>
           </div>
 
           <div class="form">
