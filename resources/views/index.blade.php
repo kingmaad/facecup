@@ -9,7 +9,7 @@
     <meta content="" name="description" />
 
     <!-- Favicons -->
-    <link href="img/favicon.png" rel="icon" />
+    <link href="img/logo.jpg" rel="icon" />
     <link href="img/apple-touch-icon.png" rel="apple-touch-icon" />
 
     <!-- Google Fonts -->
@@ -188,6 +188,69 @@ if (!c3.error) {
     transition: 0.6s ease-in-out left;
 }
 
+
+.carousel-container{
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+/*<!-- Carousel -->*/
+
+.carousel-inner {
+  height: fit-content;
+}
+/*<!-- Carousel Text -->*/
+.carousel-header{
+  position:absolute;
+  top:30%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 100;
+}
+
+.carousel-header-slide2-text-one{
+  position:absolute;
+  top:20%;
+  left: 60%;
+  transform: translate(-50%,-50%);
+  z-index: 100;
+}
+
+.carousel-header-slide2-text-two{
+  position:absolute;
+  top:31%;
+  left: 62%;
+  transform: translate(-50%,-50%);
+  z-index: 100;
+}
+.carousel-header-slide2-text-three{
+  position:absolute;
+  top:40%;
+  left: 66%;
+  transform: translate(-50%,-50%);
+  z-index: 100;
+}
+.carousel-header-slide2-text-four{
+  position:absolute;
+  top:47%;
+  left: 66%;
+  transform: translate(-50%,-50%);
+  z-index: 100;
+}
+.carousel-header-slide2-text-five{
+  position:absolute;
+  top:20%;
+  left: 9%;
+  transform: translate(-50%,-50%);
+  z-index: 100;
+}
+.carousel-header h1 {
+  text-align: center;
+}
+
+.carousel-header p {
+  text-align: center;
+}
 </style>
   </head>
 
@@ -200,7 +263,7 @@ if (!c3.error) {
         <div id="logo" class="pull-left">
           <!-- Uncomment below if you prefer to use a text logo -->
           
-          <a href="#intro" class="scrollto"><img id="logoFile" src="img/facecup.png" alt="" title=""></a>
+          <a href="#intro" class="scrollto"><img id="logoFile" src="img/logo.jpg" alt="" title=""></a>
         </div>
 
         <nav id="nav-menu-container">
@@ -208,9 +271,9 @@ if (!c3.error) {
             <li><a href="/aboutUs">تماس با ما</a></li>
             <li><a href="/blog">وبلاگ</a></li>
             <li><a href="#gallery">هیات داوری</a></li>
-            <li><a href="#hotels">فرصت های شغلی</a></li>
+            <li><a href="/jobs">فرصت های شغلی</a></li>
 
-            <li><a href="#venue">جوایز</a></li>
+            <li><a href="awards">جوایز</a></li>
             <li><a href="#speakers">حامیان</a></li>
             <li class="dropdown rtl">
               <a href="#about">درباره مسابقه</a>
@@ -234,29 +297,48 @@ if (!c3.error) {
     <section id="gallery">
       <div class=" px-0">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+
             <div id="carouselDiv" class="carousel-inner slider-default-bg min-vh-100" style="height: 670px;" role="listbox">
                 <div class="carousel-item active">
-                  <div class="d-flex align-items-center justify-content-center min-vh-100 slider-one-bg">
-                        
-                          <h1 class="mb-2 pb-0 soft-vibrate">
-                            برگزاری <span>اولین</span><br>
+                  <div class=" min-vh-100 slider-one-bg">
+
+                          <h1 class="carousel-header soft-vibrate">
+                            برگزاری <span>اولین</span>
                             مسابقه<br>
-                            <span class="vibrate">بازشناسی چهره</span> <br>
+                            <span class="vibrate">بازشناسی چهره</span> 
                             در ایران
                           </h1>
-                        
+                          <h2 class="carousel-header-slide2-text-one vibrate">
+                             بهمن ماه <span>99</span>   <span class="pull-right"> 15 </span><br>
+                          
+                        </h2>
+                            
+
                     </div>
                 </div>
-                <div class="carousel-item">
-                  <div class="d-flex align-items-center justify-content-center min-vh-100 slider-two-bg">
+                <div class="carousel-item pull">
+                  <div class="min-vh-100 slider-two-bg">
                         
-                          <h1 class="mb-2 pb-0 soft-vibrate">
-                            <span class="vibrate orange-color"> پنجاه میلیون تومان </span><br>
-                            جایزه نفر اول <br>
-                            مسابقه
-
-                          </h1>
-                        
+                    <h1 class="carousel-header-slide2-text-one soft-vibrate">
+                        میلیون تومان جایزه   <span class="pull-right"> 60 </span><br>
+                      
+                    </h1>
+                    <h2 class="carousel-header-slide2-text-two soft-vibrate">
+                      میلیون تومان جایزه تیم اول   <span class="pull-right"> 15 </span><br>
+                    
+                  </h2>
+                  <h3 class="carousel-header-slide2-text-three soft-vibrate">
+                    میلیون تومان جایزه تیم دوم   <span class="pull-right"> 10 </span><br>
+                  
+                </h3>
+                <h3 class="carousel-header-slide2-text-four soft-vibrate">
+                  میلیون تومان جایزه تیم سوم   <span class="pull-right"> 5 </span><br>
+                
+              </h3>
+              <h1 class="carousel-header-slide2-text-five vibrate">
+                میلیون تومان    <span class="pull-right"> 30 </span><br>جـــــــــایزه ویــــــــژه
+              
+            </h1>
                     </div>
                 </div>
                 
@@ -281,7 +363,7 @@ if (!c3.error) {
         <div class="container">
           <div class="row">
             <div class="col-lg-6">
-              <h2>درباره رویداد فیسکاپ</h2>
+              <h2>درباره مسابقه فیسکاپ</h2>
               <p>
                 در جهان امروز با افزایش استفاده مردم از فناوری‌های نوین‌، فرصت‌های شگرفی در زمینه توسعه تکنولوژی به وجود آمده است. فناوری بازشناسی چهره به عرصه ای برای رقابت های بین المللی بدل گشته‌، و کشور های مختلف با ارائه محصولات بر پایه هوش مصنوعی برای سهم بیشتر از بازار 30 میلیارد دلاری هوش مصنوعی تلاش میکنند.
                 در این بین با توجه به پتانسیل بالای کشورمان و لزوم وجود یک مرجع ارزیابی، به آن شدیم که مسابقه سالانه ای تحت عنوان Face Cup برگزار کنیم.این رویداد با برخورداری از طیف گسترده ای از مخاطبین و ذی نفعان توانسته توجه زیادی را به خود معطوف کند.
@@ -291,11 +373,15 @@ if (!c3.error) {
             </div>
             <div class="col-lg-3">
               <h3>کجا ؟</h3>
-              <p>ایران تهران محل همایش تهران</p>
+              <p>بصورت مجازی</p>
             </div>
             <div class="col-lg-3">
-              <h3>چه وقت؟</h3>
-              <p>دوشنبه تا چهارشنبه<br />10 تا 12 شهریور</p>
+              <h3>چه وقت؟</h3> 
+              <p>فرصت تا<br />
+                <h1 class="orange-color">
+                15 بهمن ماه 99
+                </h1>
+              </p>
             </div>
           </div>
         </div>
@@ -373,58 +459,34 @@ if (!c3.error) {
     <section id="venue" class="wow fadeInUp">
 
       <div class="container-fluid venue-gallery-container">
+        <div class="section-header">
+          <h2>حامیان مادی فیس کاپ</h2>
+        </div>
         <div class="row no-gutters">
-          <div class="col col-xs-15">
+          <div class="col col-xs-4">
             <div class="venue-gallery">
-              <a
-                href="img/venue-gallery/1.jpg"
-                class="venobox"
-                data-gall="venue-gallery"
-              >
-                <img src="img/venue-gallery/1.jpg" alt="" class="img-fluid" />
+                <img src="/img/supporters/invite.jpg" alt="" class="img-fluid" />
+            </div>
+          </div>
+          <div class="col col-xs-4">
+            <div class="venue-gallery">
+
+                <a href="https://www.sgi.ir/"><img src="/img/supporters/green.png" alt="" class="img-fluid" /></a>
+
+            </div>
+          </div>
+
+          <div class="col col-xs-4">
+            <div class="venue-gallery">
+              <a href="https://www.ghadirco.net/">
+                <img src="/img/supporters/qadir.jpg" alt="" class="img-fluid" />
               </a>
             </div>
           </div>
 
-          <div class="col col-xs-15">
-            <div class="venue-gallery">
-              <img src="img/venue-gallery/2.jpg" alt="" class="img-fluid" />
-            </a>
-            </div>
-          </div>
 
-          <div class="col col-xs-15">
-            <div class="venue-gallery">
-              <a
-                href="img/venue-gallery/3.jpg"
-                class="venobox"
-                data-gall="venue-gallery"
-              >
-                <img src="img/venue-gallery/3.jpg" alt="" class="img-fluid" />
-              </a>
-            </div>
-          </div>
 
-          <div class="col col-xs-15">
-            <div class="venue-gallery">
-              <a
-                href="img/venue-gallery/4.jpg"
-                class="venobox"
-                data-gall="venue-gallery"
-              >
-                <img src="img/venue-gallery/4.jpg" alt="" class="img-fluid" />
-              </a>
-            </div>
-          </div>
-
-          <div class="col col-xs-15">
-            <div class="venue-gallery">
-
-                <img src="img/venue-gallery/5.jpg" alt="" class="img-fluid" />
-
-            </div>
-          </div>
-
+         
 
 
         </div>
@@ -437,51 +499,34 @@ if (!c3.error) {
     <section id="supporters" class="section-with-bg wow fadeInUp">
       <div class="container">
         <div class="section-header">
-          <h2>اسپانسر ها</h2>
+          <h2>حامیان معنوی فیس کاپ</h2>
         </div>
 
         <div class="row no-gutters supporters-wrap clearfix">
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
-              <img src="img/supporters/Nextera-Enfold.png" class="img-fluid" alt="" />
+              <a href="https://www.nexterafactory.com/"><img src="img/supporters/Nextera-Enfold.png" class="img-fluid" alt="" /></a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
-              <img src="img/supporters/digikala.png" class="img-fluid" alt="" />
+              <a href="http://utstpark.ir/"><img src="img/supporters/elmofanavari-park.png" class="img-fluid" alt="" /></a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
-              <img src="img/supporters/yektanet.png" class="img-fluid" alt="" />
+              <a href="https://www.sabteahval.ir/"><img src="img/supporters/sabtahval.png" class="img-fluid" alt="" /></a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
-              <img src="img/supporters/elmofanavari-park.png" class="img-fluid" alt="" />
+              <a href="https://isfahanhub.com/"><img src="img/supporters/hub.png" class="img-fluid" alt="" /></a>
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <img src="img/supporters/sabtahval.png" class="img-fluid" alt="" />
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <img src="img/supporters/up.png" class="img-fluid" alt="" />
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <img src="img/supporters/mci.png" class="img-fluid" alt="" />
-            </div>
-          </div>
 
         </div>
       </div>

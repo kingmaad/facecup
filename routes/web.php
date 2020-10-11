@@ -52,3 +52,13 @@ Route::get('/how-face-recognition-works',function(){
 Route::get('/artificial-intelligence-progress',function(){
     return view('sections.blog2');
 });
+
+
+Route::get('/jobs',function(){
+    return view('sections.jobs');
+});
+
+
+Route::get('/awards',function(){
+    return view('sections.awards');
+});

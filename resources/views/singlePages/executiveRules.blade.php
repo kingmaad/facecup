@@ -243,7 +243,7 @@ if (!c3.error) {
       Speaker Details Section
     ============================-->
       <section id="speakers-details" class="wow fadeIn">
-        <div class="container">
+        <div class="container bg-white p-4 rounded">
           <div class="section-header">
             <h2>قوانین اجرایی</h2>
            

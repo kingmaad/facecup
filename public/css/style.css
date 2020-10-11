@@ -189,7 +189,7 @@ h6 {
 #header #logo img {
   padding: 0;
   margin: 8px 0;
-  max-height: 70px;
+  max-height: 60px;
 }
 
 .header-scrolled-logo
@@ -511,6 +511,37 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #gallery h1 span {
+  color: #fb6834;
+
+}
+
+#gallery h2 {
+  color: #fff;
+  font-family: "Raleway", sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-align: right;
+  
+}
+
+#gallery h2 span {
+  color: #fb6834;
+
+}
+
+
+#gallery h3 {
+  color: #fff;
+  font-family: "Raleway", sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-align: right;
+  
+}
+
+#gallery h3 span {
   color: #fb6834;
 
 }

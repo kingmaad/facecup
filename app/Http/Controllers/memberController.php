@@ -58,6 +58,7 @@ class memberController extends Controller
 
         
         if ($validator->fails()) {
+            dd($request->file('resume'));
             return back()->withInput();
         }
         else
