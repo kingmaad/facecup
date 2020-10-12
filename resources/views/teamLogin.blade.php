@@ -256,27 +256,19 @@ if (!c3.error) {
                         </div>
                         <form class="form-detail" action="#" method="post" id="myform" >
                         
-                            <h2 class="text-right">فرم ثبت نام تیم</h2>
+                            <h2 class="text-right">فرم ورود تیم</h2>
                             <div class="form-row text-right">
-                                <label for="en_name">نام تیم(لاتین)</label>
-                                <input type="text" name="en_name" id="en_name" class="input-text english" placeholder="نام لاتین بعنوان نام کاربری در نظر گرفته خواهد شد" required>
+                                <label for="en_name">نام کاربری</label>
+                                <input type="text" name="en_name" id="en_name" class="input-text english" placeholder="نام لاتین تیم" required>
                             </div>
-                            <div class="form-row text-right">
-                                <label for="fa_name">نام تیم(فارسی)</label>
-                                <input type="text" name="fa_name" id="fa_name" class="input-text text-right persian" required>
-                            </div>
-                            <div class="form-row text-right">
-                                <label for="mobile">شماره موبایل مسئول تیم</label>
-                                <input type="text" name="mobile" id="mobile" class="input-text" required pattern="09(1[0-9]|3[1-9]|2[1-9])-?[0-9]{3}-?[0-9]{4}">
-                            </div>
+                           
 
                             {{ csrf_field() }}
                             <div class="form-row-last text-center">
-                                <input type="submit" name="register" class="register" value="ثبت نام">
+                                <input type="submit" name="register" class="register" value="دریافت کد ورود">
                             </div>
                         </form>
                         <form class="form-detail" action="*" method="post" id="otp-validation" style="display: none;">
-
                           <br><br>
                           
                           <h6 class="text-right">رمز عبو به شماره <span class="text-success" id="mobile-number"></span> ارسال شده است</h6>
@@ -288,27 +280,8 @@ if (!c3.error) {
                           <div class="form-row-last text-center">
                               <input type="submit" name="register" class="register bg-success" value="ورود">
                           </div>
-                          <div class="form-row-last text-center">
-                            <input type="button" name="edit" class="register bg-info" value="اصطلاح شماره">
-                            <input type="button" name="resend" class="register bg-warning" value="ارسال دوباره">
-                        </div>
-                        </form>
-                        <div id="welcome" style="width:100%;display: none;">
-                          <br><br><br><br><br><br>
-                          
-                          <h4 class="text-center text-success font-weight-bold rtl">تیم  <span class="text-success" id="team_name"></span> خوش آمدید</h4>
-                          <br><br>
-                          <h5 class="text-center text-info font-wieght-bold">ثبت نام شما با موفقیت انجام شد</h5>
-                          <br><br>
-
-                          <div class="form-row-last text-center">
-                            <a href="/sample.zip" class="btn btn-warning" >دریافت کد راهنما</a>
-                            <a href="/TeamInfo" class="btn btn-success" >تکمیل ثبت نام</a>
-                            
-                                
-                        </div>
-                        </div>
                         
+                        </form>
                     </div>
                 </div>
                 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -320,24 +293,10 @@ if (!c3.error) {
                         rules: {
                           en_name: {
                               required: true,
-                              remote: {
-                                  url: "/check_en_name",
-                                  type: "get"
-                              }
-                          },
-                          fa_name: {
-                              required: true,
-                              remote: {
-                                  url: "/check_fa_name",
-                                  type: "get"
-                              }
-                          },
-                          mobile: {
-                              required: true,
-                              remote: {
-                                  url: "/check_mobile",
-                                  type: "get"
-                              }
+                            //   remote: {
+                            //       url: "/check_en_name",
+                            //       type: "get"
+                            //   }
                           },
                       },
                           messages: {
@@ -345,30 +304,17 @@ if (!c3.error) {
                                   required: "لطفا نام لاتین تیم خود را وارد کنید",
                                   remote : "این نام قبلا در سیستم ثبت شده است"
                               },
-                              fa_name: {
-                                  required: "لطفا نام فارسی تیم خود را وارد کنید",
-                                  remote:"این نام قبلا در سیستم ثبت شده است"
-                              },
-                              mobile: {
-                                  required: "لطفا شماره موبایل را وارد کنید",
-                                  remote:"این شماره موبایل قبلا ثبت شده است",
-                                  pattern : "شماره موبایل معتبری را وارد نمایید"
-                              },
                       
                           },
                           submitHandler: function(form) {
-                            let english_name = $("input[name=en_name]").val();
-                                let farsi_name = $("input[name=fa_name]").val();
-                                let mobile_number = $("input[name=mobile]").val();
-                                let _token   =  $("input[name=_token]").val();
+                            let username = $("input[name=en_name]").val();
+                            let _token   =  $("input[name=_token]").val();
 
                                 $.ajax({
-                                    url: "/reg",
+                                    url: "/requestOTP",
                                     type:"POST",
                                     data:{
-                                    en_name:english_name,
-                                    fa_name:farsi_name,
-                                    mobile:mobile_number,
+                                    en_name:username,
                                     _token: _token
                                     },
                                     success:function(response){
@@ -379,14 +325,17 @@ if (!c3.error) {
                                         {
                                           alert('saved...');
                                           document.getElementById('myform').style.display = 'none';
-                                          document.getElementById('mobile-number').innerHTML = mobile_number;
+                                          document.getElementById('mobile-number').innerHTML = response.data.mobile;
                                           document.getElementById('otp-validation').style.display = 'inline';
                                         }
                                         else
                                         {
-                                          alert('error');
-                                          console.log(response);
-                                          $('.success').text(response.success);
+                                          if(response.errorCode==3)
+                                          {
+                                            alert('نام کاربری وارد شده صحیح نمی باشد')
+                                          }
+
+                                          
                                           
                                         }
                                         
@@ -395,6 +344,7 @@ if (!c3.error) {
                                 });
                             }
                     });
+
                     $( "#otp-validation" ).validate({
                       
                           messages: {
@@ -405,12 +355,14 @@ if (!c3.error) {
                           },
                           submitHandler: function(form) {
                                 let otp = $("input[name=otp]").val();
+                                let en_name = $("input[name=en_name]").val();
                                 let _token   =  $("input[name=_token]").val();
                                 $.ajax({
                                     url: "/otp",
                                     type:"POST",
                                     data:{
                                     otp:otp,
+                                    en_name:en_name,
                                     _token: _token
                                     },
                                     success:function(response){
@@ -419,9 +371,7 @@ if (!c3.error) {
                                         result = response;
                                         if(response.hasError == false)
                                         {
-                                          document.getElementById('otp-validation').style.display = 'none';
-                                          document.getElementById('team_name').innerHTML = response.data.fa_name;
-                                          document.getElementById('welcome').style.display = 'inline';
+                                          window.location.replace("{{ url('/TeamInfo') }}");
                                         }
                                         else
                                         {

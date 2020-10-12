@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Illuminate\Support\Facades\Route;
+
 
 Route::get('/', function () {
     return view('index');
@@ -25,8 +27,25 @@ Route::post('/AddMember', "memberController@store");
 Route::get('/signupTeam', function () {
     return view('team_registration');
 });
+
+Route::get('/login', function () {
+    if(session('user_id'))
+    return redirect()->action('teamController@index');
+    else
+        return view('teamLogin');
+});
+
+Route::get('/logout',function(){
+    session()->forget('user_id');
+    return view('index');
+});
+
 Route::post('/reg','teamController@store');
 Route::post('/otp','teamController@checkOTP');
+Route::post('/requestOTP','teamController@requestOTP');
+
+Route::post('/newsletter','indexController@newsLetter');
+Route::post('/sendMessage','indexController@sendMessage');
 
 Route::get('/check_en_name','teamController@check_en_name');
 Route::get('/check_fa_name','teamController@check_fa_name');
@@ -39,6 +58,10 @@ Route::get('/exeRules',function(){
 });
 Route::get('/techRules',function(){
     return view('singlePages.technicalRules');
+});
+
+Route::get('/generalRules',function(){
+    return view('singlePages.generalRules');
 });
 
 Route::get('/blog',function(){

@@ -273,7 +273,7 @@ if (!c3.error) {
           </div>
         </div>
       </section>
-            <!--==========================
+ <!--==========================
       Contact Section
     ============================-->
     <section id="contact" class="section-bg wow fadeInUp">
@@ -284,15 +284,16 @@ if (!c3.error) {
         </div>
 
         <div class="row contact-info">
-          <div class="col-md-6">
+          <div class="col-md-4">
             <div class="contact-address">
               <i class="ion-ios-location-outline"></i>
               <h3>آدرس</h3>
-              <address>تهران، بالاتراز تقاطع خیابان کارگرشمالی وخیابان جلال آل احمد، پردیس فنی دانشگاه تهران، ساختمان مکانیک قدیم، مرکز نوآوری نکسترا</address>
+              <address>تهران، بالاتراز تقاطع خیابان کارگرشمالی وخیابان جلال آل احمد، پردیس فنی دانشگاه تهران، ساختمان مکانیک قدیم، مرکز نوآوری نکسترا
+              </address>
             </div>
           </div>
 
-          <div class="col-md-6">
+          <div class="col-md-4">
             <div class="contact-phone">
               <i class="ion-ios-telephone-outline"></i>
               <h3>شماره تلفن</h3>
@@ -305,7 +306,8 @@ if (!c3.error) {
         <div class="form">
           <div id="sendmessage">پیام شما با موفقیت ارسال شد</div>
           <div id="errormessage"></div>
-          <form action="" method="post" role="form" class="contactForm">
+          <form action="#" method="post"  class="contactForm" id="contactus">
+          {{ csrf_field() }}
             <div class="form-row">
               <div class="form-group col-md-6">
                 <input
@@ -323,7 +325,7 @@ if (!c3.error) {
                 <input
                   type="email"
                   class="form-control"
-                  name="email"
+                  name="contact_email"
                   id="email"
                   placeholder="ایمیل"
                   data-rule="email"
@@ -348,6 +350,7 @@ if (!c3.error) {
               <textarea
                 class="form-control"
                 name="message"
+                id="message"
                 rows="5"
                 data-rule="required"
                 data-msg="لطفا یک پیام وارد کنید"
@@ -382,7 +385,62 @@ if (!c3.error) {
   <!-- #footer -->
 
   <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
-
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+<script>
+  $( "#contactus" ).validate({
+        
+        // messages: {
+        //     email: {
+        //         required: "لطفا نام لاتین تیم خود را وارد کنید"
+        //     },
+            
+        // },
+        submitHandler: function(form) {
+              let name = $("input[name=name]").val();
+              let email = $("input[name=contact_email]").val();
+              let subject = $("input[name=subject]").val();
+              let message = document.getElementById("message").value;
+              let _token   =  $("input[name=_token]").val();
+              $.ajax({
+                  url: "/sendMessage",
+                  type:"POST",
+                  data:{
+                    name:name,
+                    email:email,
+                    subject:subject,
+                    message:message,
+                    _token: _token
+                  },
+                  success:function(response){
+                  console.log(response);
+                  if(response) {
+                      result = response;
+                      console.log(response.hasError==false);
+                      if(response.hasError == false)
+                      {
+                        
+                        $("#sendmessage").addClass("show");
+                        $("#errormessage").removeClass("show");
+                        $('.contactForm').find("input, textarea").val("");
+                      }
+                      else
+                      {
+                        $("#sendmessage").removeClass("show");
+                        $("#errormessage").addClass("show");
+                        $('#errormessage').html('متاسفانه مشکلی پیش آمده است');
+                        
+                        
+                        
+                      }     
+               
+                  }
+                  },
+              });
+          }
+  });
+</script>
   <!-- JavaScript Libraries -->
   <script src="lib/jquery/jquery.min.js"></script>
   <script src="lib/jquery/jquery-migrate.min.js"></script>
@@ -394,8 +452,7 @@ if (!c3.error) {
   <script src="lib/venobox/venobox.min.js"></script>
   <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
-  <!-- Contact Form JavaScript File -->
-  <script src="contactform/contactform.js"></script>
+
 
   <!-- colorlib form registration -->
       <script src="lib/colorlib/js/jquery.steps.js"></script>

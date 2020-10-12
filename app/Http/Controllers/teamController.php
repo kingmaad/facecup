@@ -96,6 +96,42 @@ class teamController extends Controller
         }
 
     }
+    public function requestOTP(Request $request)
+    {
+        $data = $request->all();
+        $messages = [
+            'required' => 1,
+            'unique' => 2,
+            'min' => 3
+        ];
+        $validator = Validator::make($request->all(), [
+            'en_name' => 'required'
+        ],$messages);
+
+        if ($validator->fails()) {
+            return response()->json(['hasError'=> true,'errors'=>$validator->messages()], 200);
+        }
+        else
+        {
+            //store
+            $team=Team::where('en_name',$data['en_name'])->first();
+            if($team)
+            {
+                
+                if($team->update(['otp'=>1234]))
+                    return response()->json(['errorCode'=>100,'hasError'=> false,'data' =>[
+                        'mobile' => $team->mobile
+                    ]], 200);
+            }
+            else
+            {
+                return response()->json(['hasError'=> true,'errorCode'=> 3], 200);
+                //mobile not exist
+            }
+
+        }
+        
+    }
 
     public function checkOTP(Request $request)
     {
@@ -124,6 +160,20 @@ class teamController extends Controller
                 {
                     
                     if($otp->update(['isVerified' => 1,'otp'=>0]))
+                        return response()->json(['errorCode'=>100,'hasError'=> false,'data' => ['en_name' => $otp->en_name]], 200);
+                }
+                else
+                {
+                    return response()->json(['errorCode'=>98,'hasError'=> true], 200);
+                }
+            }
+            elseif(isset($data['en_name']))
+            {
+                $otp = Team::where('otp',$data['otp'])->where('en_name',$data['en_name'])->first();
+                if($otp && $data['otp']!=0)
+                {
+                    session(['user_id'=> $otp->id]);
+                    if($otp->update(['otp'=>0]))
                         return response()->json(['errorCode'=>100,'hasError'=> false], 200);
                 }
                 else
@@ -131,7 +181,6 @@ class teamController extends Controller
                     return response()->json(['errorCode'=>98,'hasError'=> true], 200);
                 }
             }
-
             else
             {
                 return response()->json(['errorCode'=>99,'hasError'=> true], 200);

@@ -256,10 +256,10 @@ if (!c3.error) {
                                     <h2 class="text-right">فرم ثبت نام تیم</h2>
                                     <div class="row">
                                         <div class="col-lg-6">
-                                            <div class="form-row">
-                                                <label style="font-size:40px">{{ $en_name }} :نام لاتین </label>
-                                                
-                                            </div>
+                                          <div class="form-row text-right">
+                                            <label for="organ_dependence"> :نام لاتین </label>
+                                            <input type="text" disabled value="{{ $en_name }}" id="organ_dependence" class="input-text text-right" required>
+                                        </div>
                                             <div class="form-row text-right">
                                                 <label for="organ_dependence">وابستگی سازمانی</label>
                                                 <input type="text" name="organ_dependence" value="{{ $organ_dependence }}" id="organ_dependence" class="input-text text-right" required>
@@ -290,9 +290,11 @@ if (!c3.error) {
                                             </div>
                                         </div>  
                                         <div class="col-lg-6">
-                                            <div class="form-row">
-                                                <label style="font-size:40px">نام تیم: {{ $fa_name }}</label>
-                                            </div>
+                                          <div class="form-row text-right">
+                                            <label for="team_leader_name">نام تیم </label>
+                                            <input type="text" value=" {{ $fa_name }}" disabled class="input-text text-right" required>
+                                        </div>  
+
                                             <div class="form-row text-right">
                                                 <label for="team_type">نوع تیم</label>
                                                 <select class="input-text text-right rtl" style="height: 55px;width:91%" name="team_type">
