@@ -512,6 +512,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #gallery h1 span {
   color: #fb6834;
+  margin: 0px 5px 0px 5px;
 
 }
 
@@ -527,7 +528,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #gallery h2 span {
   color: #fb6834;
-
+  margin: 0px 5px 0px 5px;
 }
 
 
@@ -543,7 +544,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #gallery h3 span {
   color: #fb6834;
-
+  margin: 0px 5px 0px 5px;
 }
 
 #gallery p {

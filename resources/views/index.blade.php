@@ -202,16 +202,22 @@ if (!c3.error) {
 /*<!-- Carousel Text -->*/
 .carousel-header{
   position:absolute;
-  top:30%;
-  left: 50%;
+  top:40%;
+  left: 60%;
   transform: translate(-50%,-50%);
   z-index: 100;
 }
-
+.carousel-header-slide1-text-one{
+  position:absolute;
+  top:60%;
+  left: 60%;
+  transform: translate(-50%,-50%);
+  z-index: 100;
+}
 .carousel-header-slide2-text-one{
   position:absolute;
   top:20%;
-  left: 60%;
+  left: 67%;
   transform: translate(-50%,-50%);
   z-index: 100;
 }
@@ -219,28 +225,28 @@ if (!c3.error) {
 .carousel-header-slide2-text-two{
   position:absolute;
   top:31%;
-  left: 62%;
+  left: 66%;
   transform: translate(-50%,-50%);
   z-index: 100;
 }
 .carousel-header-slide2-text-three{
   position:absolute;
   top:40%;
-  left: 66%;
+  left: 67%;
   transform: translate(-50%,-50%);
   z-index: 100;
 }
 .carousel-header-slide2-text-four{
   position:absolute;
   top:47%;
-  left: 66%;
+  left: 67%;
   transform: translate(-50%,-50%);
   z-index: 100;
 }
 .carousel-header-slide2-text-five{
   position:absolute;
-  top:20%;
-  left: 9%;
+  top:25%;
+  left: 20%;
   transform: translate(-50%,-50%);
   z-index: 100;
 }
@@ -263,7 +269,7 @@ if (!c3.error) {
         <div id="logo" class="pull-left">
           <!-- Uncomment below if you prefer to use a text logo -->
           
-          <a href="#intro" class="scrollto"><img id="logoFile" src="img/logo.jpg" alt="" title=""></a>
+          <a href="#intro" class="scrollto"><img id="logoFile" src="img/logo.png" alt="" title=""></a>
         </div>
 
         <nav id="nav-menu-container">
@@ -273,7 +279,7 @@ if (!c3.error) {
             @else
               
               <li class="btn btn-danger"><a href="/logout">خروج</a></li> 
-              <li class="btn btn-success"><a href="/TeamInfo">پنل کاربری</a></li> 
+              <li class="btn btn-success"><a href="/dashboard">پنل کاربری</a></li> 
             @endif
             <li><a href="/aboutUs">تماس با ما</a></li>
             <li><a href="/blog">وبلاگ</a></li>
@@ -286,8 +292,7 @@ if (!c3.error) {
               <a href="#">درباره مسابقه</a>
               <ul class="dropdown-menu dropdown-menu-right">
                 <li><a href="/generalRules">قوانین عمومی</a></li>
-                  <li><a href="/exeRules">قوانین اجرایی</a></li>
-                  <li><a href="/techRules">قوانین فنی</a></li>
+                <li><a href="/techRules">قوانین فنی</a></li>
               </ul>
             </li>
             <li class="menu-active"><a href="/">خانه</a></li>
@@ -311,13 +316,13 @@ if (!c3.error) {
                 <div class="carousel-item active">
                   <div class=" min-vh-100 slider-one-bg">
 
-                          <h1 class="carousel-header soft-vibrate">
-                            برگزاری <span>اولین</span>
+                          <h1 class="carousel-header">
+                             <span>اولین</span>
                             مسابقه<br>
-                            <span class="vibrate">بازشناسی چهره</span> 
+                            بازشناسی <span class="vibrate"> چهره</span> 
                             در ایران
                           </h1>
-                          <h2 class="carousel-header-slide2-text-one vibrate">
+                          <h2 class="carousel-header-slide1-text-one">
                              بهمن ماه <span>99</span>   <span class="pull-right"> 15 </span><br>
                           
                         </h2>
@@ -328,24 +333,24 @@ if (!c3.error) {
                 <div class="carousel-item pull">
                   <div class="min-vh-100 slider-two-bg">
                         
-                    <h1 class="carousel-header-slide2-text-one soft-vibrate">
+                    <h1 class="carousel-header-slide2-text-one">
                         میلیون تومان جایزه   <span class="pull-right"> 60 </span><br>
                       
                     </h1>
-                    <h2 class="carousel-header-slide2-text-two soft-vibrate">
+                    <h2 class="carousel-header-slide2-text-two">
                       میلیون تومان جایزه تیم اول   <span class="pull-right"> 15 </span><br>
                     
                   </h2>
-                  <h3 class="carousel-header-slide2-text-three soft-vibrate">
+                  <h3 class="carousel-header-slide2-text-three">
                     میلیون تومان جایزه تیم دوم   <span class="pull-right"> 10 </span><br>
                   
                 </h3>
-                <h3 class="carousel-header-slide2-text-four soft-vibrate">
+                <h3 class="carousel-header-slide2-text-four">
                   میلیون تومان جایزه تیم سوم   <span class="pull-right"> 5 </span><br>
                 
               </h3>
-              <h1 class="carousel-header-slide2-text-five vibrate">
-                میلیون تومان    <span class="pull-right"> 30 </span><br>جـــــــــایزه ویــــــــژه
+              <h1 class="carousel-header-slide2-text-five">
+                میلیون تومان    <span class="pull-right"> 30 </span><br>جــــــــــایزه ویــــــــــژه
               
             </h1>
                     </div>
@@ -371,7 +376,7 @@ if (!c3.error) {
       <section id="about">
         <div class="container">
           <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-6 rtl text-justify">
               <h2>درباره مسابقه فیسکاپ</h2>
               <p>
                 در جهان امروز با افزایش استفاده مردم از فناوری‌های نوین‌، فرصت‌های شگرفی در زمینه توسعه تکنولوژی به وجود آمده است. فناوری بازشناسی چهره به عرصه ای برای رقابت های بین المللی بدل گشته‌، و کشور های مختلف با ارائه محصولات بر پایه هوش مصنوعی برای سهم بیشتر از بازار 30 میلیارد دلاری هوش مصنوعی تلاش میکنند.
@@ -381,11 +386,11 @@ if (!c3.error) {
               </p>
             </div>
             <div class="col-lg-3">
-              <h3>کجا ؟</h3>
+              <h3>نحوه برگزاری ؟</h3>
               <p>بصورت مجازی</p>
             </div>
             <div class="col-lg-3">
-              <h3>چه وقت؟</h3> 
+              <h3>زمان؟</h3> 
               <p>فرصت تا<br />
                 <h1 class="orange-color">
                 15 بهمن ماه 99
@@ -587,7 +592,7 @@ if (!c3.error) {
           </div>
 
           <div class="row contact-info">
-            <div class="col-md-4">
+            <div class="col-md-6">
               <div class="contact-address">
                 <i class="ion-ios-location-outline"></i>
                 <h3>آدرس</h3>
@@ -596,7 +601,7 @@ if (!c3.error) {
               </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-6">
               <div class="contact-phone">
                 <i class="ion-ios-telephone-outline"></i>
                 <h3>شماره تلفن</h3>

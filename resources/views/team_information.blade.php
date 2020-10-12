@@ -209,37 +209,45 @@ if (!c3.error) {
     <!--==========================
     Header
   ============================-->
-    <header id="header">
-      <div class="container">
-        <div id="logo" class="pull-left">
-          <!-- Uncomment below if you prefer to use a text logo -->
-          
-          <a href="#intro" class="scrollto"><img id="logoFile" src="img/facecup.png" alt="" title=""></a>
-        </div>
-
-        <nav id="nav-menu-container">
-          <ul class="nav-menu">
-            <li><a href="/aboutUs">تماس با ما</a></li>
-            <li><a href="/blog">وبلاگ</a></li>
-            <li><a href="#gallery">هیات داوری</a></li>
-            <li><a href="#hotels">فرصت های شغلی</a></li>
-
-            <li><a href="#venue">جوایز</a></li>
-            <li><a href="#speakers">حامیان</a></li>
-            <li class="dropdown rtl">
-              <a href="#about">درباره مسابقه</a>
-              <ul class="dropdown-menu dropdown-menu-right">
-                  <li><a href="/exeRules">قوانین اجرایی</a></li>
-                  <li><a href="/techRules">قوانین فنی</a></li>
-              </ul>
-            </li>
-            <li class="menu-active"><a href="/">خانه</a></li>
-            <li class="buy-tickets"><a href="/signupTeam">ثبت نام تیم ها</a></li>
-          </ul>
-        </nav>
-        <!-- #nav-menu-container -->
+  <header id="header">
+    <div class="container">
+      <div id="logo" class="pull-left">
+        <!-- Uncomment below if you prefer to use a text logo -->
+        
+        <a href="#intro" class="scrollto"><img id="logoFile" src="img/logo.png" alt="" title=""></a>
       </div>
-    </header>
+  
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          @if (!session('user_id'))
+            <li class="btn btn-success"><a href="/login">ورود</a></li>
+          @else
+            
+            <li class="btn btn-danger"><a href="/logout">خروج</a></li> 
+            <li class="btn btn-success"><a href="/dashboard">پنل کاربری</a></li> 
+          @endif
+          <li><a href="/aboutUs">تماس با ما</a></li>
+          <li><a href="/blog">وبلاگ</a></li>
+          <li><a href="#gallery">هیات داوری</a></li>
+          <li><a href="/jobs">فرصت های شغلی</a></li>
+  
+          <li><a href="awards">جوایز</a></li>
+          <li><a href="/#venue">حامیان</a></li>
+          <li class="dropdown rtl">
+            <a href="#">درباره مسابقه</a>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li><a href="/generalRules">قوانین عمومی</a></li>
+              <li><a href="/techRules">قوانین فنی</a></li>
+            </ul>
+          </li>
+          <li class="menu-active"><a href="/">خانه</a></li>
+          
+          <li class="buy-tickets"><a href="/signupTeam">ثبت نام تیم ها</a></li>
+        </ul>
+      </nav>
+      <!-- #nav-menu-container -->
+    </div>
+  </header>
     <!-- #header -->
 
  
@@ -252,16 +260,22 @@ if (!c3.error) {
                     <div class="form-v2-content form-v3-content">
                         <div class="container">
                             <div class="row">
+                              
                                 <form class="form-detail" action="TeamInfo" method="post" id="myform" enctype="multipart/form-data">
-                                    <h2 class="text-right">فرم ثبت نام تیم</h2>
+                                  @if ($errors->any())
+                              @foreach ($errors->all() as $error)
+                                  <div class="alert alert-danger">{{$error}}</div>
+                              @endforeach
+                              @endif  
+                                  <h2 class="text-right">فرم ثبت نام تیم</h2>
                                     <div class="row">
                                         <div class="col-lg-6">
                                           <div class="form-row text-right">
-                                            <label for="organ_dependence"> :نام لاتین </label>
-                                            <input type="text" disabled value="{{ $en_name }}" id="organ_dependence" class="input-text text-right" required>
+                                            <label for="en_name"> :نام لاتین </label>
+                                            <input type="text" disabled value="{{ $en_name }}" id="en_name" class="input-text text-right" required>
                                         </div>
-                                            <div class="form-row text-right">
-                                                <label for="organ_dependence">وابستگی سازمانی</label>
+                                            <div class="form-row text-right" id="dependece_section" style="visibility: hidden">
+                                                <label for="organ_dependence" id="dependence_title">وابستگی سازمانی</label>
                                                 <input type="text" name="organ_dependence" value="{{ $organ_dependence }}" id="organ_dependence" class="input-text text-right" required>
                                             </div>
                                             <div class="form-row text-right">
@@ -285,9 +299,7 @@ if (!c3.error) {
                                                   </form>
                                             </div>
                                             {{ csrf_field() }}
-                                            <div class="form-row-last text-center">
-                                                <input type="submit" name="register" class="register" value="تایید">
-                                            </div>
+                                            
                                         </div>  
                                         <div class="col-lg-6">
                                           <div class="form-row text-right">
@@ -297,7 +309,7 @@ if (!c3.error) {
 
                                             <div class="form-row text-right">
                                                 <label for="team_type">نوع تیم</label>
-                                                <select class="input-text text-right rtl" style="height: 55px;width:91%" name="team_type">
+                                                <select class="input-text text-right rtl" style="height: 55px;width:91%" name="team_type" onchange="changeType(this)">
                                                     <option value="1">آزاد</option>
                                                     <option value="2">دانشجویی</option>
                                                     <option value="3">شرکتی</option>
@@ -309,21 +321,33 @@ if (!c3.error) {
                                             </div>
                                             <div class="form-row text-right">
                                                 <label for="degree">مدرک تحصیلی</label>
-                                                <input type="text" value="{{ $degree }}" name="degree" id="degree" class="input-text text-right" required >
+                                                <select class="input-text text-right rtl" style="height: 55px;width:91%" name="team_type">
+                                                  <option value="1">دانشجوی کارشناسی</option>
+                                                  <option value="2">کارشناسی</option>
+                                                  <option value="3">دانشجوی ارشد</option>
+                                                  <option value="4">ارشد</option>
+                                                  <option value="5">دانشجوی دکترا</option>
+                                                  <option value="6">دکترا</option>
+                                              </select>
                                             </div>
                                             <div class="form-row text-right">
                                                 <label for="major">رشته تحصیلی</label>
                                                 <input type="text" value="{{ $major }}" name="major" id="major" class="input-text text-right" required >
                                             </div>
                                         </div>  
+                                        <div class="col-lg-12">
+                                          <div class="text-center">
+                                            <input type="submit" name="register" class="register" value="تایید">
+                                        </div>
+                                        </div>
                                     </div>
         
                                     
                                 </form>
                             </div>
                             <div class="row">
-                                <div class="col-lg-2"></div>
-                                <div class="col-lg-8">
+                                
+                                <div class="col-lg-12">
                                     <!-- Table  -->
 <table class="table table-bordered">
     <!-- Table head -->
@@ -347,9 +371,11 @@ if (!c3.error) {
     <!-- Table body -->
     <tbody>
         @foreach ($members as $key=>$item)
-        <tr>
+        <tr id="row-{{ $item->id }}">
         <th>
-            <a href="#" title="Delete" id="removeMember" data-id="{{ $item->id }}"><i class="fa fa-remove" ></i></a>
+          <button class="btn btn-danger" data-id="{{ $item->id }}" id ="linkdelete"><i class="fa fa-trash"></i></button>
+
+           
         </th>
         <td>{{ $item->cv_url? 'دارد':'ندارد' }}</td>
         <td>{{ $item->field }}</td>
@@ -365,7 +391,7 @@ if (!c3.error) {
   </table>
   <!-- Table  -->
                                 </div>
-                                <div class="col-lg-2"></div>
+                                
                             </div>
                             <div class="row p-4">
                                 <div class="col-lg-5"></div>
@@ -380,28 +406,114 @@ if (!c3.error) {
                     </div>
                     
                 </div>
+                
+                <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="mi-modal">
+                  <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close p-0" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h6 class="modal-title" id="myModalLabel">آیا از حذف عضو اطمینان دارید؟</h6>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" id="modal-btn-no">خیر</button>
+                        <button type="button" class="btn btn-success" id="modal-btn-si">بله</button>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
                 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
                 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
                 <script>
+                  var remove_id=0;
+                  var obj;
+var modalConfirm = function(callback){
+  
+  $("#linkdelete").on("click", function(){
+    obj = $(this); // first store $(this) in obj
+    id = $(this).data('id'); // get id of data using this 
+    $("#mi-modal").modal('show');
+  });
 
+  $("#modal-btn-si").on("click", function(){
+    callback(true);
+    $("#mi-modal").modal('hide');
+  });
+  
+  $("#modal-btn-no").on("click", function(){
+    callback(false);
+    $("#mi-modal").modal('hide');
+  });
+};
+
+modalConfirm(function(confirm){
+  if(confirm){
+    //Acciones si el usuario confirma
+    $.ajax({
+        url: "removeMember/"+ id,
+        
+        //cache: false,
+        //contentType: false,
+        //processData: false,
+        //mimeType: "multipart/form-data",
+        type: "get",
+        
+        success: function(result) {
+            if (!result.hasError) {
+              
+                //document.getElementById('row-'+id).remove();
+                $(obj).closest("tr").remove(); // You can remove row like this
+            }
+            eval(result.Script);
+        },
+        error: function() {
+            alert("خطا!");
+        }
+    });
+  }else{
+    //Acciones si el usuario no confirma
+    $("#result").html("NO CONFIRMADO");
+  }
+});
+
+$("#linkdelete").click(function (e) {
+    var obj = $(this); // first store $(this) in obj
+    var id = $(this).data('id'); // get id of data using this 
+    
+});
+
+
+
+                   var default_value='';
+function changeType(selectedObject)
+{
+ 
+  if(selectedObject.value==1)
+  {
+    document.getElementById('dependece_section').style.visibility= "hidden" ;
+    if (document.getElementById('organ_dependence').value.length != 0)
+    {
+      default_value = document.getElementById('organ_dependence').value;
+    }
+    document.getElementById('organ_dependence').value = "-";
+  }
+  if(selectedObject.value==2)
+  {
+    document.getElementById('dependece_section').style.visibility= "visible" ;
+    document.getElementById('dependence_title').innerHTML = 'نام دانشگاه';
+    document.getElementById('organ_dependence').value = default_value;
+  }
+  if(selectedObject.value==3)
+  {
+    document.getElementById('dependece_section').style.visibility= "visible" ;
+    document.getElementById('dependence_title').innerHTML = 'نام شرکت';
+    document.getElementById('organ_dependence').value = default_value;
+  }
+}
                     var result;
-                    $( "#myform2" ).validate({
+                    $( "#myform" ).validate({
                         rules: {
-                          en_name: {
-                              required: true,
-                              remote: {
-                                  url: "/check_en_name",
-                                  type: "get"
-                              }
-                          },
-                          fa_name: {
-                              required: true,
-                              remote: {
-                                  url: "/check_fa_name",
-                                  type: "get"
-                              }
-                          },
                           mobile: {
                               required: true,
                               remote: {
@@ -412,112 +524,30 @@ if (!c3.error) {
                       },
                           messages: {
                               organ_dependence: {
-                                  required: "لطفا نام لاتین تیم خود را وارد کنید",
-                                  remote : "این نام قبلا در سیستم ثبت شده است"
+                                  required: "لطفا نام لاتین تیم خود را وارد نمایید",
+                                  
+                              },
+                              team_leader_name: {
+                                  required: "لطفا نام خود را وارد نمایید",
+                                  
+                              },
+                              team_leader_family: {
+                                  required: "لطفا نام خانوادگی خود را وارد نمایید",
+                                  
+                              },
+                              university: {
+                                  required: "لطفا نام دانشگاه را وارد نمایید",
+                                  
                               },
                               major: {
-                                  required: "لطفا نام فارسی تیم خود را وارد کنید",
-                                  remote:"این نام قبلا در سیستم ثبت شده است"
+                                  required: "لطفا رشته تحصیلی را وارد نمایید",
+                                  
                               },
-                              university: {
-                                  required: "لطفا شماره موبایل را وارد کنید",
-                                  remote:"این شماره موبایل قبلا ثبت شده است",
-                                  pattern : "شماره موبایل معتبری را وارد نمایید"
-                              },
-                              university: {
-                                  required: "لطفا شماره موبایل را وارد کنید",
-                                  remote:"این شماره موبایل قبلا ثبت شده است",
-                                  pattern : "شماره موبایل معتبری را وارد نمایید"
-                              },
-                              university: {
-                                  required: "لطفا شماره موبایل را وارد کنید",
-                                  remote:"این شماره موبایل قبلا ثبت شده است",
-                                  pattern : "شماره موبایل معتبری را وارد نمایید"
-                              },
-                              university: {
-                                  required: "لطفا شماره موبایل را وارد کنید",
-                                  remote:"این شماره موبایل قبلا ثبت شده است",
-                                  pattern : "شماره موبایل معتبری را وارد نمایید"
-                              },
-                      
+                     
                           },
-                          submitHandler: function(form) {
-                            let english_name = $("input[name=en_name]").val();
-                                let farsi_name = $("input[name=fa_name]").val();
-                                let mobile_number = $("input[name=mobile]").val();
-                                let _token   =  $("input[name=_token]").val();
-
-                                $.ajax({
-                                    url: "/reg",
-                                    type:"POST",
-                                    data:{
-                                    en_name:english_name,
-                                    fa_name:farsi_name,
-                                    mobile:mobile_number,
-                                    _token: _token
-                                    },
-                                    success:function(response){
-                                    console.log(response);
-                                    if(response) {
-                                        result = response;
-                                        if(response.hasError == false)
-                                        {
-                                          alert('saved...');
-                                          document.getElementById('myform').style.display = 'none';
-                                          document.getElementById('mobile-number').innerHTML = mobile_number;
-                                          document.getElementById('otp-validation').style.display = 'inline';
-                                        }
-                                        else
-                                        {
-                                          alert('error');
-                                          console.log(response);
-                                          $('.success').text(response.success);
-                                          
-                                        }
-                                        
-                                    }
-                                    },
-                                });
-                            }
+                          
                     });
-                    $( "#otp-validation" ).validate({
-                      
-                          messages: {
-                              otp: {
-                                  required: "لطفا نام لاتین تیم خود را وارد کنید"
-                              },
-                              
-                          },
-                          // submitHandler: function(form) {
-                          //       let otp = $("input[name=otp]").val();
-                          //       let _token   =  $("input[name=_token]").val();
-                          //       $.ajax({
-                          //           url: "/otp",
-                          //           type:"POST",
-                          //           data:{
-                          //           otp:otp,
-                          //           _token: _token
-                          //           },
-                          //           success:function(response){
-                          //           console.log(response);
-                          //           if(response) {
-                          //               result = response;
-                          //               if(response.hasError == false)
-                          //               {
-                          //                 alert('saved...');
-                          //               }
-                          //               else
-                          //               {
-                          //                 alert('error');
-                          //                 console.log(response);
-                          //                 $('.success').text(response.success);
-                                          
-                          //               }                                    
-                          //           }
-                          //           },
-                          //       });
-                          //   }
-                    });
+                    
                    
                 </script>
               </div>
@@ -562,33 +592,33 @@ if (!c3.error) {
           <div class="row">
             <div class="col-md-6 form-group">
                 <label for="textbox1">نام خانوادگی</label>
-                <input class="form-control" id="textbox1" type="text" name="last_name" id="last_name" required/>
+                <input class="form-control" type="text" name="last_name" id="last_name" required/>
             </div>
             <div class="col-md-6 form-group">
                 <label for="textbox2">نام</label>
-                <input class="form-control" id="textbox2" type="text" name="first_name" id="first_name" required/>
+                <input class="form-control" type="text" name="first_name" id="first_name" required />
             </div>
             <span class="clearfix">
           </div>
           <div class="row">
             <div class="col-md-6 form-group">
                 <label for="textbox1">رشته</label>
-                <input class="form-control" id="textbox1" type="text" name="field" id="field" required/>
+                <input class="form-control"  type="text" name="field" id="field" required />
             </div>
             <div class="col-md-6 form-group">
                 <label for="textbox2">مدرک</label>
-                <input class="form-control" id="textbox2" type="text" name="major"  id="major" required/>
+                <input class="form-control"  type="text" name="major"  id="major" required/>
             </div>
             <span class="clearfix">
           </div>
           <div class="row">
             <div class="col-md-6 form-group">
                 <label for="textbox1">رزومه</label>
-                <input class="form-control" id="textbox1" type="file" name="resume" id="cv_url"/>
+                <input class="form-control" type="file" name="resume" id="resume" />
             </div>
             <div class="col-md-6 form-group">
                 <label for="textbox2">دانشگاه</label>
-                <input class="form-control" id="textbox2" type="text" name="university" id="university" required/>
+                <input class="form-control" type="text" name="university" id="university" required/>
             </div>
             <span class="clearfix">
           </div>
@@ -602,7 +632,45 @@ if (!c3.error) {
     </form>
   </div>
 </div>
-
+<script>
+  
+  $( "#addMemberFrom" ).validate({
+                        rules: {
+                          resume: {
+                              
+                              extension: "doc|docx|pdf|xlx|csv"
+                          },
+                      },
+                          messages: {
+                              resume: {
+                                  extension: "(doc|docx|pdf|xlx|csv) لطفا فایل با فرمت مناسب وارد نمایید",
+                                  
+                              },
+                              first_name: {
+                                  required: "لطفا نام را وارد نمایید",
+                                  
+                              },
+                              last_name: {
+                                  required: "لطفا نام خانوادگی را وارد نمایید",
+                                  
+                              },
+                              university: {
+                                  required: "لطفا نام دانشگاه را وارد نمایید",
+                                  
+                              },
+                              major: {
+                                  required: "لطفا مدرک تحصیلی را وارد نمایید",
+                                  
+                              },
+                              field: {
+                                  required: "لطفا رشته تحصیلی را وارد نمایید",
+                                  
+                              },
+                     
+                          },
+                          
+                    });
+</script>
 <!-- Central Modal Small -->
     <!-- JavaScript Libraries -->
     <script src="lib/jquery/jquery.min.js"></script>

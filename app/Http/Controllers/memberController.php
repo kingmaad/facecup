@@ -38,31 +38,35 @@ class memberController extends Controller
     public function store(Request $request)
     {
         //
+        //dd($request->all());
+        //dd($request->file('resume')->getMimeType(),$request->file('resume')->getClientOriginalExtension() );
         $cv_url = "";
         $data = $request->all();
         $team_id=$request->session()->exists('user_id');
         $validator = Validator::make($request->all(), [
-            'resume' => 'mimes:pdf,xlx,csv,docx,doc|max:20048',
+            'resume' => 'mimes:pdf,xlx,csv,doc,docx',
             'first_name' => 'required',
             'last_name' => 'required',
             'major' => 'required',
             'field' => 'required',
             'university' => 'required',
         ]);
-        if($request->file('resume')){
-            $fileName = time().'.'.$request->file('resume')->getClientOriginalExtension();  
-   
-            $request->file('resume')->move(public_path('uploads/resume/'.$team_id."/"."members/"), $fileName);
-            $cv_url='uploads/resume/'.$team_id."/"."members/".$fileName;
-        }
+        
 
         
         if ($validator->fails()) {
-            dd($request->file('resume'));
+            return response()->json(['errorCode'=>0,'hasError'=> true,'errors'=>$validator->messages()], 200);
             return back()->withInput();
         }
         else
         {
+            if($request->file('resume')){
+                $fileName = time().'.'.$request->file('resume')->getClientOriginalExtension();  
+       
+                $request->file('resume')->move(public_path('uploads/resume/'.$team_id."/"."members/"), $fileName);
+                $cv_url='uploads/resume/'.$team_id."/"."members/".$fileName;
+                
+            }
             if ($team_id) {
                 $member = new Member();
                 $member->first_name = $request->first_name;
@@ -70,7 +74,7 @@ class memberController extends Controller
                 $member->field = $request->field;
                 $member->major = $request->major;
                 $member->university = $request->university;
-                $member->cv_url = $request->cv_url;
+                $member->cv_url = $cv_url;
                 $member->team_id = $team_id;
                 $member->save();
                 return back()->withInput(['status' => 'saved']);
@@ -120,5 +124,16 @@ class memberController extends Controller
     public function destroy($id)
     {
         //
+        $member = Member::find($id);
+        $user_id = session('user_id');
+        if($member && $user_id==$member->team->id)
+        {
+            $member->delete();
+            return response()->json(['hasError'=>false,'errorCode' => 100]);
+        }
+        else
+        {
+            return response()->json(['hasError'=>true,'errorCode' => 5]);
+        }
     }
 }

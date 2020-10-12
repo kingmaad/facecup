@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Team;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use PhpParser\Node\Stmt\Return_;
 
 class teamController extends Controller
@@ -37,7 +39,19 @@ class teamController extends Controller
         
 
     }
-
+    public function Dashboard()
+    {
+        # code...
+        if(session('user_id'))
+        {
+            $team = Team::find(session('user_id'));
+            return view('dashboard',['team_name'=>$team->fa_name]);
+        }
+        else
+        {
+            redirect();
+        }
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -95,6 +109,79 @@ class teamController extends Controller
 
         }
 
+    }
+
+    public function login(Request $request)
+    {
+
+        # code...
+        $data = $request->all();
+        $validator = Validator::make($request->all(),[
+            'en_name' => 'required',
+            'password' => 'required'
+        ]);
+
+        if($validator->fails())
+        {
+
+        }
+        else
+        {
+            $team = Team::where('en_name',$data['en_name'])->where('otp' , $data['password'])->first();
+            
+            if($team->isVerified)
+            {
+                session([
+                    'user_id'=>$team->id,
+                    'en_name' => $team->en_name,
+                    'fa_name' => $team->fa_name
+                ]);
+                
+                return redirect()->action('teamController@Dashboard');
+            }
+            else
+            {
+                dd($team);
+            }
+        }
+    }
+
+    public function changePassword()
+    {
+        return view('changePassword');
+    }
+
+    public function doChangePassword(Request $request)
+    {
+        # code...
+        
+        $validator = Validator::make($request->all(),[
+            'current_password' => 'required',
+            'new_password' => 'required',
+            'new_password_confiramtion'=>'required'
+
+        ]);
+        if($validator->fails())
+        {
+            return back()->withErrors($validator->messages());
+        }
+        else
+        {
+            $team = Team::where('id',session('user_id'))->first();
+            if($team->otp==$request->current_password)
+            {
+                $team->update(['otp' => $request->new_password]);
+                Session::flash('message', "کلمه عبور شما با موفقیت تغییر یافت");
+                Session::flash('type', "success");
+                return back();
+            }
+            else
+            {
+                Session::flash('type', "danger");
+                Session::flash('message', "کلمه عبور فعلی شما صحیح نمی باشد");
+                return back();
+            }
+        }
     }
     public function requestOTP(Request $request)
     {
@@ -159,8 +246,8 @@ class teamController extends Controller
                 if($otp && $data['otp']!=0)
                 {
                     
-                    if($otp->update(['isVerified' => 1,'otp'=>0]))
-                        return response()->json(['errorCode'=>100,'hasError'=> false,'data' => ['en_name' => $otp->en_name]], 200);
+                    if($otp->update(['isVerified' => 1]))
+                        return response()->json(['errorCode'=>100,'hasError'=> false,'data' => ['fa_name' => $otp->fa_name]], 200);
                 }
                 else
                 {
@@ -173,8 +260,7 @@ class teamController extends Controller
                 if($otp && $data['otp']!=0)
                 {
                     session(['user_id'=> $otp->id]);
-                    if($otp->update(['otp'=>0]))
-                        return response()->json(['errorCode'=>100,'hasError'=> false], 200);
+                    return response()->json(['errorCode'=>100,'hasError'=> false], 200);
                 }
                 else
                 {
@@ -230,36 +316,51 @@ class teamController extends Controller
          //
          $cv_url="";
          $team_id = session('user_id');
-         $request->validate([
-             'cv_url' => 'mimes:pdf,xlx,csv,docx,doc|max:2048',
+         $validator = Validator::make($request->all(), [
+             'cv_url' => 'mimes:pdf,xlx,csv,doc,docx',
+            //  'first_name' => 'required',
+            //  'last_name' => 'required',
+            //  'major' => 'required',
+            //  'field' => 'required',
+            //  'university' => 'required',
+         ],[
+             'mimes' => '(doc|docx|pdf|xlx|csv) لطفا فایل با فرمت مناسب وارد نمایید'
          ]);
-   
-         if($request->file('cv_url'))
-         {
-            $fileName = time().'.'.$request->file('cv_url')->getClientOriginalExtension();  
-            $request->file('cv_url')->move(public_path('uploads/resume/'.$team_id."/"), $fileName);
-            $cv_url='uploads/resume/'.$team_id."/".$fileName;
          
-         }
-         
-         if($team_id)
-         {
-             echo $team_id;
-             $team = Team::where('id',$team_id);
-             $team->update([
-                 'team_type' => $request->team_type,
-                 'organ_dependence' => $request->organ_dependence,
-                 'team_leader_name' => $request->team_leader_name,
-                 'team_leader_family' => $request->team_leader_family,
-                 'degree' => $request->degree,
-                 'major' => $request->major,
-                 'university' => $request->university,
-                 'cv_url' => $cv_url,
-             ]
  
-             );
-             return back();
+         
+         if ($validator->fails()) {
+             //return response()->json(['errorCode'=>0,'hasError'=> true,'errors'=>$validator->messages()], 200);
+             return back()->withErrors($validator->messages());
          }
+         else
+         {
+            if($team_id)
+            {
+               if($request->file('cv_url'))
+               {
+                  $fileName = time().'.'.$request->file('cv_url')->getClientOriginalExtension();  
+                  $request->file('cv_url')->move(public_path('uploads/resume/'.$team_id."/"), $fileName);
+                  $cv_url='uploads/resume/'.$team_id."/".$fileName;
+               
+               }
+                $team = Team::where('id',$team_id);
+                $team->update([
+                    'team_type' => $request->team_type,
+                    'organ_dependence' => $request->organ_dependence,
+                    'team_leader_name' => $request->team_leader_name,
+                    'team_leader_family' => $request->team_leader_family,
+                    'degree' => $request->degree,
+                    'major' => $request->major,
+                    'university' => $request->university,
+                    'cv_url' => $cv_url,
+                ]
+    
+                );
+                return back();
+            }
+         }
+         
     }
 
     /**

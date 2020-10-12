@@ -24,6 +24,8 @@ Route::post('/TeamInfo', "teamController@update");
 Route::get('/AddMember', "memberController@create");
 Route::post('/AddMember', "memberController@store");
 
+Route::get('/removeMember/{id}', "memberController@destroy");
+
 Route::get('/signupTeam', function () {
     return view('team_registration');
 });
@@ -35,6 +37,9 @@ Route::get('/login', function () {
         return view('teamLogin');
 });
 
+Route::post('/login','teamController@login');
+Route::get('/changePassword','teamController@changePassword');
+Route::post('/changePassword','teamController@doChangePassword');
 Route::get('/logout',function(){
     session()->forget('user_id');
     return view('index');
@@ -81,6 +86,7 @@ Route::get('/jobs',function(){
     return view('sections.jobs');
 });
 
+Route::get('/dashboard','teamController@Dashboard');
 
 Route::get('/awards',function(){
     return view('sections.awards');

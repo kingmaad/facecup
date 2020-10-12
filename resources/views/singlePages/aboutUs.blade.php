@@ -206,37 +206,45 @@ if (!c3.error) {
     <!--==========================
     Header
   ============================-->
-    <header id="header">
-      <div class="container">
-        <div id="logo" class="pull-left">
-          <!-- Uncomment below if you prefer to use a text logo -->
-          
-          <a href="#intro" class="scrollto"><img id="logoFile" src="img/facecup.png" alt="" title=""></a>
-        </div>
-
-        <nav id="nav-menu-container">
-          <ul class="nav-menu">
-            <li><a href="/aboutUs">تماس با ما</a></li>
-            <li><a href="/blog">وبلاگ</a></li>
-            <li><a href="#gallery">هیات داوری</a></li>
-            <li><a href="#hotels">فرصت های شغلی</a></li>
-
-            <li><a href="#venue">جوایز</a></li>
-            <li><a href="#speakers">حامیان</a></li>
-            <li class="dropdown rtl">
-              <a href="#about">درباره مسابقه</a>
-              <ul class="dropdown-menu dropdown-menu-right">
-                  <li><a href="/exeRules">قوانین اجرایی</a></li>
-                  <li><a href="/techRules">قوانین فنی</a></li>
-              </ul>
-            </li>
-            <li class="menu-active"><a href="/">خانه</a></li>
-            <li class="buy-tickets"><a href="/signupTeam">ثبت نام تیم ها</a></li>
-          </ul>
-        </nav>
-        <!-- #nav-menu-container -->
+  <header id="header">
+    <div class="container">
+      <div id="logo" class="pull-left">
+        <!-- Uncomment below if you prefer to use a text logo -->
+        
+        <a href="#intro" class="scrollto"><img id="logoFile" src="img/logo.png" alt="" title=""></a>
       </div>
-    </header>
+  
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          @if (!session('user_id'))
+            <li class="btn btn-success"><a href="/login">ورود</a></li>
+          @else
+            
+            <li class="btn btn-danger"><a href="/logout">خروج</a></li> 
+            <li class="btn btn-success"><a href="/dashboard">پنل کاربری</a></li> 
+          @endif
+          <li><a href="/aboutUs">تماس با ما</a></li>
+          <li><a href="/blog">وبلاگ</a></li>
+          <li><a href="#gallery">هیات داوری</a></li>
+          <li><a href="/jobs">فرصت های شغلی</a></li>
+  
+          <li><a href="awards">جوایز</a></li>
+          <li><a href="/#venue">حامیان</a></li>
+          <li class="dropdown rtl">
+            <a href="#">درباره مسابقه</a>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li><a href="/generalRules">قوانین عمومی</a></li>
+              <li><a href="/techRules">قوانین فنی</a></li>
+            </ul>
+          </li>
+          <li class="menu-active"><a href="/">خانه</a></li>
+          
+          <li class="buy-tickets"><a href="/signupTeam">ثبت نام تیم ها</a></li>
+        </ul>
+      </nav>
+      <!-- #nav-menu-container -->
+    </div>
+  </header>
     <!-- #header -->
     <main id="main" class="main-page">
       <!--==========================
@@ -255,7 +263,7 @@ if (!c3.error) {
             </div>
 
             <div class="col-md-6 content-speakers">
-              <div class="details">
+              <div class="details rtl text-justify">
                 <h2>درباره ی ما چه می دانید؟</h2>
                 <p>ما اینجاییم تا با برگزاری یک رویداد جذاب پیرامون حوزه هوش مصنوعی، علاقه مندان به این حوزه را دورهم جمع کنیم.
                   مرکز نوآوری نکسترا به عنوان فعال در عرصه اکوسیستم نوآوری وکارافرینی کشورمان با مشارکت پارک علم و فناوری دانشگاه تهران، قصد برگزاری رویداد در حوزه هوش مصنوعی، با موضوع تشخیص چهره دارد، رویدادی تحت عنوان فیس کاپ که هدف این رویداد شناسایی تیم ها و افراد مستعد و علاقه مند به فناوری تشخیص چهره است که به شناسایی فرصت ها و چالش های موجود منجر میشود.
@@ -284,7 +292,7 @@ if (!c3.error) {
         </div>
 
         <div class="row contact-info">
-          <div class="col-md-4">
+          <div class="col-md-6">
             <div class="contact-address">
               <i class="ion-ios-location-outline"></i>
               <h3>آدرس</h3>
@@ -293,7 +301,7 @@ if (!c3.error) {
             </div>
           </div>
 
-          <div class="col-md-4">
+          <div class="col-md-6">
             <div class="contact-phone">
               <i class="ion-ios-telephone-outline"></i>
               <h3>شماره تلفن</h3>

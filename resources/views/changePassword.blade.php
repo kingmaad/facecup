@@ -198,14 +198,52 @@ if (!c3.error) {
     -o-transition: 0.6s ease-in-out left;
     transition: 0.6s ease-in-out left;
 }
-.register 
-{
-  font-family: "Samim" !important;
+/*
+ * Globals
+ */
+
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: #fff;
 }
+
+/* Custom default button */
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritance from `body` */
+  background-color: #fff;
+  border: .05rem solid #fff;
+}
+
+
+
+
+
+
+
+/*
+ * Cover
+ */
+.cover {
+  padding: 0 1.5rem;
+}
+.cover .btn-lg {
+  padding: .75rem 1.25rem;
+  font-weight: 700;
+}
+
+.error{
+  color: tomato;
+}
+
 </style>
   </head>
 
-  <body class="body-bg">
+  <body class="body-bg text-center">
     <!--==========================
     Header
   ============================-->
@@ -249,112 +287,128 @@ if (!c3.error) {
     </div>
   </header>
     <!-- #header -->
-
- 
-
     <main id="main" class="main-page">
-        <section id="speakers-details" class="wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
-            <div class="container">
-              <div class="row">
-                <div class="page-content">
-                    <div class="form-v2-content">
-                        <div class="form-left">
-                            <img src="lib/registrationform/images/form-v2.png" alt="form">
+      <!--==========================
+      Speaker Details Section
+    ============================-->
+  
+<section class="home-blog bg-sand rtl" style="height: 550px; padding-top:100px;">
+    <div class="container bg-white p-5" >
+      <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <main role="main" class="inner cover mb-5">
+            @if (Session::has('message'))
+            <div class="alert alert-{{ Session::get('type') }}">{{ Session::get('message') }}</div>
+         @endif
+            <h1 class="cover-heading">فرم تغییر کلمه عبور</h1>
+          <form id="myform" method="POST" action="/changePassword">
+          <p class="lead">
+            <div class="row">
+                <div class="col-lg-4"></div>
+                <div class="col-lg-4 text-right">
 
-                        </div>
-                        <form class="form-detail" action="/login" method="post" id="myform" >
-                        
-                            <h2 class="text-right">فرم ورود تیم</h2>
-                            <div class="form-row text-right">
-                                <label for="en_name">نام کاربری</label>
-                                <input type="text" name="en_name" id="en_name" class="input-text english" placeholder="نام کاربری" required>
-                            </div>
-                            <div class="form-row text-right">
-                              <label for="password">کلمه عبور</label>
-                              <input type="password" name="password" id="password" class="input-text english" placeholder="کلمه عبور" required>
-                          </div>
-
-                            {{ csrf_field() }}
-                            <div class="form-row-last text-center">
-
-                                <input type="submit" name="register" class="register" value="ورود">
-                            </div>
-                        </form>
-                    </div>
+                    <label>کلمه عبور فعلی</label>
+                    <input type="password" name="current_password" id="current_password" class="form-control" >
+                    <label>کلمه عبور جدید</label>
+                    <input type="password" name="new_password" id="new_password" class="form-control" >
+                    <label>تکرار کلمه عبور جدید</label>
+                    <input type="password" name="new_password_confiramtion" id="new_password_confiramtion" class="form-control" >
+                    
+                {{ csrf_field() }}
                 </div>
-                <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-                <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-                <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
-                <script>
-                    var result;
-                    $( "#myform" ).validate({
-                        rules: {
-                          en_name: {
-                              required: true,
-                          },
-                          password:{
-                            required: true,
-                          }
-                      },
-                          messages: {
-                              en_name: {
-                                  required: "لطفا نام کاربری خود را وارد کنید",
-                                  
-                              },
-                              password: {
-                                  required: "لطفا کلمه عبور را وارد کنید",
-                                  
-                              },
-                      
-                          },
-                    });
-                   
-                </script>
-              </div>
-              
-            </div>
-          </section>
-    </main>
-
-    <!--==========================
-    Footer
-  ============================-->
-    <footer id="footer">
-     
-
-      <div class="container">
-        <div class="copyright">
-          © ۱۳۹9 | تمامی حقوق این وب سایت متعلق به فیسکاپ می باشد. | Powered by facecup
-
-        </div>
+                <div class="col-lg-4"></div>
+            </div>  
+            
+          </p>
+          <p class="lead">
+            <input type="submit" value="ذخیره" class="btn btn-lg btn-info">
+          </p>
+        </form>
+        
+        </main>
+      
       
       </div>
-    </footer>
-    <!-- #footer -->
 
-    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+	</div>
+</section>
+     
+    </main>
 
-    <!-- JavaScript Libraries -->
-    <script src="lib/jquery/jquery.min.js"></script>
-    <script src="lib/jquery/jquery-migrate.min.js"></script>
-    <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/superfish/hoverIntent.js"></script>
-    <script src="lib/superfish/superfish.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/venobox/venobox.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+     <!--==========================
+    Footer
+  ============================-->
+  <br><br><br><br><br><br><br><br><br><br>
+  <footer id="footer">
+     
 
-    <!-- Contact Form JavaScript File -->
-    <script src="contactform/contactform.js"></script>
+    <div class="container">
+      <div class="copyright">
+        © ۱۳۹9 | تمامی حقوق این وب سایت متعلق به فیسکاپ می باشد. | Powered by facecup
 
-    <!-- colorlib form registration -->
-        <script src="lib/colorlib/js/jquery.steps.js"></script>
-	    <script src="lib/colorlib/js/main.js"></script>
+      </div>
     
+    </div>
+  </footer>
+  <!-- #footer -->
 
-    <!-- Template Main Javascript File -->
-    <script src="js/main.js"></script>
+  <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+  <script>
+      var result;
+      $( "#myform" ).validate({
+          rules: {
+            current_password: {
+                required: true,
+            },
+            new_password:{
+              required: true,
+            },
+            new_password_confiramtion:{
+                required:true,
+                equalTo : "#new_password"
+            }
+        },
+            messages: {
+                current_password: {
+                    required: "لطفا کلمه عبور فعلی را وارد نمایید",
+                    
+                },
+                new_password: {
+                    required: "لطفا کلمه عبور جدید را وارد کنید",
+                    
+                },
+                new_password_confiramtion: {
+                    required: "لطفا تکرار کلمه عبور جدید را وارد کنید",
+                    equalTo : "تکرار کلمه عبور باید با کلمه عبور برابر باشد"
+                },
+        
+            },
+      });
+     
+  </script>
+  <!-- JavaScript Libraries -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/superfish/hoverIntent.js"></script>
+  <script src="lib/superfish/superfish.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/venobox/venobox.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
-  </body>
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
+
+  <!-- colorlib form registration -->
+      <script src="lib/colorlib/js/jquery.steps.js"></script>
+      <script src="lib/colorlib/js/main.js"></script>
+  
+
+  <!-- Template Main Javascript File -->
+  <script src="js/main.js"></script>
+
+</body>
 </html>
