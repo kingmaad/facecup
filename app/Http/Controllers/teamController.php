@@ -123,13 +123,13 @@ class teamController extends Controller
 
         if($validator->fails())
         {
-
+            return back()->withErrors($validator->messages());
         }
         else
         {
             $team = Team::where('en_name',$data['en_name'])->where('otp' , $data['password'])->first();
             
-            if($team->isVerified)
+            if($team && $team->isVerified)
             {
                 session([
                     'user_id'=>$team->id,
@@ -141,7 +141,8 @@ class teamController extends Controller
             }
             else
             {
-                dd($team);
+                Session::flash('message', "نام کاربری و یا کلمه عبور شما اشتباه است");
+                return back();
             }
         }
     }

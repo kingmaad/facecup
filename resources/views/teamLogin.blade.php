@@ -263,7 +263,9 @@ if (!c3.error) {
 
                         </div>
                         <form class="form-detail" action="/login" method="post" id="myform" >
-                        
+                          @if (Session::has('message'))
+                            <div class="alert alert-danger text-center">{{ Session::get('message') }}</div>
+                          @endif
                             <h2 class="text-right">فرم ورود تیم</h2>
                             <div class="form-row text-right">
                                 <label for="en_name">نام کاربری</label>
