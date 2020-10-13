@@ -91,3 +91,11 @@ Route::get('/dashboard','teamController@Dashboard');
 Route::get('/awards',function(){
     return view('sections.awards');
 });
+
+Route::get('/sponsor',function(){
+    return view('sections.sponsor');
+});
+
+Route::get('/referee',function(){
+    return view('sections.referee');
+});

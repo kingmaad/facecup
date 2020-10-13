@@ -202,7 +202,7 @@ if (!c3.error) {
 /*<!-- Carousel Text -->*/
 .carousel-header{
   position:absolute;
-  top:40%;
+  top:30%;
   left: 60%;
   transform: translate(-50%,-50%);
   z-index: 100;
@@ -210,6 +210,13 @@ if (!c3.error) {
 .carousel-header-slide1-text-one{
   position:absolute;
   top:60%;
+  left: 60%;
+  transform: translate(-50%,-50%);
+  z-index: 100;
+}
+.carousel-header-slide1-text-two{
+  position:absolute;
+  top:50%;
   left: 60%;
   transform: translate(-50%,-50%);
   z-index: 100;
@@ -279,8 +286,10 @@ if (!c3.error) {
                              <span>اولین</span>
                             مسابقه<br>
                             بازشناسی <span class="vibrate"> چهره</span> 
-                            در ایران
+                            در ایران<br>
+                            
                           </h1>
+                          <h3 class="carousel-header-slide1-text-two bg-success rounded p-2">توسط مرکز نوآوری نکسترا بهمراه پارک علم و فناوری</h3>
                           <h2 class="carousel-header-slide1-text-one">
                              بهمن ماه <span>99</span>   <span class="pull-right"> 15 </span><br>
                           
