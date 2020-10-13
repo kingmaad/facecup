@@ -241,31 +241,37 @@ a:hover {
 </style>
   </head>
 
-  <body class="body-bg">
+  <body>
     @include('sections.header-menu')
-    <main id="main" class="main-page">
+    <main id="main" class="main-page" style="height: 1200px;">
       <!--==========================
       Speaker Details Section
     ============================-->
   
-<section class="home-blog bg-sand rtl" style="height: 550px; padding-top:100px;">
+<section class="home-blog bg-sand rtl">
     <div class="container bg-white p-5" >
       <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
   
 
-        <main role="main" class="inner cover mb-5">
+        <main role="main" class="inner cover mb-5 rtl text-right">
+          <img src="/img/Award-Winners.jpg" class="img-fluid">
           <h1 class="cover-heading text-center">جوایز</h1>
           <p class="lead">
 
-          <h4 class=" text-right">•	پکیج نکسترا برای تیم اول شامل یک سال فضای کار نکسترا + جایزه نقدی  150.000.000 ریال +حمایت از مقالات و پایان نامه ها است.</h4>
+          <h4 class=" text-right text-justify">•	پکیج نکسترا برای تیم اول شامل یک سال فضای کار نکسترا + جایزه نقدی  150.000.000 ریال +حمایت از مقالات و پایان نامه ها است.</h4>
           </p>
           <p class="lead">
 
-            <h4 class=" text-right">•	پکیج نکسترا برای تیم دوم شامل 6 ماه فضای کار نکسترا +جایزه نقدی 10.000.000 ریال  + حمایت از مقالات و پایان نامه ها است.</h4>
+            <h4 class=" text-right text-justify">•	پکیج نکسترا برای تیم دوم شامل 6 ماه فضای کار نکسترا +جایزه نقدی 10.000.000 ریال  + حمایت از مقالات و پایان نامه ها است.</h4>
             </p>
             <p class="lead">
 
-              <h4 class=" text-right">•	پکیج نکسترا برای تیم سوم شامل 3 ماه فضای کار نکسترا +جایزه نقدی  50.000.000 ریال + حمایت از مقالات و پایان نامه ها است.</h4>
+              <h4 class=" text-right text-justify">•	پکیج نکسترا برای تیم سوم شامل 3 ماه فضای کار نکسترا +جایزه نقدی  50.000.000 ریال + حمایت از مقالات و پایان نامه ها است.</h4>
+              </p>
+              <p class="lead">
+                <h4 class="text-success text-justify">
+                  جایزه ویژه: در صورتیکه شرکت برتر با FTE<0.001 در FMR=0.0001 میزان خطای FNMR<0.02  بدست آورد، جایزه اضافی 25 میلیون تومان توسط شرکت طرح و پردازش غدیر به شرکت برتر اعطا می گردد
+                </h4>
               </p>
         </main>
       
@@ -280,7 +286,7 @@ a:hover {
      <!--==========================
     Footer
   ============================-->
-  <br><br><br>
+  <br><br><br><br><br>
   <footer id="footer">
      
 

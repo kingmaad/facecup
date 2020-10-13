@@ -202,7 +202,7 @@ if (!c3.error) {
 </style>
   </head>
 
-  <body class="body-bg">
+  <body>
     @include('sections.header-menu')
     <main id="main" class="main-page">
       <!--==========================

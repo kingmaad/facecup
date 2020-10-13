@@ -223,8 +223,8 @@ if (!c3.error) {
 }
 .carousel-header-slide2-text-one{
   position:absolute;
-  top:20%;
-  left: 67%;
+  top:40%;
+  left: 72%;
   transform: translate(-50%,-50%);
   z-index: 100;
 }
@@ -282,45 +282,53 @@ if (!c3.error) {
                 <div class="carousel-item active">
                   <div class=" min-vh-100 slider-one-bg">
 
-                          <h1 class="carousel-header">
-                             <span>اولین</span>
-                            مسابقه<br>
-                            بازشناسی <span class="vibrate"> چهره</span> 
-                            در ایران<br>
-                            
-                          </h1>
-                          <h3 class="carousel-header-slide1-text-two bg-success rounded p-2">توسط مرکز نوآوری نکسترا بهمراه پارک علم و فناوری</h3>
-                          <h2 class="carousel-header-slide1-text-one">
-                             بهمن ماه <span>99</span>   <span class="pull-right"> 15 </span><br>
+                    <div class="carousel-header">
+                      <h1 class="">
+                        <span>اولین</span>
+                       مسابقه<br>
+                       بازشناسی <span class="vibrate"> چهره</span> 
+                       در ایران<br>
+                       
+                     </h1>
+                     <h3 class=" bg-success rounded p-2">توسط مرکز نوآوری نکسترا بهمراه پارک علم و فناوری</h3>
+                     <h2 class="">
+                        بهمن ماه <span>99</span>   <span class="pull-right"> 15 </span><br>
+                     
+                   </h2>
+                    </div>
                           
-                        </h2>
                             
 
                     </div>
                 </div>
                 <div class="carousel-item pull">
                   <div class="min-vh-100 slider-two-bg">
-                        
-                    <h1 class="carousel-header-slide2-text-one">
-                        میلیون تومان جایزه   <span class="pull-right"> 60 </span><br>
+                     <div class="carousel-header-slide2-text-one rtl" style="width: 600px;">
+                      <h1 class="text-center">
+                        <span class=""> 60 </span>میلیون تومان جایزه  
+                      
+                      </h1>
+                      <h2 class="text-center">
+                        <span> 15 </span>میلیون تومان جایزه تیم اول 
+                    
+                      </h2>
+                      <h3 class="text-center">
+                        <span> 10 </span>میلیون تومان جایزه تیم دوم   
+                  
+                      </h3>
+                      <h3 class="text-center">
+                        <span> 5 </span>میلیون تومان جایزه تیم سوم
+                      
+                      </h3>
+                     </div>   
+                     <div class="carousel-header-slide2-text-five rtl">
+                      <h1 class="text-center">
+                        <span> 30</span>میلیون تومان    
+                        <br>جـــــــــایزه ویـــــــــژه
                       
                     </h1>
-                    <h2 class="carousel-header-slide2-text-two">
-                      میلیون تومان جایزه تیم اول   <span class="pull-right"> 15 </span><br>
-                    
-                  </h2>
-                  <h3 class="carousel-header-slide2-text-three">
-                    میلیون تومان جایزه تیم دوم   <span class="pull-right"> 10 </span><br>
-                  
-                </h3>
-                <h3 class="carousel-header-slide2-text-four">
-                  میلیون تومان جایزه تیم سوم   <span class="pull-right"> 5 </span><br>
-                
-              </h3>
-              <h1 class="carousel-header-slide2-text-five">
-                میلیون تومان    <span class="pull-right"> 30 </span><br>جــــــــــایزه ویــــــــــژه
+                    </div>               
               
-            </h1>
                     </div>
                 </div>
                 
@@ -447,7 +455,7 @@ if (!c3.error) {
         <div class="row no-gutters">
           <div class="col col-xs-4">
             <div class="venue-gallery">
-                <img src="/img/supporters/invite.png" alt="" class="img-fluid" />
+                <a href="/sponsor"><img src="/img/supporters/invite.png" alt="" class="img-fluid" /></a>
             </div>
           </div>
           <div class="col col-xs-4">

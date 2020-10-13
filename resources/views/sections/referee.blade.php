@@ -236,12 +236,55 @@ a:hover {
   font-weight: 700;
 }
 
+div.vertical
+{
+ margin-left: -85px;
+ margin-right: -85px;
+ width: auto;
+ margin-top: 30px;
+ transform: rotate(-90deg);
+ -webkit-transform: rotate(-90deg); /* Safari/Chrome */
+ -moz-transform: rotate(-90deg); /* Firefox */
+ -o-transform: rotate(-90deg); /* Opera */
+ -ms-transform: rotate(-90deg); /* IE 9 */
+ white-space: nowrap;
+}
+div.vertical2
+{
+ margin-left: -85px;
+ margin-right: -85px;
+ margin-top: 200px;
+ width: auto;
+ transform: rotate(-90deg);
+ -webkit-transform: rotate(-90deg); /* Safari/Chrome */
+ -moz-transform: rotate(-90deg); /* Firefox */
+ -o-transform: rotate(-90deg); /* Opera */
+ -ms-transform: rotate(-90deg); /* IE 9 */
+ white-space: nowrap;
+}
+
+td.vertical
+{
+
+ line-height: 14px;
+ padding-bottom: 20px;
+ text-align: center;
+
+}
+td.vertical2
+{
+ height: 150px;
+ line-height: 14px;
+ padding-bottom: 20px;
+ text-align: left;
+
+}
 
 
 </style>
   </head>
 
-  <body class="body-bg">
+  <body>
     @include('sections.header-menu')
     <main id="main" class="main-page" style="height: 1000px;">
       <!--==========================
@@ -258,6 +301,7 @@ a:hover {
           <table class="table table-striped">
             <thead>
               <tr>
+                <th>.</th>
                 <th scope="col">نام و نام خانوادگی</th>
                 <th scope="col">سمت و سازمان متبوع</th>
                 
@@ -265,6 +309,7 @@ a:hover {
             </thead>
             <tbody>
               <tr>
+                <td rowspan="2" class="vertical"><div class="vertical">مدعوین</div></td>
                 <td>
                   مهندس حمید پارسایی
                   </td>
@@ -272,6 +317,7 @@ a:hover {
                   سازمان ثبت احوال</td>
               </tr>
               <tr>
+                
                 <td>
                   مهندس رضا باقری اصل
                   </td>
@@ -280,6 +326,7 @@ a:hover {
                   </td>
               </tr>
               <tr>
+                <td class="vertical2" rowspan="9"><div class="vertical2">کمیته علمی (به ترتیب حروف الفبا)</div></td>
                 <td>
                   دکتر سید امیر اصغری
                   </td>
@@ -288,6 +335,7 @@ a:hover {
                   </td>
               </tr>
               <tr>
+                
                 <td>
                   دکتر محمد اکبری
                   </td>
@@ -296,6 +344,7 @@ a:hover {
                   </td>
               </tr>
               <tr>
+                
                 <td>
                   دکتر کاوه پاشایی
                   </td>
@@ -304,6 +353,7 @@ a:hover {
                   </td>
               </tr>
               <tr>
+                
                 <td>
                   دکتر فربد رزازی
                   </td>
@@ -312,6 +362,7 @@ a:hover {
                   </a></td>
               </tr>
               <tr>
+                
                 <td>
                   دکتر سعید صدیقیان
                   </td>
@@ -320,6 +371,7 @@ a:hover {
                   </a></td>
               </tr>
               <tr>
+                
                 <td>
                   دکتر عماد الدین فاطمی زاده
                   </td>
@@ -328,6 +380,7 @@ a:hover {
                   </a></td>
               </tr>
               <tr>
+                
                 <td>
                   دکتر شهره کسایی
                   </td>
@@ -336,6 +389,7 @@ a:hover {
                   </a></td>
               </tr>
               <tr>
+                
                 <td>
                   دکتر محمد شهرام معین
                   </td>
@@ -344,6 +398,7 @@ a:hover {
                   </a></td>
               </tr>
               <tr>
+                
                 <td>
                   دکتر هادی ویسی
                   </td>
@@ -354,6 +409,7 @@ a:hover {
                   </a></td>
               </tr>
               <tr>
+                <td>دبیر علمی</td>
                 <td>
                   دکتر محمد صبری
                   </td>
@@ -364,6 +420,7 @@ a:hover {
                   </a></td>
               </tr>
               <tr>
+                <td>دبیر اجرایی</td>
                 <td>
                   دکتر میلاد سجادی
                   </td>

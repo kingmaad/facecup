@@ -241,7 +241,7 @@ a:hover {
 </style>
   </head>
 
-  <body class="body-bg text-center">
+  <body class="text-center">
     @include('sections.header-menu')
     <main id="main" class="main-page">
       <!--==========================
@@ -257,7 +257,7 @@ a:hover {
           <h1 class="cover-heading">فرصتهای شغلی</h1>
           <p class="lead">فرصتهای شغلی خود را با ما معرفی کنید</p>
           <p class="lead">
-            <a href="/aboutUs#contact" class="btn btn-lg btn-info">معرفی فرصتهای شغلی</a>
+            <a href="/sponsor" class="btn btn-lg btn-info">معرفی فرصتهای شغلی</a>
           </p>
         </main>
       
