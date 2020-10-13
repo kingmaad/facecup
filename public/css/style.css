@@ -480,6 +480,9 @@ body.mobile-nav-active #mobile-nav-toggle {
 .orange-color{
   color: #fb6834;
 }
+.bg-orange{
+  background-color: #fb6834;
+}
 .slider-one-bg
 {
   width: 100%;

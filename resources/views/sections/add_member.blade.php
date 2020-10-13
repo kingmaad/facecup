@@ -206,11 +206,7 @@ if (!c3.error) {
   </head>
 
   <body class="body-bg">
-    <!--==========================
-    Header
-  ============================-->
    
- 
 
   <main id="main" class="main-page">
     <section id="speakers-details" class="wow fadeIn" style="visibility: visible; animation-name: fadeIn;">

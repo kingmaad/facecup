@@ -9,7 +9,7 @@
     <meta content="" name="description" />
 
     <!-- Favicons -->
-    <link href="img/logo.jpg" rel="icon" />
+    <link href="img/favicon.png" rel="icon" />
     <link href="img/apple-touch-icon.png" rel="apple-touch-icon" />
 
     <!-- Google Fonts -->
@@ -261,49 +261,8 @@ if (!c3.error) {
   </head>
 
   <body>
-    <!--==========================
-    Header
-  ============================-->
-    <header id="header">
-      <div class="container">
-        <div id="logo" class="pull-left">
-          <!-- Uncomment below if you prefer to use a text logo -->
-          
-          <a href="#intro" class="scrollto"><img id="logoFile" src="img/logo.png" alt="" title=""></a>
-        </div>
+    @include('sections.header-menu')
 
-        <nav id="nav-menu-container">
-          <ul class="nav-menu">
-            @if (!session('user_id'))
-              <li class="btn btn-success"><a href="/login">ورود</a></li>
-            @else
-              
-              <li class="btn btn-danger"><a href="/logout">خروج</a></li> 
-              <li class="btn btn-success"><a href="/dashboard">پنل کاربری</a></li> 
-            @endif
-            <li><a href="/aboutUs">تماس با ما</a></li>
-            <li><a href="/blog">وبلاگ</a></li>
-            <li><a href="#gallery">هیات داوری</a></li>
-            <li><a href="/jobs">فرصت های شغلی</a></li>
-
-            <li><a href="awards">جوایز</a></li>
-            <li><a href="#venue">حامیان</a></li>
-            <li class="dropdown rtl">
-              <a href="#">درباره مسابقه</a>
-              <ul class="dropdown-menu dropdown-menu-right">
-                <li><a href="/generalRules">قوانین عمومی</a></li>
-                <li><a href="/techRules">قوانین فنی</a></li>
-              </ul>
-            </li>
-            <li class="menu-active"><a href="/">خانه</a></li>
-            
-            <li class="buy-tickets"><a href="/signupTeam">ثبت نام تیم ها</a></li>
-          </ul>
-        </nav>
-        <!-- #nav-menu-container -->
-      </div>
-    </header>
-    <!-- #header -->
 
  <!--==========================
       Gallery Section
@@ -377,10 +336,10 @@ if (!c3.error) {
         <div class="container">
           <div class="row">
             <div class="col-lg-6 rtl text-justify">
-              <h2>درباره مسابقه فیسکاپ</h2>
+              <h2>درباره مسابقه فیس‌کاپ</h2>
               <p>
                 در جهان امروز با افزایش استفاده مردم از فناوری‌های نوین‌، فرصت‌های شگرفی در زمینه توسعه تکنولوژی به وجود آمده است. فناوری بازشناسی چهره به عرصه ای برای رقابت های بین المللی بدل گشته‌، و کشور های مختلف با ارائه محصولات بر پایه هوش مصنوعی برای سهم بیشتر از بازار 30 میلیارد دلاری هوش مصنوعی تلاش میکنند.
-                در این بین با توجه به پتانسیل بالای کشورمان و لزوم وجود یک مرجع ارزیابی، به آن شدیم که مسابقه سالانه ای تحت عنوان Face Cup برگزار کنیم.این رویداد با برخورداری از طیف گسترده ای از مخاطبین و ذی نفعان توانسته توجه زیادی را به خود معطوف کند.
+                در این بین با توجه به پتانسیل بالای کشورمان و لزوم وجود یک مرجع ارزیابی، بر آن شدیم که مسابقه سالانه ای تحت عنوان Face Cup برگزار کنیم.این رویداد با برخورداری از طیف گسترده ای از مخاطبین و ذی نفعان توانسته توجه زیادی را به خود معطوف کند.
                 
                 
               </p>
@@ -479,7 +438,7 @@ if (!c3.error) {
         <div class="row no-gutters">
           <div class="col col-xs-4">
             <div class="venue-gallery">
-                <img src="/img/supporters/invite.jpg" alt="" class="img-fluid" />
+                <img src="/img/supporters/invite.png" alt="" class="img-fluid" />
             </div>
           </div>
           <div class="col col-xs-4">
@@ -683,7 +642,7 @@ if (!c3.error) {
 
       <div class="container">
         <div class="copyright">
-          © ۱۳۹9 | تمامی حقوق این وب سایت متعلق به فیسکاپ می باشد. | Powered by facecup
+          © ۱۳۹9 | تمامی حقوق این وب سایت متعلق به فیس‌کاپ می باشد. | Powered by facecup
 
         </div>
       

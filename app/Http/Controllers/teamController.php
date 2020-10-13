@@ -355,9 +355,9 @@ class teamController extends Controller
                     'major' => $request->major,
                     'university' => $request->university,
                     'cv_url' => $cv_url,
-                ]
-    
-                );
+                ]);
+                Session::flash('message', "اطلاعات با موفقیت ثبت شد");
+                Session::flash('type', "success");
                 return back();
             }
          }
