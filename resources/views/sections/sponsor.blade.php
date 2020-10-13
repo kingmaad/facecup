@@ -30,8 +30,7 @@
     <!-- registration form -->
     <link rel="stylesheet" type="text/css" href="lib/registrationform/css/roboto-font.css">
 	<link rel="stylesheet" type="text/css" href="lib/registrationform/fonts/line-awesome/css/line-awesome.min.css">
-	<!-- Jquery -->
-	<link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+
 	<!-- Main Style Css -->
     <link rel="stylesheet" href="lib/registrationform/css/style.css"/>
 
@@ -261,7 +260,7 @@ a:hover {
             در این راستا، شرکت ها و سازمان های دغدغه‌مند، می‌توانند با حمایت مادی و معنوی، سهم خود را در پیشرفت علمی کشور ایفا کنند و با استفاده از رسانه های در اختیار ما، مجموعه خود را به عنوان اسپانسر رسمی رویداد فیس‌کاپ معرفی کنند و از سایر  مزایای اسپانسرشیپ از جمله امکان دسترسی به رزومه شرکت کنندگان رویداد، بهره مند شوند.
             اگر به حمایت از مسابقه فیسکاپ علاقه مندید لطفا برای دریافت اطلاعات بیشتر،با ایمیل ما در ارتباط باشید.
           </p>
-          <p>facecup@nexterafactory.com</p>
+          <p class="text-center"><a href="mailto:facecup@nexterafactory.com" class="text-info h1">facecup@nexterafactory.com</a> </p>
         </main>
       
       
