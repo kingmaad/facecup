@@ -255,8 +255,8 @@ a:hover {
 
         <main role="main" class="inner cover mb-5">
           <h1 class="cover-heading">فرصتهای شغلی</h1>
-          <p class="lead">فرصتهای شغلی خود را با ما معرفی کنید</p>
-          <p class="lead">
+          <p class="h3 mt-2 text-info">فرصتهای شغلی خود را به ما معرفی کنید تا متخصصان و تیم های دانشجویی شرکت کننده در مسابقه سریعتر شما رو پیدا کنند.</p>
+          <p class="lead mt-4">
             <a href="/sponsor" class="btn btn-lg btn-info">معرفی فرصتهای شغلی</a>
           </p>
         </main>

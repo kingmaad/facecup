@@ -202,10 +202,12 @@ if (!c3.error) {
 /*<!-- Carousel Text -->*/
 .carousel-header{
   position:absolute;
-  top:30%;
+  top:40%;
   left: 60%;
   transform: translate(-50%,-50%);
   z-index: 100;
+  width: 60%;
+  
 }
 .carousel-header-slide1-text-one{
   position:absolute;
@@ -283,18 +285,22 @@ if (!c3.error) {
                   <div class=" min-vh-100 slider-one-bg">
 
                     <div class="carousel-header">
-                      <h1 class="">
+                      <h3 class="p-2 text-center rtl">مرکز نوآوری نکسترا در مشارکت با پارک علم و فناوری دانشگاه تهران برگزار میکند:</h3>
+                      <h1 class="text-center">
                         <span>اولین</span>
                        مسابقه<br>
                        بازشناسی <span class="vibrate"> چهره</span> 
                        در ایران<br>
                        
                      </h1>
-                     <h3 class=" bg-success rounded p-2">توسط مرکز نوآوری نکسترا بهمراه پارک علم و فناوری</h3>
-                     <h2 class="">
-                        بهمن ماه <span>99</span>   <span class="pull-right"> 15 </span><br>
                      
-                   </h2>
+                     <h2 class="text-center rtl">
+                      <span> 15 </span>
+                      بهمن ماه
+                      <span> 99 </span>
+                      
+                     
+                    </h2>
                     </div>
                           
                             
