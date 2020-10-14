@@ -242,17 +242,17 @@ a:hover {
 
   <body>
     @include('sections.header-menu')
-    <main id="main" class="main-page">
+    <main id="main">
       <!--==========================
       Speaker Details Section
     ============================-->
   
-<section class="home-blog bg-sand rtl" style="height: 550px; padding-top:100px;">
-    <div class="container bg-white p-5" >
+<section class="home-blog bg-sand rtl" style=" padding-top:100px;">
+    <div class="container bg-white" >
       <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column text-justify">
   
 
-        <main role="main" class="inner cover mb-5 text-right text-justify rtl">
+        <main role="main" class="inner cover text-right text-justify rtl">
           <h1 class="cover-heading text-center color-orange">حامی ما شوید</h1>
           <p class="lead text-justify">
 
@@ -261,13 +261,17 @@ a:hover {
             اگر به حمایت از مسابقه فیسکاپ علاقه مندید لطفا برای دریافت اطلاعات بیشتر،با ایمیل ما در ارتباط باشید.
           </p>
           <p class="text-center"><a href="mailto:facecup@nexterafactory.com" class="text-info h1">facecup@nexterafactory.com</a> </p>
+          <p class="text-center"><a href="tel:02191090395" class="text-info h1">شماره تماس دبیرخانه مسابقه: 02191090395</a></p>
+          <p class="text-center"><a href="tel:09192576086" class="text-info h1">دبیر اجرایی مسابقه - دکتر میلاد سجادی: 09192576086</a></p>
         </main>
       
       
       </div>
 
-	</div>
+  </div>
+  
 </section>
+
      <!--==========================
       Contact Section
     ============================-->
@@ -338,8 +342,8 @@ a:hover {
       </div>
     </section>
     <!-- #contact -->
-    </main>
 
+    </main>
      <!--==========================
     Footer
   ============================-->
