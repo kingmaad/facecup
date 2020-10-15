@@ -382,6 +382,14 @@ td.vertical2
               <tr>
                 
                 <td>
+                  دکتر احسان الله کبیر
+                  </td>
+                <td><a href="https://www.modares.ac.ir/pro/academic_staff/kabir" class="text-info">عضو هیات علمی دانشگاه تربیت مدرس
+                  </a></td>
+              </tr>
+              <tr>
+                
+                <td>
                   دکتر شهره کسایی
                   </td>
                 <td><a href="http://ce.sharif.edu/faculty/shohre-kasaei/" class="text-info">عضو هیات عملی
