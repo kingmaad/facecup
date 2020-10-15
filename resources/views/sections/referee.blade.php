@@ -326,7 +326,7 @@ td.vertical2
                   </td>
               </tr>
               <tr>
-                <td class="vertical2" rowspan="9"><div class="vertical2">کمیته علمی (به ترتیب حروف الفبا)</div></td>
+                <td class="vertical2" rowspan="10"><div class="vertical2">کمیته علمی (به ترتیب حروف الفبا)</div></td>
                 <td>
                   دکتر سید امیر اصغری
                   </td>
