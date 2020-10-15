@@ -1636,7 +1636,11 @@ body.mobile-nav-active #mobile-nav-toggle {
 /*--------------------------------------------------------------
 # Responsive Media Queries
 --------------------------------------------------------------*/
-
+@media (min-width: 1200px) {
+  .container{
+      max-width: 1200px;
+  }
+}
 @media (min-width: 767px) {
   #subscribe input {
     min-width: 400px;
