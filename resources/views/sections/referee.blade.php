@@ -309,22 +309,26 @@ td.vertical2
             </thead>
             <tbody>
               <tr>
-                <td rowspan="2" class="vertical"><div class="vertical">مدعوین</div></td>
+                <td>دبیر اجرایی</td>
                 <td>
-                  مهندس حمید پارسایی
+                  دکتر میلاد سجادی
                   </td>
-                <td>معاون فناوری اطلاعات و آمار جمعیتی
-                  سازمان ثبت احوال</td>
+                <td>
+                  معاونت فنی مرکز نوآوری نکسترا
+                  </td>
               </tr>
               <tr>
-                
+                <td>دبیر علمی</td>
                 <td>
-                  مهندس رضا باقری اصل
+                  دکتر محمد صبری
                   </td>
-                <td>دبیر شورای اجرایی فناوری اطلاعات  
-                  وزارت ارتباطات 
-                  </td>
+                <td><a href="
+                  http://teacher.qodsiau.ac.ir/sabri-introduction" class="text-info">
+                  عضو هیات عملی
+                  دانشگاه آزاد اسلامی
+                  </a></td>
               </tr>
+              
               <tr>
                 <td class="vertical2" rowspan="10"><div class="vertical2">کمیته علمی (به ترتیب حروف الفبا)</div></td>
                 <td>
@@ -417,25 +421,23 @@ td.vertical2
                   </a></td>
               </tr>
               <tr>
-                <td>دبیر علمی</td>
+                <td rowspan="2" class="vertical"><div class="vertical">مدعوین</div></td>
                 <td>
-                  دکتر محمد صبری
+                  مهندس حمید پارسایی
                   </td>
-                <td><a href="
-                  http://teacher.qodsiau.ac.ir/sabri-introduction" class="text-info">
-                  عضو هیات عملی
-                  دانشگاه آزاد اسلامی
-                  </a></td>
+                <td>معاون فناوری اطلاعات و آمار جمعیتی
+                  سازمان ثبت احوال</td>
               </tr>
               <tr>
-                <td>دبیر اجرایی</td>
+                
                 <td>
-                  دکتر میلاد سجادی
+                  مهندس رضا باقری اصل
                   </td>
-                <td>
-                  معاونت فنی مرکز نوآوری نکسترا
+                <td>دبیر شورای اجرایی فناوری اطلاعات  
+                  وزارت ارتباطات 
                   </td>
               </tr>
+
               
             </tbody>
           </table>
