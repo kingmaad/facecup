@@ -301,7 +301,7 @@ td.vertical2
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>.</th>
+                <th></th>
                 <th scope="col">نام و نام خانوادگی</th>
                 <th scope="col">سمت و سازمان متبوع</th>
                 
