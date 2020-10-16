@@ -101,6 +101,50 @@ h6 {
   color: #fff;
 }
 
+div.vertical
+{
+ margin-left: -85px;
+ margin-right: -85px;
+ width: auto;
+ margin-top: 30px;
+ transform: rotate(-90deg);
+ -webkit-transform: rotate(-90deg); /* Safari/Chrome */
+ -moz-transform: rotate(-90deg); /* Firefox */
+ -o-transform: rotate(-90deg); /* Opera */
+ -ms-transform: rotate(-90deg); /* IE 9 */
+ white-space: nowrap;
+}
+div.vertical2
+{
+ margin-left: -85px;
+ margin-right: -85px;
+ margin-top: 200px;
+ width: auto;
+ transform: rotate(-90deg);
+ -webkit-transform: rotate(-90deg); /* Safari/Chrome */
+ -moz-transform: rotate(-90deg); /* Firefox */
+ -o-transform: rotate(-90deg); /* Opera */
+ -ms-transform: rotate(-90deg); /* IE 9 */
+ white-space: nowrap;
+}
+
+td.vertical
+{
+
+ line-height: 14px;
+ padding-bottom: 20px;
+ text-align: center;
+
+}
+td.vertical2
+{
+ height: 150px;
+ line-height: 14px;
+ padding-bottom: 20px;
+ text-align: left;
+
+}
+
 /* Sections Header
 --------------------------------*/
 
@@ -456,7 +500,10 @@ h6 {
   background: rgba(6, 12, 34, 0.8);
   display: none;
 }
-
+.custom-h1
+{
+  font-size: 2rem;
+}
 /* Mobile Nav body classes */
 
 body.mobile-nav-active {
@@ -1725,6 +1772,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 @media (max-width: 768px) {
+
   .back-to-top {
     bottom: 15px;
   }
@@ -1737,6 +1785,20 @@ body.mobile-nav-active #mobile-nav-toggle {
     top: 13px;
   }
   /* this is a responsive slider setting */
+  .carousel-header-slide2-text-one{
+    position:absolute;
+    top:50%;
+    left: 72%;
+    transform: translate(-50%,-50%);
+    z-index: 100;
+  }
+  .carousel-header-slide2-text-five{
+    position:absolute;
+    top:75%;
+    left: 20%;
+    transform: translate(-50%,-50%);
+    z-index: 100;
+  }
   #gallery {
     padding: 70px 0px 0px 0px;
     overflow: hidden;
@@ -1801,6 +1863,10 @@ body.mobile-nav-active #mobile-nav-toggle {
     padding: 0;
     margin: 10px 0;
     max-height: 40px;
+}
+.custom-h1
+{
+  font-size: 1.2rem;
 }
 }
 

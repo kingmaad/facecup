@@ -236,49 +236,7 @@ a:hover {
   font-weight: 700;
 }
 
-div.vertical
-{
- margin-left: -85px;
- margin-right: -85px;
- width: auto;
- margin-top: 30px;
- transform: rotate(-90deg);
- -webkit-transform: rotate(-90deg); /* Safari/Chrome */
- -moz-transform: rotate(-90deg); /* Firefox */
- -o-transform: rotate(-90deg); /* Opera */
- -ms-transform: rotate(-90deg); /* IE 9 */
- white-space: nowrap;
-}
-div.vertical2
-{
- margin-left: -85px;
- margin-right: -85px;
- margin-top: 200px;
- width: auto;
- transform: rotate(-90deg);
- -webkit-transform: rotate(-90deg); /* Safari/Chrome */
- -moz-transform: rotate(-90deg); /* Firefox */
- -o-transform: rotate(-90deg); /* Opera */
- -ms-transform: rotate(-90deg); /* IE 9 */
- white-space: nowrap;
-}
 
-td.vertical
-{
-
- line-height: 14px;
- padding-bottom: 20px;
- text-align: center;
-
-}
-td.vertical2
-{
- height: 150px;
- line-height: 14px;
- padding-bottom: 20px;
- text-align: left;
-
-}
 
 
 </style>
