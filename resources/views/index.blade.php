@@ -83,7 +83,7 @@ if (!c2.error) {
     console.error(c2.error);
 }
 
-let c3 = new CountUp('c3Element', 50, options);
+let c3 = new CountUp('c3Element', 60, options);
 if (!c3.error) {
   c3.start();
   } else {
@@ -209,6 +209,16 @@ if (!c3.error) {
   width: 60%;
   
 }
+
+.carousel-header-2{
+  position:absolute;
+  top:30%;
+  left: 60%;
+  transform: translate(-50%,-50%);
+  z-index: 100;
+  width: 60%;
+  
+}
 .carousel-header-slide1-text-one{
   position:absolute;
   top:60%;
@@ -280,7 +290,7 @@ if (!c3.error) {
       <div class=" px-0">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 
-            <div id="carouselDiv" class="carousel-inner slider-default-bg min-vh-100" style="height: 670px;" role="listbox">
+            <div id="carouselDiv" class="carousel-inner slider-default-bg"  role="listbox">
                 <div class="carousel-item active">
                   <div class=" min-vh-100 slider-one-bg">
 
@@ -360,11 +370,7 @@ if (!c3.error) {
           <div class="row">
             <div class="col-lg-6 rtl text-justify">
               <h2>درباره مسابقه فیس‌کاپ</h2>
-              <p>
-                در جهان امروز با افزایش استفاده مردم از فناوری‌های نوین‌، فرصت‌های شگرفی در زمینه توسعه تکنولوژی به وجود آمده است. فناوری بازشناسی چهره به عرصه ای برای رقابت های بین المللی بدل گشته‌، و کشور های مختلف با ارائه محصولات بر پایه هوش مصنوعی برای سهم بیشتر از بازار 30 میلیارد دلاری هوش مصنوعی تلاش میکنند.
-                در این بین با توجه به پتانسیل بالای کشورمان و لزوم وجود یک مرجع ارزیابی، بر آن شدیم که مسابقه سالانه ای تحت عنوان Face Cup برگزار کنیم.این رویداد با برخورداری از طیف گسترده ای از مخاطبین و ذی نفعان توانسته توجه زیادی را به خود معطوف کند.
-                
-                
+              <p>یکی از راه‌های کشف و شکوفایی استعدادها و همچنین ایجاد محیط رقابتی مناسب بین آن ها،  برگزاری مسابقات عملی با استانداردهای بین‌المللی است. در زمینه بازشناسی چهره، موسسه NIST مسابقات مختلفی را تحت عنوان FRVT برگزار می‌کند که امروزه به‌عنوان مرجعی برای رقابت شرکت‌ها و گروه‌های تحقیقاتی مختلف در این زمینه شناخته می‌شود. این رویداد به عنوان اولین رویداد مشابه FRVT در ایران و بصورت آنلاین و با پشتوانه دانشگاهی در کشور برگزار می شود و تمام تیم‏های حقیقی یا حقوقی که در حوزه شناسایی و تشخیص چهره کار میکنند می توانند الگوریتم خود را جهت ارزیابی و رتبه بندی به این مسابقه ارسال کنند.
               </p>
             </div>
             <div class="col-lg-3">
@@ -373,7 +379,7 @@ if (!c3.error) {
             </div>
             <div class="col-lg-3">
               <h3>زمان؟</h3> 
-              <p>فرصت تا<br />
+              <p>
                 <h1 class="orange-color">
                 15 بهمن ماه 99
                 </h1>
@@ -391,20 +397,20 @@ if (!c3.error) {
         <div class="row">
           <div class="col-lg-4 col-md-6">
             <div class="hotel p-3">
-              <h3><a href="#">شناسایی تیم</a></h3>
-              <p class="p-2 m-0">تشخیص و شناسایی چهرهشناسایی تیم های علاقه مند به فن آوری </p>
+              <h3><a href="#">رتبه بندی</a></h3>
+              <p class="p-2 m-0">رتبه بندی و ارائه گواهی رتبه برای <br>الگوریتم و موتور طراحی شده </p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="hotel p-3">
               <h3><a href="#">شبکه سازی</a></h3>
-              <p class="p-2 m-0">شبکه سازی بین متخصصین حوزه هوش مصنوعی</p>
+              <p class="p-2 m-0">شناسایی استعداد و انتخاب <br>برای شرکت در پروژه های ملی</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="hotel p-3">
-              <h3><a href="#">کشف استعداد</a></h3>
-              <p class="p-2 m-0">کشف استعدادها حوزه هوش مصنوعی</p>
+              <h3><a href="#">فرصتهای شغلی</a></h3>
+              <p class="p-2 m-0">ارتباط با شرکت های مطرح در این <br>حوزه و موقعیت های شغلی متعدد</p>
             </div>
           </div>
         </div>
@@ -441,7 +447,7 @@ if (!c3.error) {
               <div class="contact-email">
                 <i class="ion-ios-email-outline"></i>
                 <h1><i class="fa fa-money"></i><span id="c3Element" class="m-4">20</span></h1>
-                <p>بیشتر از 50 میلیون تومان جایزه نقدی</p>
+                <p>بیشتر از 60 میلیون تومان جایزه نقدی</p>
               </div>
             </div>
 

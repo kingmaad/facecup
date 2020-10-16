@@ -194,6 +194,7 @@ h6 {
 
 .header-scrolled-logo
 {
+  margin: 5px 0;
   max-height: 60px;
 }
 
@@ -1694,7 +1695,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   #header {
     background: rgba(6, 12, 34, 0.98);
     height: 70px;
-    padding: 15px 0;
+    padding: 5px 0;
     transition: all 0.5s;
   }
 
@@ -1735,6 +1736,72 @@ body.mobile-nav-active #mobile-nav-toggle {
   #faq #faq-list i {
     top: 13px;
   }
+  /* this is a responsive slider setting */
+  #gallery {
+    padding: 70px 0px 0px 0px;
+    overflow: hidden;
+  }
+  #gallery h1 {
+    color: #fff;
+    font-family: "Raleway", sans-serif;
+    font-size: 26px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: right;
+    
+  }
+  
+  #gallery h1 span {
+    color: #fb6834;
+    margin: 0px 5px 0px 5px;
+  
+  }
+  
+  #gallery h2 {
+    color: #fff;
+    font-family: "Raleway", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: right;
+    
+  }
+  
+  #gallery h2 span {
+    color: #fb6834;
+    margin: 0px 5px 0px 5px;
+  }
+  
+
+  
+  #gallery h3 {
+    color: #fff;
+    font-family: "Raleway", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: right;
+    
+  }
+  
+  #gallery h3 span {
+    color: #fb6834;
+    margin: 0px 5px 0px 5px;
+  }
+  
+  #gallery p {
+    color: #ebebeb;
+    font-weight: 700;
+    font-size: 20px;
+  }
+  /* #carouselExampleControls{
+    display: none;
+  } */
+  #header #logo img {
+    padding: 0;
+    margin: 10px 0;
+    max-height: 40px;
+}
 }
 
 @media (max-width: 767px) {
@@ -1759,4 +1826,5 @@ body.mobile-nav-active #mobile-nav-toggle {
   #subscribe button {
     margin-top: 10px;
   }
+
 }
