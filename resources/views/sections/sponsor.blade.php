@@ -475,7 +475,10 @@ a:hover {
     ============================-->
     <section id="contact" class="section-bg wow fadeInUp">
       <div class="container">
-
+        <div class="section-header">
+          <h2>تماس با ما</h2>
+          <p>جهت برقراری تماس با ما میتوانید از اطلاعات زیر و یا پیام خود را از طریق فرم ذیل برای ما ارسال نمایید</p>
+        </div>
 
         <div class="form">
           <div id="sendmessage">پیام شما با موفقیت ارسال شد</div>
