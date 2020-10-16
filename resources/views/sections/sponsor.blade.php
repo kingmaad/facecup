@@ -483,7 +483,7 @@ a:hover {
         <div class="form">
           <div id="sendmessage">پیام شما با موفقیت ارسال شد</div>
           <div id="errormessage"></div>
-          <form action="#" method="post"  class="contactForm" id="contactus">
+          <form action="/sendMessage" method="post"  class="contactForm" id="contactus">
           {{ csrf_field() }}
             <div class="form-row">
               <div class="form-group col-md-6">
@@ -502,7 +502,7 @@ a:hover {
                 <input
                   type="email"
                   class="form-control"
-                  name="contact_email"
+                  name="email"
                   id="email"
                   placeholder="ایمیل"
                   data-rule="email"
@@ -566,15 +566,15 @@ a:hover {
   <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
   <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
-<script>
+{{-- <script>
   $( "#contactus" ).validate({
         
-        // messages: {
-        //     email: {
-        //         required: "لطفا نام لاتین تیم خود را وارد کنید"
-        //     },
+        messages: {
+             contact_email: {
+                 required: "لطفا نام لاتین تیم خود را وارد کنید"
+             },
             
-        // },
+         },
         submitHandler: function(form) {
               let name = $("input[name=name]").val();
               let email = $("input[name=contact_email]").val();
@@ -618,7 +618,7 @@ a:hover {
               });
           }
   });
-</script>
+</script> --}}
   <!-- JavaScript Libraries -->
   <script src="lib/jquery/jquery.min.js"></script>
   <script src="lib/jquery/jquery-migrate.min.js"></script>

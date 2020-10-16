@@ -94,7 +94,24 @@ jQuery(document).ready(function($) {
     if( ! action ) {
       action = 'contactform/contactform.php';
     }
+    $.ajax({
+      type: "POST",
+      url: action,
+      data: str,
+      success: function(msg) {
+        // alert(msg);
+        if (msg.hasError == false) {
+          $("#sendmessage").addClass("show");
+          $("#errormessage").removeClass("show");
+          $('.contactForm').find("input, textarea").val("");
+        } else {
+          $("#sendmessage").removeClass("show");
+          $("#errormessage").addClass("show");
+          $('#errormessage').html(msg);
+        }
 
+      }
+    });
     return false;
   });
 

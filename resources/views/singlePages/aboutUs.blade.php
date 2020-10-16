@@ -279,7 +279,7 @@ if (!c3.error) {
         <div class="form">
           <div id="sendmessage">پیام شما با موفقیت ارسال شد</div>
           <div id="errormessage"></div>
-          <form action="#" method="post"  class="contactForm" id="contactus">
+          <form action="/sendMessage" method="post"  class="contactForm" id="contactus">
           {{ csrf_field() }}
             <div class="form-row">
               <div class="form-group col-md-6">
@@ -298,7 +298,7 @@ if (!c3.error) {
                 <input
                   type="email"
                   class="form-control"
-                  name="contact_email"
+                  name="email"
                   id="email"
                   placeholder="ایمیل"
                   data-rule="email"
@@ -361,7 +361,7 @@ if (!c3.error) {
   <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
   <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
-<script>
+{{-- <script>
   $( "#contactus" ).validate({
         
         // messages: {
@@ -413,7 +413,7 @@ if (!c3.error) {
               });
           }
   });
-</script>
+</script> --}}
   <!-- JavaScript Libraries -->
   <script src="lib/jquery/jquery.min.js"></script>
   <script src="lib/jquery/jquery-migrate.min.js"></script>
@@ -425,7 +425,8 @@ if (!c3.error) {
   <script src="lib/venobox/venobox.min.js"></script>
   <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
-
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
 
   <!-- colorlib form registration -->
       <script src="lib/colorlib/js/jquery.steps.js"></script>

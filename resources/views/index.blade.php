@@ -608,7 +608,8 @@ if (!c3.error) {
           <div class="form">
             <div id="sendmessage">پیام شما با موفقیت ارسال شد</div>
             <div id="errormessage"></div>
-            <form action="#" method="post"  class="contactForm" id="contactus">
+            <form action="/sendMessage" method="post"  class="contactForm" id="contactus">
+            {{ csrf_field() }}
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <input
@@ -626,7 +627,7 @@ if (!c3.error) {
                   <input
                     type="email"
                     class="form-control"
-                    name="contact_email"
+                    name="email"
                     id="email"
                     placeholder="ایمیل"
                     data-rule="email"
@@ -729,57 +730,57 @@ if (!c3.error) {
                             });
                         }
                 });
-                $( "#contactus" ).validate({
+                // $( "#contactus" ).validate({
                       
-                      // messages: {
-                      //     email: {
-                      //         required: "لطفا نام لاتین تیم خود را وارد کنید"
-                      //     },
+                //       // messages: {
+                //       //     email: {
+                //       //         required: "لطفا نام لاتین تیم خود را وارد کنید"
+                //       //     },
                           
-                      // },
-                      submitHandler: function(form) {
-                            let name = $("input[name=name]").val();
-                            let email = $("input[name=contact_email]").val();
-                            let subject = $("input[name=subject]").val();
-                            let message = document.getElementById("message").value;
-                            let _token   =  $("input[name=_token]").val();
-                            $.ajax({
-                                url: "/sendMessage",
-                                type:"POST",
-                                data:{
-                                  name:name,
-                                  email:email,
-                                  subject:subject,
-                                  message:message,
-                                  _token: _token
-                                },
-                                success:function(response){
-                                console.log(response);
-                                if(response) {
-                                    result = response;
-                                    console.log(response.hasError==false);
-                                    if(response.hasError == false)
-                                    {
+                //       // },
+                //       submitHandler: function(form) {
+                //             let name = $("input[name=name]").val();
+                //             let email = $("input[name=contact_email]").val();
+                //             let subject = $("input[name=subject]").val();
+                //             let message = document.getElementById("message").value;
+                //             let _token   =  $("input[name=_token]").val();
+                //             $.ajax({
+                //                 url: "/sendMessage",
+                //                 type:"POST",
+                //                 data:{
+                //                   name:name,
+                //                   email:email,
+                //                   subject:subject,
+                //                   message:message,
+                //                   _token: _token
+                //                 },
+                //                 success:function(response){
+                //                 console.log(response);
+                //                 if(response) {
+                //                     result = response;
+                //                     console.log(response.hasError==false);
+                //                     if(response.hasError == false)
+                //                     {
                                       
-                                      $("#sendmessage").addClass("show");
-                                      $("#errormessage").removeClass("show");
-                                      $('.contactForm').find("input, textarea").val("");
-                                    }
-                                    else
-                                    {
-                                      $("#sendmessage").removeClass("show");
-                                      $("#errormessage").addClass("show");
-                                      $('#errormessage').html('متاسفانه مشکلی پیش آمده است');
+                //                       $("#sendmessage").addClass("show");
+                //                       $("#errormessage").removeClass("show");
+                //                       $('.contactForm').find("input, textarea").val("");
+                //                     }
+                //                     else
+                //                     {
+                //                       $("#sendmessage").removeClass("show");
+                //                       $("#errormessage").addClass("show");
+                //                       $('#errormessage').html('متاسفانه مشکلی پیش آمده است');
                                       
                                       
                                       
-                                    }     
+                //                     }     
                              
-                                }
-                                },
-                            });
-                        }
-                });
+                //                 }
+                //                 },
+                //             });
+                //         }
+                // });
 </script>
     <!-- JavaScript Libraries -->
     <script src="lib/jquery/jquery.min.js"></script>
@@ -793,7 +794,8 @@ if (!c3.error) {
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
 
-  
+    <!-- Contact Form JavaScript File -->
+    <script src="contactform/contactform.js"></script>
     
 
     <!-- Template Main Javascript File -->
