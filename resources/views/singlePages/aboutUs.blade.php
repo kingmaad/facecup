@@ -250,7 +250,7 @@ if (!c3.error) {
         </div>
 
         <div class="row contact-info">
-          <div class="col-md-6">
+          <div class="col-md-4">
             <div class="contact-address">
               <i class="ion-ios-location-outline"></i>
               <h3>آدرس</h3>
@@ -259,11 +259,18 @@ if (!c3.error) {
             </div>
           </div>
 
-          <div class="col-md-6">
+          <div class="col-md-4">
             <div class="contact-phone">
               <i class="ion-ios-telephone-outline"></i>
               <h3>شماره تلفن</h3>
               <p><a href="tel:+155895548855">02191090395</a></p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="contact-email">
+              <i class="ion-ios-telephone-outline"></i>
+              <h3>ما را اینجا دنبال کنید</h3>
+              <p><a class="instagram" href="https://www.instagram.com/facecup.ir/"><i class="fa fa-instagram"></i></a></p>
             </div>
           </div>
 
