@@ -6,7 +6,7 @@
       <div id="logo" class="pull-left">
         <!-- Uncomment below if you prefer to use a text logo -->
         
-        <a href="#intro" class="scrollto"><img id="logoFile" src="img/logo-menu2.png" alt="" title=""></a>
+        <a href="http://facecup.ir" class="scrollto"><img id="logoFile" src="img/logo-menu2.png" alt="" title=""></a>
       </div>
 
       <nav id="nav-menu-container">
