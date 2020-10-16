@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail as FacadesMail;
 use Illuminate\Support\Facades\Validator;
-
+use Mail;
 class indexController extends Controller
 {
     /**
@@ -126,7 +127,18 @@ class indexController extends Controller
                 ],
                 
             ]);
+            $this->basic_email($request->name,$request->email,$request->subject,$request->message);
             return response()->json(['hasError'=> false], 200);
         }
     }
+    public function basic_email($name,$mail,$subject,$text) {
+        $data = array('text'=>$text);
+     
+        FacadesMail::send('sections.mail', $data, function($message) use($mail,$subject,$name) {
+           $message->to('facecup@nexterafactory.com', 'FaceCup')->subject
+              ($subject);
+           $message->from($mail,$name);
+        });
+        
+     }
 }
