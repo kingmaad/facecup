@@ -244,12 +244,12 @@ a:hover {
 
   <body>
     @include('sections.header-menu')
-    <main id="main" class="main-page" style="height: 1000px;">
+    <main id="main" class="main-page">
       <!--==========================
       Speaker Details Section
     ============================-->
   
-<section class="home-blog bg-sand rtl" style="height: 550px; padding-top:100px;">
+<section class="home-blog bg-sand rtl" >
     <div class="container bg-white p-5" >
       <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column text-justify">
   
