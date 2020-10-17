@@ -456,14 +456,27 @@ a:hover {
                         </td>
                 </tr>
   
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td>مبلغ</td>
+                  <td>30</td>
+                  <td>20</td>
+                  <td>10</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td colspan="3" class="text-center">میلیون تومان</td>
+  
                 
+                </tr>
               </tbody>
             </table>
           </div>
           
-          <p class="text-center custom-h1"><a href="mailto:facecup@nexterafactory.com" class="text-info">facecup@nexterafactory.com</a> </p>
-          <p class="text-center custom-h1"><a href="tel:02191090395" class="text-info">شماره تماس دبیرخانه مسابقه: 02191090395</a></p>
-          <p class="text-center custom-h1"><a href="tel:09192576086" class="text-info">دبیر اجرایی مسابقه - دکتر میلاد سجادی: 09192576086</a></p>
+          
         </main>
       
       
@@ -482,7 +495,9 @@ a:hover {
           <h2>تماس با ما</h2>
           <p>جهت برقراری تماس با ما میتوانید از اطلاعات زیر و یا پیام خود را از طریق فرم ذیل برای ما ارسال نمایید</p>
         </div>
-
+        <p class="text-center custom-h1"><a href="mailto:facecup@nexterafactory.com" class="text-info">facecup@nexterafactory.com</a> </p>
+        <p class="text-center custom-h1"><a href="tel:02191090395" class="text-info">شماره تماس دبیرخانه مسابقه: 02191090395</a></p>
+        <p class="text-center custom-h1"><a href="tel:09192576086" class="text-info">دبیر اجرایی مسابقه - دکتر میلاد سجادی: 09192576086</a></p>
         <div class="form">
           <div id="sendmessage">پیام شما با موفقیت ارسال شد</div>
           <div id="errormessage"></div>
