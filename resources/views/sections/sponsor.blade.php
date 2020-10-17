@@ -280,7 +280,7 @@ a:hover {
                 <td>
                   امکان دسترسی به رزومه ی تیم‌های شرکت کننده
                   </td>
-                  <td>
+                  <td class="text-info h3">
                     <i class="fa fa-check"></i>
                     </td>
                     <td>
@@ -298,9 +298,9 @@ a:hover {
                   دسترسی به رزومه کارجویان
                   </td>
                 <td>امکان دسترسی به رزومه ی علاقمندان به فرصت‌های شغلی</td>
-                <td><i class="fa fa-check"></i>
+                <td class="text-info h3"><i class="fa fa-check"></i>
               </td>
-              <td>
+              <td class="text-info h3">
                 <i class="fa fa-check"></i>
                 </td>
             
@@ -314,9 +314,9 @@ a:hover {
                   معرفی فرصت شغلی
                   </td>
                 <td>ثبت آگهی شغلی در سایت رویداد</td>
-                <td>3</i>
+                <td  class="text-info h3">3</i>
               </td>
-              <td>
+              <td  class="text-info h3">
                 1
                 </td>
             
@@ -330,9 +330,9 @@ a:hover {
                   ارسال ایمیل و پیامک
                   </td>
                 <td>ارسال ایمیل و پیامک معرفی انحصاری حامی به کل شرکت‌کنندگان</td>
-                <td><i class="fa fa-check"></i>
+                <td class="text-info h3"><i class="fa fa-check"></i>
               </td>
-              <td>
+              <td class="text-info h3">
                 <i class="fa fa-check"></i>
                 </td>
             
@@ -346,9 +346,9 @@ a:hover {
                   معرفی شرکت و محصولات در صفحه اصلی سایت
                   </td>
                 <td>ایجاد صفحه اختصاصی برای شرکت و معرفی محصولات شرکت</td>
-                <td><i class="fa fa-check"></i>
+                <td class="text-info h3"><i class="fa fa-check"></i>
               </td>
-              <td>
+              <td class="text-info h3">
                 <i class="fa fa-check"></i>
                 </td>
             
@@ -362,13 +362,13 @@ a:hover {
                   درج لوگو در سایت رویداد
                   </td>
                 <td>درج لوگو حامی در سایت رویداد که برای ثبت نام تیم‌ها استفاده می‌شود</td>
-                <td><i class="fa fa-check"></i>
+                <td class="text-info h3"><i class="fa fa-check"></i>
               </td>
-              <td>
+              <td class="text-info h3">
                 <i class="fa fa-check"></i>
                 </td>
             
-                <td>
+                <td class="text-info h3">
                   <i class="fa fa-check"></i>
                   </td>
               </tr>
@@ -378,7 +378,7 @@ a:hover {
                   درج لوگو
                   </td>
                 <td>درج لوگو حامی در پوسترهای تبلیغاتی رویداد</td>
-                <td><i class="fa fa-check"></i>
+                <td class="text-info h3"><i class="fa fa-check"></i>
               </td>
               <td>
                 
@@ -393,14 +393,14 @@ a:hover {
                 <td>
                   درج لوگو در بنرهای آنلاین شبکه‌های اجتماعی
                   </td>
-                <td>درجه لوگو حامی در شبکه‌های اجتماعی رویداد</td>
-                <td><i class="fa fa-check"></i>
+                <td>درج لوگو حامی در شبکه‌های اجتماعی رویداد</td>
+                <td class="text-info h3"><i class="fa fa-check"></i>
               </td>
-              <td>
+              <td class="text-info h3">
                 <i class="fa fa-check"></i>
                 </td>
             
-                <td>
+                <td class="text-info h3">
                   <i class="fa fa-check"></i>
                   </td>
               </tr>
@@ -410,7 +410,7 @@ a:hover {
                   درج لوگو در سایت خبری
                   </td>
                 <td>درج لوگو حامی در سایت‌های پوشش دهنده رویداد</td>
-                <td><i class="fa fa-check"></i>
+                <td class="text-info h3"><i class="fa fa-check"></i>
               </td>
               <td>
                 
@@ -428,13 +428,13 @@ a:hover {
                   امکان افزودن جایزه ویژه
                   </td>
                 <td>تعریف هدف خاص و جایزه خاص برای تیم‌های شرکت کننده در مسابقه</td>
-                  <td><i class="fa fa-check"></i>
+                  <td class="text-info h3"><i class="fa fa-check"></i>
                   </td>
-                  <td>
+                  <td class="text-info h3">
                     <i class="fa fa-check"></i>
                     </td>
                 
-                    <td>
+                    <td class="text-info h3">
                       <i class="fa fa-check"></i>
                       </td>
               </tr>
@@ -444,7 +444,7 @@ a:hover {
                   بسته جایزه
                   </td>
                 <td>امکان قراردادن جوایز به همراه بسته‌های تبلیغاتی</td>
-                  <td><i class="fa fa-check"></i>
+                  <td class="text-info h3"><i class="fa fa-check"></i>
                   </td>
                   <td>
                     
@@ -454,13 +454,24 @@ a:hover {
                       
                       </td>
               </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td>مبلغ</td>
+                <td class="text-info h3">30</td>
+                <td class="text-info h3">20</td>
+                <td class="text-info h3">10</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td colspan="3" class="text-center text-info h3">میلیون تومان</td>
 
-              
+              </tr>
             </tbody>
           </table>
-          <p class="text-center custom-h1"><a href="mailto:facecup@nexterafactory.com" class="text-info">facecup@nexterafactory.com</a> </p>
-          <p class="text-center custom-h1"><a href="tel:02191090395" class="text-info">شماره تماس دبیرخانه مسابقه: 02191090395</a></p>
-          <p class="text-center custom-h1"><a href="tel:09192576086" class="text-info">دبیر اجرایی مسابقه - دکتر میلاد سجادی: 09192576086</a></p>
+          
         </main>
       
       
@@ -478,8 +489,11 @@ a:hover {
         <div class="section-header">
           <h2>تماس با ما</h2>
           <p>جهت برقراری تماس با ما میتوانید از اطلاعات زیر و یا پیام خود را از طریق فرم ذیل برای ما ارسال نمایید</p>
+          
         </div>
-
+        <p class="text-center custom-h1"><a href="mailto:facecup@nexterafactory.com" class="text-info">facecup@nexterafactory.com</a> </p>
+        <p class="text-center custom-h1"><a href="tel:02191090395" class="text-info">شماره تماس دبیرخانه مسابقه: 02191090395</a></p>
+        <p class="text-center custom-h1"><a href="tel:09192576086" class="text-info">دبیر اجرایی مسابقه - دکتر میلاد سجادی: 09192576086</a></p>
         <div class="form">
           <div id="sendmessage">پیام شما با موفقیت ارسال شد</div>
           <div id="errormessage"></div>

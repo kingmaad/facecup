@@ -26,7 +26,7 @@
           
           <li><a href="/aboutUs">تماس با ما</a></li>
           <li><a href="/blog">وبلاگ</a></li>
-          <li><a href="/referee">کمیته اجرایی</a></li>
+          <li><a href="/referee">کمیته علمی</a></li>
           <li><a href="/jobs">فرصت های شغلی</a></li>
 
           <li><a href="awards">جوایز</a></li>
