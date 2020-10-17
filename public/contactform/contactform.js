@@ -3,6 +3,9 @@ jQuery(document).ready(function($) {
 
   //Contact
   $('form.contactForm').submit(function() {
+    var btn = $(this).find(':input[type="submit"]');
+    btn.prop('disabled', true);
+    console.log(btn);
     var f = $(this).find('.form-group'),
       ferror = false,
       emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
@@ -99,11 +102,16 @@ jQuery(document).ready(function($) {
       url: action,
       data: str,
       success: function(msg) {
+        btn.prop('disabled', false);
         // alert(msg);
         if (msg.hasError == false) {
           $("#sendmessage").addClass("show");
           $("#errormessage").removeClass("show");
           $('.contactForm').find("input, textarea").val("");
+          
+          $('#success-toast').css('display', 'inline-block');
+          setTimeout(function(){ $('#success-toast').css('display', 'none'); }, 7000);
+          // $('#success-toast').prop('display','inline');
         } else {
           $("#sendmessage").removeClass("show");
           $("#errormessage").addClass("show");

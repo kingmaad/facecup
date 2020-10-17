@@ -358,6 +358,12 @@ if (!c3.error) {
   <!-- #footer -->
 
   <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+  <div id="success-toast" class="position-fixed alert alert-success alert-dismissible fade show" role="alert"  style="top:80%; right:20px;display:none;">
+    پیام شما با موفقیت ارسال شد
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
   <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
   <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
