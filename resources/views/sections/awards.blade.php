@@ -243,7 +243,7 @@ a:hover {
 
   <body>
     @include('sections.header-menu')
-    <main id="main" class="main-page" style="height: 1200px;">
+    <main id="main" class="main-page" >
       <!--==========================
       Speaker Details Section
     ============================-->
@@ -293,7 +293,7 @@ a:hover {
      <!--==========================
     Footer
   ============================-->
-  <br><br><br><br><br>
+
   <footer id="footer">
      
 
