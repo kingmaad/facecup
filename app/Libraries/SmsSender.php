@@ -22,7 +22,7 @@ class SmsSender
      */
     protected static function getAPIVerificationCodeUrl() 
     {
-        return "api/VerificationCode";
+        return "api/UltraFastSend";
     }
 
     /**
@@ -63,10 +63,22 @@ class SmsSender
         $VerificationCode="";
         $token = self::_getToken(self::$APIKey, self::$SecretKey);
         if ($token != false) {
-            $postData = array(
+            /*$postData = array(
                 'Code' => $Code,
                 'MobileNumber' => $MobileNumber,
+            );*/
+            $postData = array(
+                "ParameterArray" => array(
+                    array(
+
+                        "Parameter" => "VerificationCode",
+                        "ParameterValue" => $Code
+                    )
+                ),
+                "Mobile" => $MobileNumber,
+                "TemplateId" => "34863"
             );
+
                 echo $token;
             $url = self::$APIURL.self::getAPIVerificationCodeUrl();
             echo $url;
