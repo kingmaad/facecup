@@ -106,12 +106,11 @@ class teamController extends Controller
                 ]);
                 //$v=SmsSender::VerificationCode($otp,$data['mobile']);
                 //echo $this->verification($otp,$data['mobile']);
-                $v=SmsSender::verificationCode($otp, $data['mobile']);
+                SmsSender::verificationCode($otp, $data['mobile']);
                 //var_dump($VerificationCode);
 
                 return response()->json([
                     'hasError' => false,
-                    'v'  =>$v
                 ]);
             //response
 

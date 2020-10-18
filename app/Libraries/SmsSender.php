@@ -60,7 +60,7 @@ class SmsSender
      */
     public static function verificationCode($Code, $MobileNumber) 
     {
-        $VerificationCode="";
+        
         $token = self::_getToken(self::$APIKey, self::$SecretKey);
         if ($token != false) {
             /*$postData = array(
@@ -79,9 +79,7 @@ class SmsSender
                 "TemplateId" => "34863"
             );
 
-                echo $token;
             $url = self::$APIURL.self::getAPIVerificationCodeUrl();
-            echo $url;
             $VerificationCode = self::_execute($postData, $url, $token);
             $object = json_decode($VerificationCode);
 
@@ -89,11 +87,11 @@ class SmsSender
             if (is_object($object)) {
                 $result = $object->Message;
             } else {
-                $result = $VerificationCode;
+                $result = false;
             }
 
         } else {
-            $result = $VerificationCode;
+            $result = false;
         }
         return $result;
     }
