@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Libraries\SmsSender;
 use App\Team;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Validator;
@@ -102,8 +103,14 @@ class teamController extends Controller
                     'fa_name' => $data['fa_name'],
                     'mobile' => $data['mobile']
                 ]);
+                //$v=SmsSender::VerificationCode($otp,$data['mobile']);
+                //echo $this->verification($otp,$data['mobile']);
+                $v=SmsSender::verificationCode($otp, $data['mobile']);
+                //var_dump($VerificationCode);
+
                 return response()->json([
                     'hasError' => false,
+                    'v'  =>$v
                 ]);
             //response
 
