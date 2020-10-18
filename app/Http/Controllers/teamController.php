@@ -95,7 +95,8 @@ class teamController extends Controller
             $team->fa_name = $data['fa_name'];
             $team->mobile = $data['mobile'];
             //$team->otp=rand(1111,9999);
-            $team->otp=1234;
+            $otp = rand(11111,99999);
+            $team->otp=$otp;
             if($team->save())
                 session([
                     'user_id' => $team->id, 
