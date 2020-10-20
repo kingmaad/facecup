@@ -548,11 +548,7 @@ if (!c3.error) {
               <a href="https://isfahanhub.com/"><img src="img/supporters/hub.png" class="img-fluid" alt="" /></a>
             </div>
           </div>
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <a href="https://isfahanhub.com/"><img src="img/supporters/qadir.jpg" class="img-fluid" alt="" /></a>
-            </div>
-          </div>
+
 
 
         </div>
