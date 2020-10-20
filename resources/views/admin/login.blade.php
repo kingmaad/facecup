@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
 
-    <form class="form-signin" action="/adminlogin" method="POST">
+    <form class="form-signin" action="/administrator/login" method="POST">
         {{ csrf_field() }}
       <h2 class="form-signin-heading">همین حالا وارد شوید</h2>
       <div class="login-wrap">

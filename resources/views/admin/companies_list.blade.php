@@ -13,7 +13,7 @@
                     <section class="panel">
                         <header class="panel-heading">
                             لیست فرصتهای شخلی
-                            <div class="pull-left m-4"><a href="/company_add" class="btn btn-info">اضافه کردن شرکت جدید</a></div>
+                            <div class="pull-left m-4"><a href="/administrator/company/add" class="btn btn-info">اضافه کردن شرکت جدید</a></div>
                         </header>
                         <table class="table table-striped table-advance table-hover">
                             <thead>
@@ -33,8 +33,8 @@
                                     
                                     <td>
                                         
-                                        <a class="btn btn-primary btn-xs" href="/company_edit/{{ $company->id }}"><i class="icon-pencil"></i></a>
-                                        <a class="btn btn-danger btn-xs"><i class="icon-trash "></i></a>
+                                        <a class="btn btn-primary btn-xs" href="/administrator/company/edit/{{ $company->id }}"><i class="icon-pencil"></i></a>
+                                        <a class="btn btn-danger btn-xs" href="/administrator/company/remove/{{ $company->id }}"><i class="icon-trash "></i></a>
                                     </td>
                                 </tr>
                                 @endforeach

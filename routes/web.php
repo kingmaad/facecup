@@ -103,25 +103,30 @@ Route::get('/sponsor',function(){
 Route::get('/referee',function(){
     return view('sections.referee');
 });
+Route::prefix('administrator')->middleware(['checkAdmin'])->group(function(){
+        Route::get('dashboard',function(){
+            return view('admin.dashboard');
+        });
+        // jobs
+        Route::get('/job/list','adminController@jobs');
+        Route::get('/job/add','adminController@job_add');
+        Route::post('/job/add','adminController@job_create');
+        Route::get('/job/edit/{id}','adminController@job_edit');
+        Route::get('/job/remove/{id}','adminController@job_delete');
+        Route::post('/job/update','adminController@job_update');
 
-Route::get('/adminlogin',function(){
+        // companies
+
+        Route::get('/company/list','adminController@companies');
+        Route::get('/company/add','adminController@company_add');
+        Route::post('/company/add','adminController@company_create');
+        Route::get('/company/edit/{id}','adminController@company_edit');
+        Route::get('/company/remove/{id}','adminController@company_delete');
+        Route::post('/company/update','adminController@company_update');
+
+        Route::get('/sponsor/list','adminController@sponsors');
+});
+Route::get('/administrator/login',function(){
     return view('admin.login');
 });
-
-// jobs
-Route::post('/adminlogin','adminController@login');
-Route::get('/jobs_list','adminController@jobs');
-Route::get('/job_add','adminController@job_add');
-Route::post('/job_add','adminController@job_create');
-Route::get('/job_edit/{id}','adminController@job_edit');
-Route::post('/job_update','adminController@job_update');
-
-// companies
-
-Route::get('/companies_list','adminController@companies');
-Route::get('/company_add','adminController@company_add');
-Route::post('/company_add','adminController@company_create');
-Route::get('/company_edit/{id}','adminController@company_edit');
-Route::post('/company_update','adminController@company_update');
-
-Route::get('/sponsors_list','adminController@sponsors');
+Route::post('/administrator/login','adminController@login');

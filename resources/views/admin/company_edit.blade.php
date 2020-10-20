@@ -17,7 +17,7 @@
                         </header>
                         <div class="panel-body">
                             <div class="form">
-                                <form class="cmxform form-horizontal tasi-form" id="signupForm" method="post" action="/company_update">
+                                <form class="cmxform form-horizontal tasi-form" id="signupForm" method="post" action="/administrator/company/update">
                                     {{ csrf_field() }}
                                     <input type="hidden" name="id" value="{{ $company->id }}">
                                     <div class="form-group ">

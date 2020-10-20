@@ -13,7 +13,7 @@
                     <section class="panel">
                         <header class="panel-heading">
                             لیست فرصتهای شخلی
-                            <div class="pull-left m-4"><a href="/job_add" class="btn btn-info">اضافه کردن فرصت شغلی جدید</a></div>
+                            <div class="pull-left m-4"><a href="/administrator/job/add" class="btn btn-info">اضافه کردن فرصت شغلی جدید</a></div>
                         </header>
                         <table class="table table-striped table-advance table-hover">
                             <thead>
@@ -43,8 +43,8 @@
                                     </td>
                                     <td>
                                         
-                                        <a class="btn btn-primary btn-xs" href="/job_edit/{{ $job->id }}"><i class="icon-pencil"></i></a>
-                                        <a class="btn btn-danger btn-xs"><i class="icon-trash "></i></a>
+                                        <a class="btn btn-primary btn-xs" href="/administrator/job/edit/{{ $job->id }}"><i class="icon-pencil"></i></a>
+                                        <a class="btn btn-danger btn-xs" href="/administrator/job/remove/{{ $job->id }}"><i class="icon-trash "></i></a>
                                     </td>
                                 </tr>
                                 @endforeach

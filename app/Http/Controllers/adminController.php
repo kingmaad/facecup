@@ -28,12 +28,17 @@ class adminController extends Controller
         else
         {
             $validate_admin = DB::table('users')
-                            ->select('password')
                             ->where('email', $request->email)
                             ->first();
 
             if ($validate_admin && Hash::check($request->password, $validate_admin->password)) {
-                return view('admin.dashboard');
+                session([
+                    'user_id' => $validate_admin->id,
+                    'name' => $validate_admin->name
+                    ]);
+                return redirect('/administrator/dashboard');
+                
+                
             }
             else
             {
@@ -112,11 +117,22 @@ class adminController extends Controller
             $job->company_id = $request->company_id;
             $job->expired = $request->expired ? 1 :0;
             $job->save();
-            return redirect('/jobs_list');
+            return redirect('/administrator/job/list');
         }
         
     }
-
+    public function job_delete($id)
+    {
+        $job = Job::find($id)->first();
+        if($job)
+        {
+            Job::where('id',$id)->delete();
+            return back();
+        }
+        else{
+            return back();
+        }
+    }
     public function companies()
     {
         $companies = Company::all();
@@ -177,11 +193,24 @@ class adminController extends Controller
             $company = new Company();
             $company->company_name= $request->company_name;
             $company->save();
-            return redirect('/companies_list');
+            return redirect('/administrator/company/list');
         }
         
     }
 
+    public function company_delete($id)
+    {
+        $company = Company::find($id)->first();
+        if($company)
+        {
+            Job::where('company_id',$id)->delete();
+            $company->delete();
+            return back();
+        }
+        else{
+            return back();
+        }
+    }
     public function sponsors()
     {
         # code...

@@ -17,7 +17,7 @@
                         </header>
                         <div class="panel-body">
                             <div class="form">
-                                <form class="cmxform form-horizontal tasi-form" id="signupForm" method="post" action="/job_add">
+                                <form class="cmxform form-horizontal tasi-form" id="signupForm" method="post" action="/administrator/job/add">
                                     {{ csrf_field() }}
                                     
                                     <div class="form-group ">
