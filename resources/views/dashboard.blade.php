@@ -257,6 +257,7 @@ a:hover {
           <p class="lead">تیم {{ $team_name }} عزیز، خوش آمدید</p>
           <p class="lead">
             <a href="/TeamInfo" class="btn btn-lg btn-success">تکمیل ثبت نام تیم</a>
+            <button href="/file.zip" class="btn btn-lg btn-primary" disabled>ارسال کد</button>
             <a href="/file.zip" class="btn btn-lg btn-warning">دریافت کد راهنما</a>
             <a href="/changePassword" class="btn btn-lg btn-info">تغییر رمز</a>
           </p>

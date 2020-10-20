@@ -276,7 +276,27 @@ if (!c3.error) {
 .carousel-header p {
   text-align: center;
 }
+
+@media (max-width: 768px) {
+
+/* this is a responsive slider setting */
+.carousel-header-slide2-text-one{
+  position:absolute;
+  top:50%;
+  left: 72%;
+  transform: translate(-50%,-50%);
+  z-index: 100;
+}
+.carousel-header-slide2-text-five{
+  position:absolute;
+  top:75%;
+  left: 20%;
+  transform: translate(-50%,-50%);
+  z-index: 100;
+}
+}
 </style>
+@include('sections.head')
   </head>
 
   <body>
@@ -319,7 +339,7 @@ if (!c3.error) {
                 </div>
                 <div class="carousel-item pull">
                   <div class="min-vh-100 slider-two-bg">
-                     <div class="carousel-header-slide2-text-one rtl" style="width: 600px;">
+                     <div id="carousel-header-slide2-text-one" class="carousel-header-slide2-text-one rtl" style="width: 600px;">
                       <h1 class="text-center">
                         <span class=""> 60 </span>میلیون تومان جایزه  
                       
@@ -337,7 +357,7 @@ if (!c3.error) {
                       
                       </h3>
                      </div>   
-                     <div class="carousel-header-slide2-text-five rtl">
+                     <div id="carousel-header-slide2-text-five" class="carousel-header-slide2-text-five rtl">
                       <h1 class="text-center">
                         <span> 30</span>میلیون تومان    
                         <br>جـــــــــایزه ویـــــــــژه
@@ -526,6 +546,11 @@ if (!c3.error) {
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
               <a href="https://isfahanhub.com/"><img src="img/supporters/hub.png" class="img-fluid" alt="" /></a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="supporter-logo">
+              <a href="https://isfahanhub.com/"><img src="img/supporters/qadir.jpg" class="img-fluid" alt="" /></a>
             </div>
           </div>
 

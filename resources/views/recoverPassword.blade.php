@@ -198,119 +198,122 @@ if (!c3.error) {
     -o-transition: 0.6s ease-in-out left;
     transition: 0.6s ease-in-out left;
 }
-
+.register 
+{
+  font-family: "Samim" !important;
+}
 </style>
 @include('sections.head')
   </head>
 
   <body class="body-bg">
-    <!--==========================
-    Header
-  ============================-->
-  <header id="header">
-    <div class="container">
-      <div id="logo" class="pull-left">
-        <!-- Uncomment below if you prefer to use a text logo -->
-        
-        <a href="#intro" class="scrollto"><img id="logoFile" src="img/logo.png" alt="" title=""></a>
-      </div>
-  
-      <nav id="nav-menu-container">
-        <ul class="nav-menu">
-          @if (!session('user_id'))
-            <li class="btn btn-success"><a href="/login">ورود</a></li>
-          @else
-            
-            <li class="btn btn-danger"><a href="/logout">خروج</a></li> 
-            <li class="btn btn-success"><a href="/dashboard">پنل کاربری</a></li> 
-          @endif
-          <li><a href="/aboutUs">تماس با ما</a></li>
-          <li><a href="/blog">وبلاگ</a></li>
-          <li><a href="#gallery">هیات داوری</a></li>
-          <li><a href="/jobs">فرصت های شغلی</a></li>
-  
-          <li><a href="awards">جوایز</a></li>
-          <li><a href="/#venue">حامیان</a></li>
-          <li class="dropdown rtl">
-            <a href="#">درباره مسابقه</a>
-            <ul class="dropdown-menu dropdown-menu-right">
-              <li><a href="/generalRules">قوانین عمومی</a></li>
-              <li><a href="/techRules">قوانین فنی</a></li>
-            </ul>
-          </li>
-          <li class="menu-active"><a href="/">خانه</a></li>
-          
-          <li class="buy-tickets"><a href="/signupTeam">ثبت نام تیم ها</a></li>
-        </ul>
-      </nav>
-      <!-- #nav-menu-container -->
-    </div>
-  </header>
-    <!-- #header -->
+    @include('sections.header-menu')
+
     <main id="main" class="main-page">
-      <!--==========================
-      Speaker Details Section
-    ============================-->
-      <section id="speakers-details" class="wow fadeIn">
-        <div class="container bg-white p-4 rounded">
-          <div class="section-header">
-            <h2>قوانین اجرایی</h2>
-           
-          </div>
+        <section id="speakers-details" class="wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+            <div class="container">
+              <div class="row">
+                <div class="page-content">
+                    <div class="form-v2-content">
+                        <div class="form-left">
+                            <img src="lib/registrationform/images/form-v2.png" alt="form">
 
-          <div class="row">
+                        </div>
+                        <form class="form-detail" action="/recoverPassword" method="post" id="myform" >
+                          @if (Session::has('message'))
+                            <div class="alert alert-{{ Session::get('type') }} text-center">{{ Session::get('message') }}</div>
+                          @endif
+                            <h2 class="text-right">بازیابی کلمه عبور</h2>
+                            <div class="form-row text-right">
+                                <label for="en_name">نام کاربری</label>
+                                <input type="text" name="en_name" id="en_name" class="input-text english" placeholder="نام کاربری" required>
+                            </div>
+                            <div class="form-row text-right">
+                              <label for="mobile">شماره موبایل</label>
+                              <input type="text" name="mobile" id="mobile" class="input-text english" placeholder="شماره موبایل" required>
+                          </div>
 
-
-            <div class="col-md-12 content-speakers">
-              <div class="details">
-                
+                            {{ csrf_field() }}
+                            <div class="form-row-last text-center">
+                              
+                                <input type="submit" name="register" class="register" value="بازیابی کلمه عبور">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+                <script>
+                    var result;
+                    $( "#myform" ).validate({
+                        rules: {
+                          en_name: {
+                              required: true,
+                          },
+                          password:{
+                            required: true,
+                          }
+                      },
+                          messages: {
+                              en_name: {
+                                  required: "لطفا نام کاربری خود را وارد کنید",
+                                  
+                              },
+                              password: {
+                                  required: "لطفا کلمه عبور را وارد کنید",
+                                  
+                              },
+                      
+                          },
+                    });
+                   
+                </script>
               </div>
+              
             </div>
-          </div>
-        </div>
-      </section>
-          
+          </section>
     </main>
 
-     <!--==========================
+    <!--==========================
     Footer
   ============================-->
-  <footer id="footer">
+    <footer id="footer">
      
 
-    <div class="container">
-      <div class="copyright">
-        © ۱۳۹9 | تمامی حقوق این وب سایت متعلق به فیسکاپ می باشد. | Powered by facecup
+      <div class="container">
+        <div class="copyright">
+          © ۱۳۹9 | تمامی حقوق این وب سایت متعلق به فیسکاپ می باشد. | Powered by facecup
 
+        </div>
+      
       </div>
+    </footer>
+    <!-- #footer -->
+
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/jquery/jquery-migrate.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/superfish/hoverIntent.js"></script>
+    <script src="lib/superfish/superfish.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/venobox/venobox.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Form JavaScript File -->
+    <script src="contactform/contactform.js"></script>
+
+    <!-- colorlib form registration -->
+        <script src="lib/colorlib/js/jquery.steps.js"></script>
+	    <script src="lib/colorlib/js/main.js"></script>
     
-    </div>
-  </footer>
-  <!-- #footer -->
 
-  <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+    <!-- Template Main Javascript File -->
+    <script src="js/main.js"></script>
 
-  <!-- JavaScript Libraries -->
-  <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/jquery/jquery-migrate.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
-  <script src="lib/superfish/hoverIntent.js"></script>
-  <script src="lib/superfish/superfish.min.js"></script>
-  <script src="lib/wow/wow.min.js"></script>
-  <script src="lib/venobox/venobox.min.js"></script>
-  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-  <!-- Contact Form JavaScript File -->
-  <script src="contactform/contactform.js"></script>
-
-  <!-- colorlib form registration -->
-      <script src="lib/colorlib/js/jquery.steps.js"></script>
-      <script src="lib/colorlib/js/main.js"></script>
-  
-
-  <!-- Template Main Javascript File -->
-  <script src="js/main.js"></script>
-
-</body>
+  </body>
 </html>

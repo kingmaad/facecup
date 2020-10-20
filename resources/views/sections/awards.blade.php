@@ -239,6 +239,7 @@ a:hover {
 
 
 </style>
+@include('sections.head')
   </head>
 
   <body>

@@ -203,6 +203,7 @@ if (!c3.error) {
   font-family: "Samim" !important;
 }
 </style>
+@include('sections.head')
   </head>
 
   <body class="body-bg">
@@ -220,7 +221,7 @@ if (!c3.error) {
                         </div>
                         <form class="form-detail" action="/login" method="post" id="myform" >
                           @if (Session::has('message'))
-                            <div class="alert alert-danger text-center">{{ Session::get('message') }}</div>
+                            <div class="alert alert-{{ Session::has('type')? Session::get('type'):'danger' }} text-center">{{ Session::get('message') }}</div>
                           @endif
                             <h2 class="text-right">فرم ورود تیم</h2>
                             <div class="form-row text-right">
@@ -234,7 +235,7 @@ if (!c3.error) {
 
                             {{ csrf_field() }}
                             <div class="form-row-last text-center">
-
+                              <P>کلمه عبور خود را فراموش کرده اید؟<a href="/recoverPassword">بازیابی کلمه عبور</a></P>
                                 <input type="submit" name="register" class="register" value="ورود">
                             </div>
                         </form>

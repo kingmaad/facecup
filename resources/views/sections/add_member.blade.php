@@ -203,6 +203,7 @@ if (!c3.error) {
   font-family: "Samim" !important;
 }
 </style>
+@include('sections.head')
   </head>
 
   <body class="body-bg">

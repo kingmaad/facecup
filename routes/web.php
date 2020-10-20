@@ -32,12 +32,18 @@ Route::get('/signupTeam', function () {
 
 Route::get('/login', function () {
     if(session('user_id'))
-    return redirect()->action('teamController@index');
+        return redirect()->action('teamController@index');
     else
         return view('teamLogin');
 });
 
 Route::post('/login','teamController@login');
+
+Route::get('/recoverPassword',function(){
+    return view('recoverPassword');
+});
+Route::post('/recoverPassword','teamController@recoverPassword');
+
 Route::get('/changePassword','teamController@changePassword');
 Route::post('/changePassword','teamController@doChangePassword');
 Route::get('/logout',function(){
@@ -82,10 +88,8 @@ Route::get('/artificial-intelligence-progress',function(){
 });
 
 
-Route::get('/jobs',function(){
-    return view('sections.jobs');
-});
-
+Route::get('/jobs','indexController@jobs');
+Route::post('/saveCV', "indexController@saveCV");
 Route::get('/dashboard','teamController@Dashboard');
 
 Route::get('/awards',function(){
@@ -99,3 +103,25 @@ Route::get('/sponsor',function(){
 Route::get('/referee',function(){
     return view('sections.referee');
 });
+
+Route::get('/adminlogin',function(){
+    return view('admin.login');
+});
+
+// jobs
+Route::post('/adminlogin','adminController@login');
+Route::get('/jobs_list','adminController@jobs');
+Route::get('/job_add','adminController@job_add');
+Route::post('/job_add','adminController@job_create');
+Route::get('/job_edit/{id}','adminController@job_edit');
+Route::post('/job_update','adminController@job_update');
+
+// companies
+
+Route::get('/companies_list','adminController@companies');
+Route::get('/company_add','adminController@company_add');
+Route::post('/company_add','adminController@company_create');
+Route::get('/company_edit/{id}','adminController@company_edit');
+Route::post('/company_update','adminController@company_update');
+
+Route::get('/sponsors_list','adminController@sponsors');

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Job;
+use App\Jobrequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail as FacadesMail;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Mail;
 class indexController extends Controller
@@ -140,5 +143,51 @@ class indexController extends Controller
            $message->from($mail,$name);
         });
         
+     }
+     public function jobs(){
+        $jobs= Job::all();
+        return view('sections.jobs',['jobs'=>$jobs]);
+     }
+
+     public function saveCV(Request $request)
+     {
+        
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|min:4',
+            'cv_file' => 'required|mimes:pdf,xlx,csv,doc,docx',
+            'jobs' => 'required',
+
+            ],[
+                'mimes' => '(doc|docx|pdf|xlx|csv) لطفا فایل با فرمت مناسب وارد نمایید'
+            ]);
+        if($validator->fails())
+        {
+            return back()->withErrors($validator->messages());
+        }
+        else
+        {
+            if($request->file('cv_file'))
+               {
+                  $fileName = time().'.'.$request->file('cv_file')->getClientOriginalExtension();  
+                  $request->file('cv_file')->move(public_path('uploads/jobs/resume/'), $fileName);
+                  $cv_url='uploads/jobs/resume/'.$fileName;
+               
+               }
+            $jobs = $request->jobs;
+
+            $jobsArray = array();
+
+            foreach($jobs as $job){
+                $jobsArray[] = $job;
+            }
+            $job = New Jobrequest();
+            $job->full_name = $request->name;
+            $job->cv_url = $cv_url;
+            $job->jobs = json_encode($jobsArray);
+            $job->save();
+            Session::flash('message', "رزومه شما با موفقیت ارسال شد");
+            Session::flash('type', "success");
+            return back();
+        }
      }
 }

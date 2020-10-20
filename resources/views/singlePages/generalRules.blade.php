@@ -200,6 +200,7 @@ if (!c3.error) {
 }
 
 </style>
+@include('sections.head')
   </head>
 
   <body>

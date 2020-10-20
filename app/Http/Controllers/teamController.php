@@ -94,7 +94,6 @@ class teamController extends Controller
             $team->en_name = $data['en_name'];
             $team->fa_name = $data['fa_name'];
             $team->mobile = $data['mobile'];
-            //$team->otp=rand(1111,9999);
             $otp = rand(11111,99999);
             $team->otp=$otp;
             if($team->save())
@@ -104,11 +103,7 @@ class teamController extends Controller
                     'fa_name' => $data['fa_name'],
                     'mobile' => $data['mobile']
                 ]);
-                //$v=SmsSender::VerificationCode($otp,$data['mobile']);
-                //echo $this->verification($otp,$data['mobile']);
                 SmsSender::verificationCode($otp, $data['mobile']);
-                //var_dump($VerificationCode);
-
                 return response()->json([
                     'hasError' => false,
                 ]);
@@ -381,7 +376,39 @@ class teamController extends Controller
     {
         //
     }
-
+    public function recoverPassword(Request $request)
+    {
+        $data = $request->all();
+       
+        $validator = Validator::make($request->all(), [
+            'en_name' => 'required',
+            'mobile' => 'required'
+            ]);   
+        if ($validator->fails()) {
+            Session::flash('type', "danger");
+            Session::flash('message', "کاربری با چنین مشخصاتی در سیستم یافت نشد");
+            return back();
+        }
+        else
+            {
+                $team = Team::where('en_name',$data['en_name'])->where('mobile',$data['mobile'])->first();
+                if($team)
+                {
+                    $otp= rand(11111,99999);
+                    $team->update(['otp' => $otp]);
+                    SmsSender::verificationCode($otp, $data['mobile']);
+                    Session::flash('message', "کلمه عبور جدید شما ایجاد و از طریق پیامک برای شما ارسال شد");
+                    Session::flash('type', "success");
+                    return redirect('login');
+                }
+                else
+                {
+                    Session::flash('type', "danger");
+                    Session::flash('message', "کاربری با چنین مشخصاتی در سیستم یافت نشد");
+                    return back();
+                }
+            }
+    }
     public function check_en_name(Request $request)
     {
         $data = $request->all();
