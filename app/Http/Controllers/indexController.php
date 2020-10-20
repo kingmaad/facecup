@@ -183,8 +183,8 @@ class indexController extends Controller
             $job = New Jobrequest();
             $job->full_name = $request->name;
             $job->cv_url = $cv_url;
-            $job->jobs = json_encode($jobsArray);
             $job->save();
+            $job->jobs()->sync($request->jobs);
             Session::flash('message', "رزومه شما با موفقیت ارسال شد");
             Session::flash('type', "success");
             return back();

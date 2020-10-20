@@ -23,9 +23,9 @@
                 </a>
             </li>
             <li>
-                <a class="" href="/administrator/sponsor/list">
+                <a class="" href="/administrator/resume/list">
                     <i class="icon-user"></i>
-                    <span>حامیان</span>
+                    <span>رزومه های ارسالی</span>
                 </a>
             </li>
         </ul>

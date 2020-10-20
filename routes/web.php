@@ -123,7 +123,7 @@ Route::prefix('administrator')->middleware(['checkAdmin'])->group(function(){
         Route::get('/company/edit/{id}','adminController@company_edit');
         Route::get('/company/remove/{id}','adminController@company_delete');
         Route::post('/company/update','adminController@company_update');
-
+        Route::get('/resume/list','adminController@resumes');
         Route::get('/sponsor/list','adminController@sponsors');
 });
 Route::get('/administrator/login',function(){

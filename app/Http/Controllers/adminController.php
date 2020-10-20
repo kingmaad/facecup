@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Company;
 use App\Job;
+use App\Jobrequest;
 use App\Sponsor;
 use App\User;
 use Illuminate\Http\Request;
@@ -210,6 +211,12 @@ class adminController extends Controller
         else{
             return back();
         }
+    }
+    public function resumes()
+    {
+        # code...
+        $resumes= Jobrequest::all();
+        return view('admin.resumes_list',['resumes'=>$resumes]);
     }
     public function sponsors()
     {
