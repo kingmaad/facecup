@@ -331,6 +331,9 @@ if (!c3.error) {
                       
                      
                     </h2>
+                    <p class="text-center">
+                      <a class="custom-btn" href="/signupTeam">هم اکنون ثبت نام کنید</a>
+                    </p>
                     </div>
                           
                             
@@ -363,6 +366,9 @@ if (!c3.error) {
                         <br>جـــــــــایزه ویـــــــــژه
                       
                     </h1>
+                    <p class="text-center">
+                      <a class="custom-btn" href="/signupTeam">هم اکنون ثبت نام کنید</a>
+                    </p>
                     </div>               
               
                     </div>
@@ -475,45 +481,7 @@ if (!c3.error) {
         </div>
       </section>
 
-            <!--==========================
-      Venue Section
-    ============================-->
-    <section id="venue" class="wow fadeInUp">
 
-      <div class="container-fluid venue-gallery-container">
-        <div class="section-header">
-          <h2>حامیان مادی فیس کاپ</h2>
-        </div>
-        <div class="row no-gutters">
-          <div class="col col-xs-4">
-            <div class="venue-gallery">
-                <a href="/sponsor"><img src="/img/supporters/invite.png" alt="" class="img-fluid" /></a>
-            </div>
-          </div>
-          <div class="col col-xs-4">
-            <div class="venue-gallery">
-
-                <a href="https://www.sgi.ir/"><img src="/img/supporters/green.png" alt="" class="img-fluid" /></a>
-
-            </div>
-          </div>
-
-          <div class="col col-xs-4">
-            <div class="venue-gallery">
-              <a href="https://www.ghadirco.net/">
-                <img src="/img/supporters/qadir.jpg" alt="" class="img-fluid" />
-              </a>
-            </div>
-          </div>
-
-
-
-         
-
-
-        </div>
-      </div>
-    </section>
 
           <!--==========================
       Sponsors Section
@@ -521,33 +489,24 @@ if (!c3.error) {
     <section id="supporters" class="section-with-bg wow fadeInUp">
       <div class="container">
         <div class="section-header">
-          <h2>حامیان معنوی فیس کاپ</h2>
+          <h2>حامیان فیس کاپ</h2>
         </div>
 
         <div class="row no-gutters supporters-wrap clearfix">
+          @foreach ($sponsors as $sponsor)
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
-              <a href="https://www.nexterafactory.com/"><img src="img/supporters/Nextera-Enfold.png" class="img-fluid" alt="" /></a>
+              <a href="{{ $sponsor->website_url }}"><img src="{{ $sponsor->img_url }}" class="img-fluid" alt="{{ $sponsor->title }}" /></a>
+            </div>
+          </div>
+          @endforeach
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="supporter-logo">
+              <a href="/sponsor"><img src="/img/supporters/invite.png" class="img-fluid" alt="حامی ما شوید" /></a>
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <a href="http://utstpark.ir/"><img src="img/supporters/elmofanavari-park.png" class="img-fluid" alt="" /></a>
-            </div>
-          </div>
 
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <a href="https://www.sabteahval.ir/"><img src="img/supporters/sabtahval.png" class="img-fluid" alt="" /></a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <a href="https://isfahanhub.com/"><img src="img/supporters/hub.png" class="img-fluid" alt="" /></a>
-            </div>
-          </div>
 
 
 
@@ -747,10 +706,7 @@ if (!c3.error) {
                                     }
                                     else
                                     {
-                                      alert('خطایی رخ داده است');
-                                      console.log(response);
-                                      $('.success').text(response.success);
-                                      
+                                      alert(response.errors.email);                                      
                                     }                                    
                                 }
                                 },

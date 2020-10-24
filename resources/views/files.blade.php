@@ -239,89 +239,33 @@ a:hover {
 
 
 </style>
-@include('sections.head')
   </head>
 
-  <body class="text-center">
-    @include('sections.header-menu')
-    <main id="main" class="main-page">
+  <body class="body-bg text-center">
+    @include('sections.header-menu')    <main id="main" class="main-page">
       <!--==========================
       Speaker Details Section
     ============================-->
   
-<section class="home-blog bg-sand rtl" >
-    <div class="container bg-white p-5" >
-      <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+<section class="home-blog bg-sand rtl mt-5 pt-5">
+    <div class="container bg-white p-5 mt-5 mb-5" >
+      <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column mt-5 mb-5">
   
 
         <main role="main" class="inner cover mb-5">
-          @if(count($jobs))
-          <h1 class="cover-heading text-center color-orange">فرصتهای شغلی</h1>
-          
-          <form action="/saveCV" method="POST" class="" id="myform" enctype="multipart/form-data">
-            {{ csrf_field() }}
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>ردیف</th>
-                <th>عنوان </th>
-                <th>توضیحات</th>
-                <th>انتخاب</th>
-              </tr>
-            </thead>
-            <tbody>
-              @foreach ($jobs as $key=>$job)
-                  <tr>
-                    <td>{{ $key+1 }}</td>
-                    <td>{{ $job->title }}</td>
-                    <td>{{ $job->description }}</td>
-                    <td>
-                        
-                      @if ($job->expired)
-                          <button class="btn btn-secondary" disabled>منقضی شده</button>
-                      @else
-                      <input type="checkbox" name="jobs[]" value="{{ $job->id }}">
-                      @endif
-                      </td>
-                  </tr>
-              @endforeach
-              
-            </tbody>
-          </table>
-          <div class="form-row text-left">
-              <div class="text-danger w-100" id="errordiv" ></div>
-              @if ($errors->any())
-              @foreach ($errors->all() as $error)
-                <div class="alert alert-danger w-100 text-center">{{$error}}</div>
-              @endforeach
-               @endif  
-              @if (Session::has('message'))
-                <div class="alert alert-{{ Session::get('type') }} text-center w-100">{{ Session::get('message') }}</div>
-              @endif
-          </div>
-
-
-          <div class="form-row text-right">
-            <div class="form-group col-md-6">
-              <label for="name" style="width: 100%" >نام و نام خانوادگی</label>
-              <input type="text" name="name" class="form-control" id="name" placeholder="نام و نام خانوادگی خود را وارد نمایید">
-            </div>
-            <div class="form-group col-md-6">
-              <label for="cv_file" style="width: 100%" >آپلود فایل رزومه</label>
-              <input type="file" name="cv_file" class="form-control" id="cv_file" placeholder="فایل رزومه">
-            </div>
-          </div>
-          
-          <input type="submit" class="btn btn-lg btn-success" value="درخواست بررسی رزومه برای موقعیتهای شغلی">
-        </form>
-        @endif
-        <br>
-          <h1 class="cover-heading mt-5 pt-5"> معرفی فرصتهای شغلی شرکت شما</h1>
-          <p class="h3 mt-2 text-info text-center">فرصتهای شغلی خود را به ما معرفی کنید تا متخصصان و تیم های دانشجویی شرکت کننده در مسابقه سریعتر شما رو پیدا کنند.</p>
-          <p class="lead mt-4">
-            <a href="/sponsor" class="btn btn-lg btn-info">معرفی فرصتهای شغلی</a>
-          </p>
-
+          <h1 class="cover-heading">دریافت فایل های راهنما</h1>
+            @if ($updated)
+                <p class="lead">
+                    <a href="/get-files/get-docker-file" class="btn btn-lg btn-warning">دریافت داکرهای تست</a>
+                    <a href="/get-files/get-dataset-file" class="btn btn-lg btn-info">دریافت دیتاست نمونه</a>
+                </p>      
+            @else
+                <p class="lead text-warning">
+                    تا زمان تکمیل قبت نام امکان دریافت فایل راهنما وجود ندارد. لطفا ابتدا ثبت نام خود را تکمیل فرمایید
+                </p>
+                <a href="/TeamInfo" class="btn btn-lg btn-success">تکمیل ثبت نام تیم</a>
+            @endif
+            
         </main>
       
       
@@ -350,45 +294,7 @@ a:hover {
   <!-- #footer -->
 
   <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
-  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
-  <script>
-      var result;
-      $( "#myform" ).validate({
-          rules: {
-            'jobs[]': {
-                required: true,
-            },
-            name:{
-              required: true,
-            },
-            cv_file:{
-                required:true,
-                
-            }
-        },
-            messages: {
-              'jobs[]': {
-                    required: "حداقل باید یکی از فرصتهای شغلی را انتخاب کنید",
-                    
-                },
-                name: {
-                    required: "لطفا نام و نام خانوادگی خود را وارد کنید",
-                    
-                },
-                cv_file: {
-                    required: "لطفا فایل رزومه خود را بارگذاری کنید",
 
-                },
-        
-            },
-            errorPlacement: function(error, element) {
-            error.appendTo('#errordiv');
-   }
-      });
-     
-  </script>
   <!-- JavaScript Libraries -->
   <script src="lib/jquery/jquery.min.js"></script>
   <script src="lib/jquery/jquery-migrate.min.js"></script>

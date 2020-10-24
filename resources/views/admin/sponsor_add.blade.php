@@ -17,21 +17,21 @@
                         </header>
                         <div class="panel-body">
                             <div class="form">
-                                <form class="cmxform form-horizontal tasi-form" id="signupForm" method="post" action="/administrator/sponsor/update" enctype="multipart/form-data">
+                                <form class="cmxform form-horizontal tasi-form" id="signupForm" method="post" action="/administrator/sponsor/add" enctype="multipart/form-data">
                                     {{ csrf_field() }}
-                                    <input type="hidden" name="id" value="{{ $sponsor->id }}">
+                                    
                                     <div class="form-group ">
                                         <label for="title" class="control-label col-lg-2">عنوان</label>
                                         <div class="col-lg-10">
-                                            <input class=" form-control" id="title" name="title" type="text" value="{{ $sponsor->title }}"  />
+                                            <input class=" form-control" id="title" name="title" type="text"  />
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label for="type" class="control-label col-lg-2">نوع حامی</label>
                                         <div class="col-lg-10">
                                             <select name="type" id="type">
-                                                <option value="Financial" @if($sponsor->type=="Financial") selected @endif>مادی</option>
-                                                <option value="Spiritual" @if($sponsor->type=="Spiritual") selected @endif>معنوی</option>
+                                                <option value="Financial">مادی</option>
+                                                <option value="Spiritual">معنوی</option>
                                             </select>
                                         </div>
                                     </div>
@@ -39,7 +39,7 @@
                                     <div class="form-group ">
                                         <label for="website_url" class="control-label col-lg-2 col-sm-3">آدرس وب سایت حامی</label>
                                         <div class="col-lg-10 col-sm-9">
-                                            <input class=" form-control" id="website_url" name="website_url" type="text" value="{{ $sponsor->website_url }}"  />
+                                            <input class=" form-control" id="website_url" name="website_url" type="text"  />
                                             
                                             
                                         </div>
@@ -48,7 +48,6 @@
                                         <label for="expired" class="control-label col-lg-2 col-sm-3">لوگوی حامی</label>
                                         <div class="col-lg-10 col-sm-9">
                                             <input type="file" name="img_url">
-                                            <img src="{{ asset($sponsor->img_url) }}">
                                         </div>
                                     </div>
 

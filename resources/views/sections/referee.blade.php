@@ -289,7 +289,7 @@ a:hover {
               </tr>
               
               <tr>
-                <td class="vertical2" rowspan="10"><div class="vertical2">کمیته علمی (به ترتیب حروف الفبا)</div></td>
+                <td class="vertical2" rowspan="11"><div class="vertical2">کمیته علمی (به ترتیب حروف الفبا)</div></td>
                 <td>
                   دکتر سید امیر اصغری
                   </td>
@@ -345,6 +345,14 @@ a:hover {
               <tr>
                 
                 <td>
+                  دکتر کاظم فولادی قلعه
+                  </td>
+                <td><a href="https://rtis2.ut.ac.ir/cv/kfouladi" class="text-info">هیات علمی دانشگاه تهران
+                  </a></td>
+              </tr>
+              <tr>
+                
+                <td>
                   دکتر احسان الله کبیر
                   </td>
                 <td><a href="https://www.modares.ac.ir/pro/academic_staff/kabir" class="text-info">عضو هیات علمی دانشگاه تربیت مدرس
@@ -380,21 +388,26 @@ a:hover {
                   </a></td>
               </tr>
               <tr>
-                <td rowspan="2" class="vertical"><div class="vertical">مدعوین</div></td>
-                <td>
-                  مهندس حمید پارسایی
-                  </td>
-                <td>معاون فناوری اطلاعات و آمار جمعیتی
-                  سازمان ثبت احوال</td>
-              </tr>
-              <tr>
-                
+                <td rowspan="3" class="vertical"><div class="vertical">مدعوین</div></td>
                 <td>
                   مهندس رضا باقری اصل
                   </td>
                 <td>دبیر شورای اجرایی فناوری اطلاعات  
                   وزارت ارتباطات 
                   </td>
+                
+              </tr>
+              <tr>
+                <td>
+                  مهندس حمید پارسایی
+                  </td>
+                <td>معاون فناوری اطلاعات و آمار جمعیتی
+                  سازمان ثبت احوال</td>
+               
+              </tr>
+              <tr>
+                <td>دکتر جواد حسین زاده</td>
+                <td>ریاست مرکز آمار ایران</td>
               </tr>
 
               

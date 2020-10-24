@@ -23,6 +23,12 @@
                 </a>
             </li>
             <li>
+                <a class="" href="/administrator/sponsor/list">
+                    <i class="icon-check"></i>
+                    <span>اسپانسرها</span>
+                </a>
+            </li>
+            <li>
                 <a class="" href="/administrator/resume/list">
                     <i class="icon-user"></i>
                     <span>رزومه های ارسالی</span>

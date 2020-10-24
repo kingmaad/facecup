@@ -4,9 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Job;
 use App\Jobrequest;
+use App\Sponsor;
+use App\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Mail as FacadesMail;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Mail;
@@ -20,6 +24,8 @@ class indexController extends Controller
     public function index()
     {
         //
+        $sponsors = Sponsor::all();
+        return view('index',['sponsors' => $sponsors]);
     }
 
     /**
@@ -91,7 +97,9 @@ class indexController extends Controller
     {
         # code...
         $validator = Validator::make($request->all(), [
-            'email' => 'required|email|unique:newsletter']);
+            'email' => 'required|email|unique:newsletter'],[
+                'email.unique' => 'شما قبلا در خبرنامه ثبت نام کرده اید'
+            ]);
         if($validator->fails())
         {
             return response()->json(['hasError'=> true,'errors'=>$validator->messages()], 200);
@@ -189,5 +197,56 @@ class indexController extends Controller
             Session::flash('type', "success");
             return back();
         }
+     }
+
+     public function get_files()
+     {
+         # code...
+         $team = Team::where('id',session('user_id'))->first();
+         $updated = false;
+         if($team->team_type!=null)
+            $updated = true;
+         return view('files',['updated' => $updated]);
+     }
+
+     public function get_docker_file()
+     {
+         # code...
+         if(session('user_id')!=null)
+         {
+            $team = Team::where('id',session('user_id'))->first();
+            if($team->team_type!=null)
+            {
+                $file = File::get(public_path('files/docker.zip'));
+                $response = Response::make($file, 200);
+                $response->header('Content-Type', 'application/zip');
+                return $response;
+            }
+         }
+         else
+         {
+             redirect('/');
+         }
+     }
+
+     public function get_dataset_file()
+     {
+         # code...
+         if(session('user_id')!=null)
+         {
+            $team = Team::where('id',session('user_id'))->first();
+            if($team->team_type!=null)
+            {
+                $file = File::get(public_path('files/dataset.zip'));
+                $response = Response::make($file, 200);
+                $response->header('Content-Type', 'application/zip');
+                return $response;
+            }
+         }
+         else
+         {
+             redirect('/');
+         }
+         
      }
 }

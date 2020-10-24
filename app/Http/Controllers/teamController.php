@@ -131,7 +131,7 @@ class teamController extends Controller
         {
             $team = Team::where('en_name',$data['en_name'])->where('otp' , $data['password'])->first();
             
-            if($team && $team->isVerified)
+            if($team)
             {
                 session([
                     'user_id'=>$team->id,
@@ -147,6 +147,104 @@ class teamController extends Controller
                 return back();
             }
         }
+    }
+    public function changeNumber()
+    {
+        $user_id = session('user_id');
+
+        if($user_id)
+        {
+            $team = Team::where('id',$user_id)->first();
+            if($team->isVerified)
+                return redirect('dashboard');
+            else
+                return view('changeNumber',['mobile_number'=>$team->mobile]);
+        }
+        else 
+        {
+            return back();
+        }
+
+    }
+    public function edit_number(Request $request){
+        $validate = Validator::make($request->all(),[
+            'mobile_number' => 'required'
+        ]);
+        if($validate->fails())
+        {
+            return back();
+        }
+        else
+        {
+            $user_id= session('user_id');
+            $team = Team::where('id',$user_id)->first();
+            $otp = rand(11111,99999);
+
+            if($request->mobile_number!=$team->mobile)
+                $team->update([
+                    'otp' => $otp,
+                    'mobile' => $request->mobile_number
+                    ]);
+            else
+                $team->update([
+                    'otp' => $otp,
+                    ]);    
+            SmsSender::verificationCode($otp, $request->mobile_number);
+            return redirect('/VerifyAccount');
+
+        }
+
+    }
+    public function resendPassword()
+    {
+        $user_id= session('user_id');
+        $team = Team::where('id',$user_id)->first();
+        $otp = rand(11111,99999);
+        if($user_id)
+        {
+            $team->update([
+                'otp' => $otp,
+                ]);    
+            SmsSender::verificationCode($otp, $team->mobile);
+            return redirect('/VerifyAccount');
+        }
+        else 
+            return redirect('/');
+        
+
+    }
+    public function verifyAccount()
+    {
+        return view('verifyAccount');
+    }
+    public function verifyCode(Request $request)
+    {
+        $validate = Validator::make($request->all(),[
+            'otp' => 'required'
+        ]);
+        
+        $user_id = session('user_id');
+
+        if($validate->fails())
+        {
+            return back();
+        }
+        else
+        {
+            $otp = Team::where('otp',$request->otp)->where('id',$user_id)->first();
+
+                if($otp && $request->otp!=0)
+                {
+                    
+                    if($otp->update(['isVerified' => 1]))
+                        return redirect('dashboard');
+                }
+                else
+                {
+                    return response()->json(['errorCode'=>98,'hasError'=> true], 200);
+                }
+            
+        }   
     }
 
     public function changePassword()

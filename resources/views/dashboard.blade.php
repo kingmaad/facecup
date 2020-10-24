@@ -247,19 +247,30 @@ a:hover {
       Speaker Details Section
     ============================-->
   
-<section class="home-blog bg-sand rtl" style="height: 550px; padding-top:100px;">
+<section class="home-blog bg-sand rtl">
     <div class="container bg-white p-5" >
       <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
   
 
         <main role="main" class="inner cover mb-5">
-          <h1 class="cover-heading">داشبورد</h1>
+          <h1 class="cover-heading">داشبورد تیم</h1>
           <p class="lead">تیم {{ $team_name }} عزیز، خوش آمدید</p>
+          <p class="text-justify h5">
+            شما میتوانید پس از تکمیل ثبت نام، فایلهای راهنما و داده های نمونه را دانلود کنید. پس از نهایی سازی کدهای خود تا تاریخ 15 بهمن ماه فرصت دارید که فایل های موتور خود را در قالب داکر با فرمت مشخص شده در بخش قوانین فنی (لینک) از طریق دکمه اارسال کد ارسال فرمایید. تا قبل از ساعت 24 تاریخ روز 14 بهمن ماه 99 می توانید به دفعات کد خود را حذف و ویرایش نمایید. ولی در این تاریخ دسترسی بسته خواهد. شد و آخرین کد شما جهت ارزیابی با داده های واقعی روی سیستم مشخص شده اجرا و نتایج آن مورد ارزیابی قرار می گیرد. پس از بررسی تمامی کدهای ارسال شده تمامی تیم‏ ها، نتایج تیم شما از طریق دکمه مشاهده نتایج رتبه بندی قابل دسترس خواهد بود. همچنین جهت دریافت گواهی شرکت در مسابقه و گواهی رتبه نیز در تاریخ مشخص شده می توانید به همین پنل خود مراجعه فرمایید
+            <br>
+
+          </p>
+          <p class="text-success h5">مشخصات سیستم اجرایی مسابقه به شرح زیر است. جهت آشنایی با قوانی فنی و نحوه استفاده از داکر ها کلیک کنید</p>
+          <p class="h3 text-danger mb-3">مشخصات سیستم<br>
+            Geforce 1080<br>
+            Core i7 3.2GHz<br>
+            RAM 16G</p>
           <p class="lead">
             <a href="/TeamInfo" class="btn btn-lg btn-success">تکمیل ثبت نام تیم</a>
-            <button href="/file.zip" class="btn btn-lg btn-primary" disabled>ارسال کد</button>
-            <a href="/file.zip" class="btn btn-lg btn-warning">دریافت کد راهنما</a>
+            
+            <a href="/get-files" class="btn btn-lg btn-warning">دریافت کد راهنما</a>
             <a href="/changePassword" class="btn btn-lg btn-info">تغییر رمز</a>
+            <button href="/file.zip" class="btn btn-lg btn-default border border-dark border-dash" title="بزودی این قسمت فعال خواهد شد" disabled>ارسال کد</button>
           </p>
         </main>
       

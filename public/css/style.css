@@ -21,7 +21,22 @@ a {
   color: #fb6834;
   transition: 0.5s;
 }
-
+.custom-btn{
+    color: #fff;
+    background: #fb6834;
+    padding: 7px 22px;
+    border-radius: 50px;
+    border: 2px solid #fb6834;
+    transition: all ease-in-out 0.3s;
+    font-weight: 500;
+    margin-left: 8px;
+    margin-top: 2px;
+    line-height: 1;
+    font-size: 13px;
+}
+.custom-btn:hover {
+  background: none;
+}
 a:hover,
 a:active,
 a:focus {

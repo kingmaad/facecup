@@ -198,145 +198,112 @@ if (!c3.error) {
     -o-transition: 0.6s ease-in-out left;
     transition: 0.6s ease-in-out left;
 }
-/*
- * Globals
- */
-
-/* Links */
-a,
-a:focus,
-a:hover {
-  color: #fff;
+.register 
+{
+  font-family: "Samim" !important;
 }
-
-/* Custom default button */
-.btn-secondary,
-.btn-secondary:hover,
-.btn-secondary:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritance from `body` */
-  background-color: #fff;
-  border: .05rem solid #fff;
-}
-
-
-
-
-
-
-
-/*
- * Cover
- */
-.cover {
-  padding: 0 1.5rem;
-}
-.cover .btn-lg {
-  padding: .75rem 1.25rem;
-  font-weight: 700;
-}
-
-
-
 </style>
 @include('sections.head')
   </head>
 
-  <body>
+  <body class="body-bg">
     @include('sections.header-menu')
-    <main id="main" class="main-page" >
-      <!--==========================
-      Speaker Details Section
-    ============================-->
-  
-<section class="home-blog bg-sand rtl">
-    <div class="container bg-white p-5" >
-      <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-  
 
-        <main role="main" class="inner cover mb-5 rtl text-right">
-          <img src="/img/Award-Winners.jpg" class="img-fluid">
-          <h1 class="cover-heading text-center">جوایز</h1>
-          <p class="lead">
+ 
 
-          <h4 class=" text-right text-justify">•	پکیج نکسترا برای تیم اول شامل یک سال فضای کار نکسترا + جایزه نقدی  150.000.000 ریال +حمایت از مقالات و پایان نامه ها است.</h4>
-          </p>
-          <p class="lead">
+    <main id="main" class="main-page">
+        <section id="speakers-details" class="wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+            <div class="container">
+              <div class="row">
+                <div class="page-content">
+                    <div class="form-v2-content">
+                        <div class="form-left">
+                            <img src="lib/registrationform/images/form-v1.jpg" alt="form">
 
-            <h4 class=" text-right text-justify">•	پکیج نکسترا برای تیم دوم شامل 6 ماه فضای کار نکسترا +جایزه نقدی 100.000.000 ریال  + حمایت از مقالات و پایان نامه ها است.</h4>
-            </p>
-            <p class="lead">
+                        </div>
+                        <form class="form-detail" action="/ChangeMobileNumber" method="post" id="otp-validation">
 
-              <h4 class=" text-right text-justify">•	پکیج نکسترا برای تیم سوم شامل 3 ماه فضای کار نکسترا +جایزه نقدی  50.000.000 ریال + حمایت از مقالات و پایان نامه ها است.</h4>
-              </p>
-              <p class="lead">
-                <h4 class="text-success text-justify">
-                  جایزه ویژه: در صورتیکه تیم برتر با FTE<0.001 در FMR=0.0001 میزان خطای FNMR<0.02  بدست آورد، جایزه اضافی 30 میلیون تومان توسط شرکت طرح و پردازش غدیر به تیم برتر اعطا می گردد
-                </h4>
-              </p>
-              <p class="lead">
-                  <h4 class="text-success text-justify">
-                    شرکت سپید سیستم شریف در جهت حمایت از رویداد جزو حامیان مادی 
-    '' بسته الماس'' قرار گرفت.
-                  </h4>
-              </p>
-              <hr>
-              <p class="text-center h3 text-info">
-                شما هم مي توانيد جوايز خاص با اهداف خاص تعريف كنيد
-                <br>
-                <a href="/sponsor"><img src="/img/supporters/invite.png" height="300" alt=""/></a>
-                
-              </p>
-        </main>
-      
-      
-      </div>
+                          <br><br>
+                          
+                          <h6 class="text-right">اصلاح شماره موبایل </h6>
+                          <div class="form-row text-right">
+                              <label for="mobile_number">شماره موبایل خود را اصلاح نمایید</label>
+                              <input type="text" name="mobile_number" id="mobile_number" class="input-text english" value="{{ $mobile_number }}" placeholder="رمز یکبار مصرف را وارد کنید" required pattern="09(1[0-9]|2[0-9]|3[0-9]|0[0-9]|9[0-9])-?[0-9]{3}-?[0-9]{4}">
+                          </div>
+                          {{ csrf_field() }}
+                          <div class="form-row text-center">
+                              <input type="submit" name="register" class="btn btn-success text-white" value="اصلاح شماره و ارسال کلمه عبور جدید">
+                          </div>
 
-	</div>
-</section>
-     
+                        </form>
+                        
+                    </div>
+                        
+                    </div>
+                </div>
+                <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+                <script>
+                    
+                    $( "#otp-validation" ).validate({
+                      
+                          messages: {
+                            mobile_number: {
+                                  required: "شماره موبایل خود را وارد کنید",
+                                  pattern : "شماره موبایل معتبر وارد کنید. مثال: 09123456789"
+                              },
+                              
+                          },
+                          
+                    });
+                   
+                </script>
+              </div>
+              
+            </div>
+          </section>
     </main>
 
-     <!--==========================
+    <!--==========================
     Footer
   ============================-->
-
-  <footer id="footer">
+    <footer id="footer">
      
 
-    <div class="container">
-      <div class="copyright">
-        © ۱۳۹9 | تمامی حقوق این وب سایت متعلق به فیسکاپ می باشد. | Powered by facecup
+      <div class="container">
+        <div class="copyright">
+          © ۱۳۹9 | تمامی حقوق این وب سایت متعلق به فیسکاپ می باشد. | Powered by facecup
 
+        </div>
+      
       </div>
+    </footer>
+    <!-- #footer -->
+
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/jquery/jquery-migrate.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/superfish/hoverIntent.js"></script>
+    <script src="lib/superfish/superfish.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/venobox/venobox.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Form JavaScript File -->
+    <script src="contactform/contactform.js"></script>
+
+    <!-- colorlib form registration -->
+        <script src="lib/colorlib/js/jquery.steps.js"></script>
+	    <script src="lib/colorlib/js/main.js"></script>
     
-    </div>
-  </footer>
-  <!-- #footer -->
 
-  <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+    <!-- Template Main Javascript File -->
+    <script src="js/main.js"></script>
 
-  <!-- JavaScript Libraries -->
-  <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/jquery/jquery-migrate.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
-  <script src="lib/superfish/hoverIntent.js"></script>
-  <script src="lib/superfish/superfish.min.js"></script>
-  <script src="lib/wow/wow.min.js"></script>
-  <script src="lib/venobox/venobox.min.js"></script>
-  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-  <!-- Contact Form JavaScript File -->
-  <script src="contactform/contactform.js"></script>
-
-  <!-- colorlib form registration -->
-      <script src="lib/colorlib/js/jquery.steps.js"></script>
-      <script src="lib/colorlib/js/main.js"></script>
-  
-
-  <!-- Template Main Javascript File -->
-  <script src="js/main.js"></script>
-
-</body>
+  </body>
 </html>

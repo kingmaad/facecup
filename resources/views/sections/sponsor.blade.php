@@ -262,7 +262,7 @@ a:hover {
             اگر به حمایت از مسابقه فیسکاپ علاقه مندید لطفا برای دریافت اطلاعات بیشتر،با ایمیل ما در ارتباط باشید.
           </p>
           <p class="h3 text-center p-s4">
-            <a href="/files/facecup_finalsponsership.pdf" class="text-info">لینک دریافت پروپزال رویداد</a>
+            <a href="/files/facecup_finalsponsership.pdf" class="text-info"> دریافت پروپزال رویداد</a>
           </p>
           <div class="table-responsive">
             <table class="table table-striped ">

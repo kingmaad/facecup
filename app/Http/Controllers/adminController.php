@@ -9,6 +9,7 @@ use App\Sponsor;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
@@ -222,9 +223,89 @@ class adminController extends Controller
     {
         # code...
         $sponsors = Sponsor::all();
-        return view('admin.jobs',['sponsors' => $sponsors]);
+        return view('admin.sponsors',['sponsors' => $sponsors]);
     }
 
+    public function sponsor_add(Type $var = null)
+    {
+        # code...
+        return view('admin.sponsor_add');
+    }
+    public function sponsor_create(Request $request)
+    {
+        $validate = Validator::make($request->all(),[
+            'title' => 'required',
+            'website_url' => 'required',
+            'img_url' => 'required|mimes:jpg,jpeg,png,svg',
+            'type' => 'required'
+        ]);
+        if($validate->fails())
+        {
+            dd($validate->messages());
+            return back();
+        }
+        else{
+            $sponsor = new Sponsor();
+            $sponsor->title = $request->title;
+            $sponsor->type = $request->type;
+            $sponsor->website_url = $request->website_url;
+            
+            $fileName = time().'.'.$request->file('img_url')->getClientOriginalExtension();  
+            $request->file('img_url')->move(public_path('img/supporters/'), $fileName);
+            $img_url='img/supporters/'.$fileName;
+            $sponsor->img_url=$img_url;
+            if($sponsor->save())
+                return redirect('/administrator/sponsor/list');
+
+        }
+
+    }
+
+    public function sponsor_edit($id)
+    {
+
+        return view('admin.sponsor_edit',['sponsor' => Sponsor::where('id',$id)->first()]);
+    }
+
+    public function sponsor_update(Request $request)
+    {
+
+        $validate = Validator::make($request->all(),[
+            'id' => 'required',
+            'title' => 'required',
+            'website_url' => 'required',
+            'img_url' => 'required|mimes:jpg,jpeg,png,svg',
+            'type' => 'required'
+        ]);
+        if($validate->fails())
+        {
+            dd($validate->messages());
+            return back();
+        }
+        else{
+            $sponsor = Sponsor::where('id',$request->id)->first();
+            $sponsor->title = $request->title;
+            $sponsor->type = $request->type;
+            $sponsor->website_url = $request->website_url;
+            if($request->img_url)
+            {
+                File::delete($sponsor->img_url);
+                $fileName = time().'.'.$request->file('img_url')->getClientOriginalExtension();  
+                $request->file('img_url')->move(public_path('img/supporters/'), $fileName);
+                $img_url='img/supporters/'.$fileName;
+                $sponsor->img_url=$img_url;
+            }
+            
+            if($sponsor->save())
+                return redirect('/administrator/sponsor/list');
+
+        }
+    }
+
+    public function sponsor_delete()
+    {
+
+    }
     /**
      * Display a listing of the resource.
      *

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Team extends Model
 {
-    protected $fillable=['isVerified','otp'];
+    protected $fillable=['isVerified','otp','mobile'];
     
     public function members()
     {

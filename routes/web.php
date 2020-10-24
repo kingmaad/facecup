@@ -13,22 +13,42 @@
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function () {
-    return view('index');
-});
-Route::get('/about', function () {
-    return view('singlePages.aboutUs');
-});
-Route::get('/TeamInfo', "teamController@index");
-Route::post('/TeamInfo', "teamController@update");
-Route::get('/AddMember', "memberController@create");
-Route::post('/AddMember', "memberController@store");
+Route::get('/', 'indexController@index');
 
-Route::get('/removeMember/{id}', "memberController@destroy");
 
+Route::group(['middleware' => ['isVerified']], function () {
+    //
+    Route::get('/dashboard','teamController@Dashboard');
+    Route::get('/TeamInfo', "teamController@index");
+    Route::post('/TeamInfo', "teamController@update");
+    Route::get('/AddMember', "memberController@create");
+    Route::post('/AddMember', "memberController@store");
+    Route::get('/changePassword','teamController@changePassword');
+    Route::post('/changePassword','teamController@doChangePassword');
+    Route::get('/removeMember/{id}', "memberController@destroy");
+    Route::get('/get-files','indexController@get_files');
+    Route::get('/get-files/get-docker-file','indexController@get_docker_file');
+    Route::get('/get-files/get-dataset-file','indexController@get_dataset_file');
+
+    
+});
 Route::get('/signupTeam', function () {
     return view('team_registration');
 });
+Route::get('/resend','teamController@resendPassword');
+
+Route::get('/about', function () {
+    return view('singlePages.aboutUs');
+});
+
+
+Route::get('/ChangeMobileNumber','teamController@changeNumber');
+Route::post('/ChangeMobileNumber','teamController@edit_number');
+
+Route::get('/VerifyAccount','teamController@verifyAccount');
+Route::post('/VerifyAccount','teamController@verifyCode');
+
+
 
 Route::get('/login', function () {
     if(session('user_id'))
@@ -44,11 +64,9 @@ Route::get('/recoverPassword',function(){
 });
 Route::post('/recoverPassword','teamController@recoverPassword');
 
-Route::get('/changePassword','teamController@changePassword');
-Route::post('/changePassword','teamController@doChangePassword');
 Route::get('/logout',function(){
     session()->forget('user_id');
-    return view('index');
+    return redirect('/');
 });
 
 Route::post('/reg','teamController@store');
@@ -90,7 +108,7 @@ Route::get('/artificial-intelligence-progress',function(){
 
 Route::get('/jobs','indexController@jobs');
 Route::post('/saveCV', "indexController@saveCV");
-Route::get('/dashboard','teamController@Dashboard');
+
 
 Route::get('/awards',function(){
     return view('sections.awards');
@@ -123,8 +141,17 @@ Route::prefix('administrator')->middleware(['checkAdmin'])->group(function(){
         Route::get('/company/edit/{id}','adminController@company_edit');
         Route::get('/company/remove/{id}','adminController@company_delete');
         Route::post('/company/update','adminController@company_update');
+        
+        // resume
         Route::get('/resume/list','adminController@resumes');
+       
+        // sponsors
         Route::get('/sponsor/list','adminController@sponsors');
+        Route::get('/sponsor/add','adminController@sponsor_add');
+        Route::post('/sponsor/add','adminController@sponsor_create');
+        Route::get('/sponsor/edit/{id}','adminController@sponsor_edit');
+        Route::get('/sponsor/remove/{id}','adminController@sponsor_delete');
+        Route::post('/sponsor/update','adminController@sponsor_update');
 });
 Route::get('/administrator/login',function(){
     return view('admin.login');
