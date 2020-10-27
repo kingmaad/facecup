@@ -83,7 +83,7 @@ if (!c2.error) {
     console.error(c2.error);
 }
 
-let c3 = new CountUp('c3Element', 60, options);
+let c3 = new CountUp('c3Element', 75, options);
 if (!c3.error) {
   c3.start();
   } else {
@@ -344,19 +344,19 @@ if (!c3.error) {
                   <div class="min-vh-100 slider-two-bg">
                      <div id="carousel-header-slide2-text-one" class="carousel-header-slide2-text-one rtl" style="width: 600px;">
                       <h1 class="text-center">
-                        <span class=""> 60 </span>میلیون تومان جایزه  
+                        <span class=""> 75 </span>میلیون تومان جایزه  
                       
                       </h1>
                       <h2 class="text-center">
-                        <span> 15 </span>میلیون تومان جایزه تیم اول 
+                        <span> 20 </span>میلیون تومان جایزه تیم اول 
                     
                       </h2>
                       <h3 class="text-center">
-                        <span> 10 </span>میلیون تومان جایزه تیم دوم   
+                        <span> 15 </span>میلیون تومان جایزه تیم دوم   
                   
                       </h3>
                       <h3 class="text-center">
-                        <span> 5 </span>میلیون تومان جایزه تیم سوم
+                        <span> 10 </span>میلیون تومان جایزه تیم سوم
                       
                       </h3>
                      </div>   
@@ -473,7 +473,7 @@ if (!c3.error) {
               <div class="contact-email">
                 <i class="ion-ios-email-outline"></i>
                 <h1><i class="fa fa-money"></i><span id="c3Element" class="m-4">20</span></h1>
-                <p>بیشتر از 60 میلیون تومان جایزه نقدی</p>
+                <p>بیشتر از 75 میلیون تومان جایزه نقدی</p>
               </div>
             </div>
 

@@ -259,15 +259,15 @@ a:hover {
           <h1 class="cover-heading text-center">جوایز</h1>
           <p class="lead">
 
-          <h4 class=" text-right text-justify">•	پکیج نکسترا برای تیم اول شامل یک سال فضای کار نکسترا + جایزه نقدی  150.000.000 ریال +حمایت از مقالات و پایان نامه ها است.</h4>
+          <h4 class=" text-right text-justify">•	پکیج نکسترا برای تیم اول شامل یک سال فضای کار نکسترا + جایزه نقدی  200.000.000 ریال +حمایت از مقالات و پایان نامه ها است.</h4>
           </p>
           <p class="lead">
 
-            <h4 class=" text-right text-justify">•	پکیج نکسترا برای تیم دوم شامل 6 ماه فضای کار نکسترا +جایزه نقدی 100.000.000 ریال  + حمایت از مقالات و پایان نامه ها است.</h4>
+            <h4 class=" text-right text-justify">•	پکیج نکسترا برای تیم دوم شامل 6 ماه فضای کار نکسترا +جایزه نقدی 150.000.000 ریال  + حمایت از مقالات و پایان نامه ها است.</h4>
             </p>
             <p class="lead">
 
-              <h4 class=" text-right text-justify">•	پکیج نکسترا برای تیم سوم شامل 3 ماه فضای کار نکسترا +جایزه نقدی  50.000.000 ریال + حمایت از مقالات و پایان نامه ها است.</h4>
+              <h4 class=" text-right text-justify">•	پکیج نکسترا برای تیم سوم شامل 3 ماه فضای کار نکسترا +جایزه نقدی  100.000.000 ریال + حمایت از مقالات و پایان نامه ها است.</h4>
               </p>
               <p class="lead">
                 <h4 class="text-success text-justify">
@@ -284,7 +284,7 @@ a:hover {
               <p class="text-center h3 text-info">
                 شما هم مي توانيد جوايز خاص با اهداف خاص تعريف كنيد
                 <br>
-                <a href="/sponsor"><img src="/img/supporters/invite.png" height="300" alt=""/></a>
+                <a href="/sponsor"><img src="/img/supporters/invite.png"  class="img-fluid rounded-circle m-4" alt=""/></a>
                 
               </p>
         </main>

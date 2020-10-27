@@ -31,6 +31,7 @@ class teamController extends Controller
             'organ_dependence' => $team->organ_dependence,
             'team_leader_name' => $team->team_leader_name,
             'team_leader_family' => $team->team_leader_family,
+            'team_type' => $team->team_type,
             'degree' => $team->degree,
             'major' => $team->major,
             'university' => $team->university,    

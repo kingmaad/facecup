@@ -30,7 +30,7 @@
           <li><a href="/jobs">فرصت های شغلی</a></li>
 
           <li><a href="awards">جوایز</a></li>
-          <li><a href="/#venue">حامیان</a></li>
+          <li><a href="/#supporters">حامیان</a></li>
           <li class="dropdown rtl">
             <a href="#">درباره مسابقه</a>
             <ul class="dropdown-menu dropdown-menu-right">

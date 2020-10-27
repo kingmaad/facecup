@@ -218,7 +218,7 @@ if (!c3.error) {
                 <div class="page-content">
                     <div class="form-v2-content form-v3-content">
                         <div class="container">
-                            <div class="row">
+                            <div class="row" dir="rtl">
                               
                                 <form class="form-detail" action="TeamInfo" method="post" id="myform" enctype="multipart/form-data">
                                   @if ($errors->any())
@@ -230,81 +230,115 @@ if (!c3.error) {
                                     <div class="alert alert-{{ Session::get('type') }}">{{ Session::get('message') }}</div>
                                   @endif
                                   <h2 class="text-right">فرم ثبت نام تیم</h2>
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                          <div class="form-row text-right">
-                                            <label for="en_name"> :نام لاتین </label>
-                                            <input type="text" disabled value="{{ $en_name }}" id="en_name" class="input-text text-right" required>
-                                        </div>
-                                            <div class="form-row text-right" id="dependece_section" style="visibility: hidden">
-                                                <label for="organ_dependence" id="dependence_title">وابستگی سازمانی</label>
-                                                <input type="text" name="organ_dependence" value="{{ $organ_dependence }}" id="organ_dependence" class="input-text text-right" required>
-                                            </div>
-                                            <div class="form-row text-right">
-                                                <label for="team_leader_family">نام خانوادگی سرگروه</label>
-                                                <input type="text" name="team_leader_family" value="{{ $team_leader_family }}" id="team_leader_family" class="input-text text-right" required>
-                                            </div>
-                                            <div class="form-row text-right">
-                                                <label for="university">دانشگاه</label>
-                                                <input type="text" name="university" value="{{ $university }}" id="university" class="input-text text-right" required >
-                                            </div>
-                                            <div class="form-row text-right">
-                                                <label for="cv_url">فایل رزومه</label>
-                                                <form class="md-form">
-                                                    <div class="file-field">
-                                                      <div class="btn btn-sm float-left">
-                                                        <span>Choose file</span>
-                                                        <input type="file" name="cv_url">
-                                                      </div>
-                                                      
-                                                    </div>
-                                                  </form>
-                                            </div>
-                                            {{ csrf_field() }}
-                                            
-                                        </div>  
-                                        <div class="col-lg-6">
-                                          <div class="form-row text-right">
-                                            <label for="team_leader_name">نام تیم </label>
-                                            <input type="text" value=" {{ $fa_name }}" disabled class="input-text text-right" required>
-                                        </div>  
-
-                                            <div class="form-row text-right">
-                                                <label for="team_type">نوع تیم</label>
-                                                <select class="input-text text-right rtl" style="height: 55px;width:91%" name="team_type" onchange="changeType(this)">
-                                                    <option value="1">آزاد</option>
-                                                    <option value="2">دانشجویی</option>
-                                                    <option value="3">شرکتی</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-row text-right">
-                                                <label for="team_leader_name">نام سرگروه</label>
-                                                <input type="text" value="{{ $team_leader_name }}" name="team_leader_name" id="team_leader_name" class="input-text text-right" required>
-                                            </div>
-                                            <div class="form-row text-right">
-                                                <label for="degree">مدرک تحصیلی</label>
-                                                <select class="input-text text-right rtl" style="height: 55px;width:91%" name="team_type">
-                                                  <option value="1">دانشجوی کارشناسی</option>
-                                                  <option value="2">کارشناسی</option>
-                                                  <option value="3">دانشجوی ارشد</option>
-                                                  <option value="4">ارشد</option>
-                                                  <option value="5">دانشجوی دکترا</option>
-                                                  <option value="6">دکترا</option>
-                                              </select>
-                                            </div>
-                                            <div class="form-row text-right">
-                                                <label for="major">رشته تحصیلی</label>
-                                                <input type="text" value="{{ $major }}" name="major" id="major" class="input-text text-right" required >
-                                            </div>
-                                        </div>  
-                                        <div class="col-lg-12">
-                                          <div class="text-center">
-                                            <input type="submit" name="register" class="register" value="تایید">
-                                        </div>
-                                        </div>
+                                  <div class="row">
+                                    <div class="col-lg-6">
+                                      <div class="form-row text-right">
+                                        <label for="team_leader_name">نام تیم </label>
+                                        <input type="text" value=" {{ $fa_name }}" disabled class="input-text text-right" tabindex="1" required>
                                     </div>
-        
+                                    </div>
+                                    <div class="col-lg-6">
+                                      <div class="form-row text-right">
+                                        <label for="en_name"> :نام لاتین </label>
+                                        <input type="text" disabled value="{{ $en_name }}" id="en_name" class="input-text text-right" tabindex="2" required>
+                                    </div>
+                                    </div>
                                     
+                                    
+                                  </div>  
+                                  <div class="row">
+                                   
+                                    <div class="col-lg-6">
+                                      <div class="form-row text-right">
+                                        <label for="team_type">نوع تیم</label>
+                                        <select class="input-text text-right rtl" style="height: 55px;width:91%" id="team_type" name="team_type" tabindex="3" onchange="changeType(this)">
+                                            <option value="1" @if ($team_type=="1") selected @endif>آزاد</option>
+                                            <option value="2" @if ($team_type=="2") selected @endif>دانشجویی</option>
+                                            <option value="3" @if ($team_type=="3") selected @endif>شرکتی</option>
+                                        </select>
+                                    </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                      <div class="form-row text-right" id="dependece_section" style="visibility: hidden">
+                                        <label for="organ_dependence" id="dependence_title">وابستگی سازمانی</label>
+                                        <input type="text" name="organ_dependence" value="{{ $team_type=="1" ? '-' : $organ_dependence }}" id="organ_dependence" class="input-text text-right" tabindex="4">
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                   
+                                    <div class="col-lg-6">
+                                      <div class="form-row text-right">
+                                        <label for="team_leader_name">نام سرگروه</label>
+                                        <input type="text" value="{{ $team_leader_name }}" name="team_leader_name" id="team_leader_name" class="input-text text-right" tabindex="5" required>
+                                    </div>
+                                      
+                                    </div>
+                                    <div class="col-lg-6">
+                                      <div class="form-row text-right">
+                                        <label for="team_leader_family">نام خانوادگی سرگروه</label>
+                                        <input type="text" name="team_leader_family" value="{{ $team_leader_family }}" id="team_leader_family" class="input-text text-right" tabindex="6" required>
+                                    </div>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    
+                                    <div class="col-lg-6">
+                                      <div class="form-row text-right">
+                                        <label for="degree">مدرک تحصیلی</label>
+                                        <select class="input-text text-right rtl" style="height: 55px;width:91%" name="degree" tabindex="7">
+                                          <option value="1" @if ($degree=="1") selected @endif>دانشجوی کارشناسی</option>
+                                          <option value="2" @if ($degree=="2") selected @endif>کارشناسی</option>
+                                          <option value="3" @if ($degree=="3") selected @endif>دانشجوی ارشد</option>
+                                          <option value="4" @if ($degree=="4") selected @endif>ارشد</option>
+                                          <option value="5" @if ($degree=="5") selected @endif>دانشجوی دکترا</option>
+                                          <option value="6" @if ($degree=="6") selected @endif>دکترا</option>
+                                      </select>
+                                    </div>
+                                      
+                                    </div>
+                                    <div class="col-lg-6">
+                                      <div class="form-row text-right">
+                                        <label for="university">دانشگاه</label>
+                                        <input type="text" name="university" value="{{ $university }}" id="university" class="input-text text-right" tabindex="8" required >
+                                    </div>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-lg-6">
+                                      <div class="form-row text-right">
+                                        <label for="major">رشته تحصیلی</label>
+                                        <input type="text" value="{{ $major }}" name="major" id="major" class="input-text text-right" tabindex="9" required >
+                                    </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                      <div class="form-row text-right">
+                                        <label for="cv_url">فایل رزومه</label>
+                                        
+                                            <div class="file-field">
+                                              <div class="btn btn-sm float-left">
+                                                <span>Choose file</span>
+                                                <input type="file" name="cv_url" tabindex="10">
+                                              </div>
+                                              
+                                            </div>
+                                         
+                                    </div>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-lg-5">
+
+                                    </div>
+                                    <div class="col-lg-2">
+                                      <div class="text-center">
+                                        <input type="submit" name="register" class="register" value="تایید" tabindex="11" >
+                                      </div>
+                                    </div>
+                                    <div class="col-lg-5"></div>
+                                  </div>
+        
+                                    {{ csrf_field() }}
                                 </form>
                             </div>
                             <div class="row">
@@ -356,7 +390,7 @@ if (!c3.error) {
                                 
                             </div>
                             <div class="row p-4">
-                                <div class="col-lg-5"></div>
+                            <div class="col-lg-5"></div>
                             <div class="col-lg-2"><input type="button" class="btn p-2 text-white bg-success" id='addnewmember' value="اضافه کردن عضو جدید" data-toggle="modal" data-target="#centralModalSm"></div>
                             <div class="col-lg-5"></div>
                             </div>
@@ -447,7 +481,7 @@ $("#linkdelete").click(function (e) {
 
 
 
-                   var default_value='';
+var default_value="{{ $organ_dependence }}";
 function changeType(selectedObject)
 {
  
@@ -483,12 +517,20 @@ function changeType(selectedObject)
                                   type: "get"
                               }
                           },
-                      },
-                          messages: {
-                              organ_dependence: {
-                                  required: "لطفا نام لاتین تیم خود را وارد نمایید",
+                          organ_dependence: {
+                                  required: function (el) {
+                                    let selected_val = $(el).closest('form').find('#team_type').val(); 
+                                    if( selected_val != '' && selected_val != '1')
+                                      return 'لطفا نام لاتین تیم خود را وارد نمایید'
+                                    else 
+                                      return 'asdasdsadasdsa'
+                                  }
+                                  
                                   
                               },
+                      },
+                          messages: {
+                              
                               team_leader_name: {
                                   required: "لطفا نام خود را وارد نمایید",
                                   
