@@ -18,7 +18,7 @@ class CreateSponsorsTable extends Migration
             $table->string('title');
             $table->string('img_url');
             $table->string('website_url');
-            $table->enum('type',['Financial','Spiritual']);
+            $table->enum('type',['Spiritual','Golden','Silver','Diamond']);
             $table->timestamps();
         });
     }

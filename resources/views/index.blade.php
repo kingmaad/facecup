@@ -295,6 +295,45 @@ if (!c3.error) {
   z-index: 100;
 }
 }
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 5px;
+  border-radius: 50px;
+  border: 3px; 
+  border-style: solid;
+  border-color: rgb(251, 104, 52);
+}
+
+.supporter-logo:hover .image {
+  opacity: 0.3;
+}
+
+.supporter-logo:hover .middle {
+  opacity: 1;
+}
+
+.Diamond
+{
+  background-color: #6DCEFC;
+  
+}
+.Golden
+{
+  background-color: #CFAB38;
+  
+}
+.Silver
+{
+  background-color: #C8CACA;
+}
 </style>
 @include('sections.head')
   </head>
@@ -495,8 +534,25 @@ if (!c3.error) {
         <div class="row no-gutters supporters-wrap clearfix">
           @foreach ($sponsors as $sponsor)
           <div class="col-lg-3 col-md-4 col-xs-6">
+            
             <div class="supporter-logo">
+              
               <a href="{{ $sponsor->website_url }}"><img src="{{ $sponsor->img_url }}" class="img-fluid" alt="{{ $sponsor->title }}" /></a>
+              <div class="middle {{ $sponsor->type }}">
+                <div class="text text-white">
+                  @switch($sponsor->type)
+                    @case('Diamond')
+                        طرح الماسی
+                        @break
+                
+                    @case('Golden')
+                        طرح طلایی
+                        @break
+                    @case('Silver')
+                        طرح نقره‌ای
+                  @endswitch
+                </div>
+              </div>
             </div>
           </div>
           @endforeach

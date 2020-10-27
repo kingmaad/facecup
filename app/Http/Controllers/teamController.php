@@ -419,14 +419,14 @@ class teamController extends Controller
          $cv_url="";
          $team_id = session('user_id');
          $validator = Validator::make($request->all(), [
-             'cv_url' => 'mimes:pdf,xlx,csv,doc,docx',
+             'cv_url' => 'mimes:pdf,doc,docx',
             //  'first_name' => 'required',
             //  'last_name' => 'required',
             //  'major' => 'required',
             //  'field' => 'required',
             //  'university' => 'required',
          ],[
-             'mimes' => '(doc|docx|pdf|xlx|csv) لطفا فایل با فرمت مناسب وارد نمایید'
+             'mimes' => '(doc|docx|pdf) لطفا فایل با فرمت مناسب وارد نمایید'
          ]);
          
  

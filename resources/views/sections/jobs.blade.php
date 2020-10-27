@@ -260,34 +260,40 @@ a:hover {
           
           <form action="/saveCV" method="POST" class="" id="myform" enctype="multipart/form-data">
             {{ csrf_field() }}
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>ردیف</th>
-                <th>عنوان </th>
-                <th>توضیحات</th>
-                <th>انتخاب</th>
-              </tr>
-            </thead>
-            <tbody>
+            
+
+            <div class="row">
               @foreach ($jobs as $key=>$job)
-                  <tr>
-                    <td>{{ $key+1 }}</td>
-                    <td>{{ $job->title }}</td>
-                    <td>{{ $job->description }}</td>
-                    <td>
-                        
-                      @if ($job->expired)
-                          <button class="btn btn-secondary" disabled>منقضی شده</button>
-                      @else
-                      <input type="checkbox" name="jobs[]" value="{{ $job->id }}">
-                      @endif
-                      </td>
-                  </tr>
+
+                @if($job->expired)
+                <div class="col-lg-6 mb-2">
+                  <div class="card border-success  p-0">
+                    <div class="card-header text-right">{{ $job->title }}</div>
+                    <div class="card-body text-success">
+                      <h5 class="card-title">{{ $job->description }}</h5>
+                      <p class="card-text text-right"><label for="job-{{ $job->id }}" class="btn btn-success">انتخاب<input id="job-{{ $job->id }}" type="checkbox" name="jobs[]" value="{{ $job->id }}"></label></p>
+                    </div>
+                  </div>
+                </div>
+                
+                
+                @else
+                <div class="col-lg-6 mb-2">
+                  <div class="card border-secondary p-0">
+                    <div class="card-header text-right">{{ $job->title }}</div>
+                    <div class="card-body text-secondary">
+                      <h5 class="card-title">{{ $job->description }}</h5>
+                      <p class="card-text"><label class="btn btn-light" disabled>منقضی شده</label></p>
+                    </div>
+                  </div>
+                </div>
+                
+                @endif
+                
+               
               @endforeach
-              
-            </tbody>
-          </table>
+
+            </div>
           <div class="form-row text-left">
               <div class="text-danger w-100" id="errordiv" ></div>
               @if ($errors->any())
@@ -300,16 +306,22 @@ a:hover {
               @endif
           </div>
 
-
+          <p class="h3 mt-5 mb-5 text-info ">جهت درخواست بررسی رزومه خود برای موقعیتهای شغلی موجود لطفا فرم زیر را پر کرده و حداقل یکی از فرصتهای شغلی بالا را انتخاب نمایید</p>
           <div class="form-row text-right">
+            <div class="form-group col-md-3"></div>
             <div class="form-group col-md-6">
               <label for="name" style="width: 100%" >نام و نام خانوادگی</label>
               <input type="text" name="name" class="form-control" id="name" placeholder="نام و نام خانوادگی خود را وارد نمایید">
             </div>
+            <div class="form-group col-md-3"></div>
+          </div>
+          <div class="form-row text-right">
+            <div class="form-group col-md-3"></div>
             <div class="form-group col-md-6">
               <label for="cv_file" style="width: 100%" >آپلود فایل رزومه</label>
               <input type="file" name="cv_file" class="form-control" id="cv_file" placeholder="فایل رزومه">
             </div>
+            <div class="form-group col-md-3"></div>
           </div>
           
           <input type="submit" class="btn btn-lg btn-success" value="درخواست بررسی رزومه برای موقعیتهای شغلی">
