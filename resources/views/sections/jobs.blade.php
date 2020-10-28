@@ -271,6 +271,28 @@ a:hover {
                     <div class="card-header text-right">{{ $job->title }}</div>
                     <div class="card-body text-success">
                       <h5 class="card-title">{{ $job->description }}</h5>
+                      <hr>
+                      سطح تخصص مورد نیاز
+                      <p>
+                        @foreach ($job->level as $item)
+                          @switch($item)
+                            @case('intern')
+                            <span class="btn btn-xs btn-primary rounded">کارآموزی</span>      
+                              @break
+                            @case('junior')
+                            <span class="btn btn-xs btn-warning">جونیور</span>     
+                                @break
+                            @case('senior')
+                            <span class="btn btn-xs btn-success">سنیور</span>     
+                               @break
+                            @case('military')
+                            <span class="btn btn-xs btn-danger">دوره سربازی</span>     
+                               @break
+                           @endswitch
+                      @endforeach
+                        
+                      </p>
+                      <hr>
                       <p class="card-text text-right"><label for="job-{{ $job->id }}" class="btn btn-success">انتخاب<input id="job-{{ $job->id }}" type="checkbox" name="jobs[]" value="{{ $job->id }}"></label></p>
                     </div>
                   </div>
@@ -282,7 +304,30 @@ a:hover {
                   <div class="card border-secondary p-0">
                     <div class="card-header text-right">{{ $job->title }}</div>
                     <div class="card-body text-secondary">
+
                       <h5 class="card-title">{{ $job->description }}</h5>
+                      <hr>
+                      سطح تخصص مورد نیاز
+                      <p>
+                        @foreach ($job->level as $item)
+                          @switch($item)
+                            @case('intern')
+                            <span class="btn btn-xs btn-primary">کارآموزی</span>      
+                              @break
+                            @case('junior')
+                            <span class="btn btn-xs btn-warning">جونیور</span>     
+                                @break
+                            @case('senior')
+                            <span class="btn btn-xs btn-success">سنیور</span>     
+                               @break
+                            @case('military')
+                            <span class="btn btn-xs btn-danger">دوره سربازی</span>     
+                               @break
+                           @endswitch
+                      @endforeach
+                        
+                      </p>
+                      <hr>
                       <p class="card-text"><label class="btn btn-light" disabled>منقضی شده</label></p>
                     </div>
                   </div>

@@ -30,8 +30,12 @@
                                         <label for="type" class="control-label col-lg-2">نوع حامی</label>
                                         <div class="col-lg-10">
                                             <select name="type" id="type">
-                                                <option value="Financial" @if($sponsor->type=="Financial") selected @endif>مادی</option>
                                                 <option value="Spiritual" @if($sponsor->type=="Spiritual") selected @endif>معنوی</option>
+                                                <option value="Diamond" @if($sponsor->type=="Diamond") selected @endif>الماسی</option>
+                                                <option value="Golden" @if($sponsor->type=="Golden") selected @endif>طلایی</option>
+                                                <option value="Silver" @if($sponsor->type=="Silver") selected @endif>نقره ای</option>
+                                                
+                                                
                                             </select>
                                         </div>
                                     </div>

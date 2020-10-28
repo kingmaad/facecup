@@ -34,7 +34,24 @@
                                     <td>{{ $sponsor->id }}</td>
                                     <td>{{ $sponsor->title }}</td>
                                     <td><a href="{{ $sponsor->website_url}}">کلیک کنید</td>
-                                    <td>{{ ($sponsor->type=='Spiritual') ? "معنوی":"مادی" }}</td>
+                                    <td>
+                                        @switch($sponsor->type)
+                                        @case('Spiritual')
+                                            معنوی
+                                            @break
+                                    
+                                        @case('Diamond')
+                                             الماسی
+                                            @break
+                                    
+                                        @case('Golden')
+                                             طلایی
+                                            @break
+                                        @case('Silver')
+                                             نقره‌ای
+                                      @endswitch
+                                       
+                                    </td>
                                     <td><img src="{{asset($sponsor->img_url) }}" style="width: 150px; height:auto;"></td>
                                     <td>
                                         

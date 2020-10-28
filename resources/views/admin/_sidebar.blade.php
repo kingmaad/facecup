@@ -29,6 +29,12 @@
                 </a>
             </li>
             <li>
+                <a class="" href="/administrator/team/list">
+                    <i class="icon-user"></i>
+                    <span>تیم های شرکت کننده</span>
+                </a>
+            </li>
+            <li>
                 <a class="" href="/administrator/resume/list">
                     <i class="icon-user"></i>
                     <span>رزومه های ارسالی</span>

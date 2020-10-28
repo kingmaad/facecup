@@ -152,6 +152,10 @@ Route::prefix('administrator')->middleware(['checkAdmin'])->group(function(){
         Route::get('/sponsor/edit/{id}','adminController@sponsor_edit');
         Route::get('/sponsor/remove/{id}','adminController@sponsor_delete');
         Route::post('/sponsor/update','adminController@sponsor_update');
+
+        // Team
+        Route::get('/team/list','admincontroller@teams');
+        Route::get('/team/detail/{id}','admincontroller@team_detail');
 });
 Route::get('/administrator/login',function(){
     return view('admin.login');

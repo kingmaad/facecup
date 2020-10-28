@@ -47,6 +47,15 @@
                                         </div>
                                     </div>
                                     <div class="form-group ">
+                                        <label for="expired" class="control-label col-lg-2 col-sm-3">سطح</label>
+                                        <div class="col-lg-10 col-sm-9">
+                                            <label for="level-1" class="checkbox-inline">کارآموز<input type="checkbox" style="width: 20px" class="checkbox form-control" id="level-1" name="level[]" {{ ($job->level && in_array('intern',$job->level)) ? 'checked': ''}} value="intern" /></label>
+                                            <label for="level-2" class="checkbox-inline">جونیور<input type="checkbox" style="width: 20px" class="checkbox form-control" id="level-2" name="level[]" {{ ($job->level && in_array('junior',$job->level)) ? 'checked': ''}} value="junior" /></label>
+                                            <label for="level-3" class="checkbox-inline">سنیور<input type="checkbox" style="width: 20px" class="checkbox form-control" id="level-3" name="level[]" {{ ($job->level && in_array('senior',$job->level)) ? 'checked': ''}} value="senior"/></label>
+                                            <label for="level-4" class="checkbox-inline">طرح سربازی<input type="checkbox" style="width: 20px" class="checkbox form-control" id="level-4" name="level[]" {{ ($job->level && in_array('military',$job->level)) ? 'checked': ''}} value="military"/></label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
                                         <label for="expired" class="control-label col-lg-2 col-sm-3">فرصت شغلی منقضی شود</label>
                                         <div class="col-lg-10 col-sm-9">
                                             <input type="checkbox" style="width: 20px" class="checkbox form-control" id="expired" name="expired" @if($job->expired) checked @endif />

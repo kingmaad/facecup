@@ -30,8 +30,10 @@
                                         <label for="type" class="control-label col-lg-2">نوع حامی</label>
                                         <div class="col-lg-10">
                                             <select name="type" id="type">
-                                                <option value="Financial">مادی</option>
                                                 <option value="Spiritual">معنوی</option>
+                                                <option value="Diamond">الماسی</option>
+                                                <option value="Golden">طلایی</option>
+                                                <option value="Silver">نقره ای</option>
                                             </select>
                                         </div>
                                     </div>

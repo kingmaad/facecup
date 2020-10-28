@@ -6,6 +6,7 @@ use App\Company;
 use App\Job;
 use App\Jobrequest;
 use App\Sponsor;
+use App\Team;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -58,10 +59,11 @@ class adminController extends Controller
 
     public function job_edit($id)
     {
-        $job = Job::find($id)->first();
+        $job = Job::where('id',$id)->first();
         if($job)
         {
             $companies = Company::all();
+            $job->level = explode(',',$job->level);
             return view('admin.job_edit',['job'=>$job,'companies' => $companies]);
         }
         else{
@@ -82,11 +84,13 @@ class adminController extends Controller
         }
         else{
             //$job= Job::find($request->id);
+            $level = implode(",", $request->level);
             $job = Job::where('id',$request->id);
             $job->update([
                 'title' => $request->title,
                 'description' => $request->description,
                 'company_id' => $request->company_id,
+                'level' => $level,
                 'expired' => $request->expired ? 1:0
             ]);
             return back();
@@ -118,6 +122,7 @@ class adminController extends Controller
             $job->description=$request->description;
             $job->company_id = $request->company_id;
             $job->expired = $request->expired ? 1 :0;
+            $job->level = json_encode($request->level);
             $job->save();
             return redirect('/administrator/job/list');
         }
@@ -274,7 +279,7 @@ class adminController extends Controller
             'id' => 'required',
             'title' => 'required',
             'website_url' => 'required',
-            'img_url' => 'required|mimes:jpg,jpeg,png,svg',
+            'img_url' => 'mimes:jpg,jpeg,png,svg',
             'type' => 'required'
         ]);
         if($validate->fails())
@@ -305,6 +310,20 @@ class adminController extends Controller
     public function sponsor_delete()
     {
 
+    }
+
+
+    public function teams()
+    {
+        $teams = Team::all();
+        return view('admin.teams',['teams' => $teams]);
+
+    }
+
+    public function team_detail($id)
+    {
+        $team = Team::where('id',$id)->first();
+        return view('admin.team_detail',['team'=>$team]);
     }
     /**
      * Display a listing of the resource.

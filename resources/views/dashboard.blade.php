@@ -260,7 +260,7 @@ a:hover {
             <br>
 
           </p>
-          <p class="text-success h5">مشخصات سیستم اجرایی مسابقه به شرح زیر است. جهت آشنایی با قوانی فنی و نحوه استفاده از داکر ها کلیک کنید</p>
+          <p class="text-success h5">مشخصات سیستم اجرایی مسابقه به شرح زیر است. جهت آشنایی با<a href="/techRules" class="text-success"> قوانین فنی و نحوه استفاده از داکر ها کلیک کنید</a></p>
           <p class="h3 text-danger mb-3">مشخصات سیستم<br>
             Geforce 1080<br>
             Core i7 3.2GHz<br>

@@ -154,6 +154,8 @@ class indexController extends Controller
      }
      public function jobs(){
         $jobs= Job::all();
+        foreach($jobs as $job)
+            $job->level = explode(',',$job->level);
         return view('sections.jobs',['jobs'=>$jobs]);
      }
 
