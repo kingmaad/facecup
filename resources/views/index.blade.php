@@ -334,6 +334,10 @@ if (!c3.error) {
 {
   background-color: #C8CACA;
 }
+.Spiritual
+{
+  background-color: #0aa832
+}
 </style>
 @include('sections.head')
   </head>
@@ -550,9 +554,10 @@ if (!c3.error) {
                         @break
                     @case('Silver')
                         بسته نقره‌ای
-                    
+                        @break
                     @case('Spiritual')
                         حامی معنوی
+                        @break
                   @endswitch
                 </div>
               </div>
