@@ -83,7 +83,7 @@ class adminController extends Controller
             return back();
         }
         else{
-            //$job= Job::find($request->id);
+            
             $level = implode(",", $request->level);
             $job = Job::where('id',$request->id);
             $job->update([
@@ -130,7 +130,7 @@ class adminController extends Controller
     }
     public function job_delete($id)
     {
-        $job = Job::find($id)->first();
+        $job = Job::where('id',$id)->first();
         if($job)
         {
             Job::where('id',$id)->delete();
@@ -148,7 +148,7 @@ class adminController extends Controller
 
     public function company_edit($id)
     {
-        $company = Company::find($id)->first();
+        $company = Company::where('id',$id)->first();
         if($company)
         {
             return view('admin.company_edit',['company'=>$company]);
@@ -169,7 +169,7 @@ class adminController extends Controller
             return back();
         }
         else{
-            //$job= Job::find($request->id);
+            
             $company = Company::where('id',$request->id);
             $company->update([
                 'company_name' => $request->company_name,
@@ -207,7 +207,7 @@ class adminController extends Controller
 
     public function company_delete($id)
     {
-        $company = Company::find($id)->first();
+        $company = Company::where('id',$id)->first();
         if($company)
         {
             Job::where('company_id',$id)->delete();

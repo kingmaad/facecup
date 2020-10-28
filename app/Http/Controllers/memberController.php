@@ -124,7 +124,7 @@ class memberController extends Controller
     public function destroy($id)
     {
         //
-        $member = Member::find($id);
+        $member = Member::where('id',$id);
         $user_id = session('user_id');
         if($member && $user_id==$member->team->id)
         {
