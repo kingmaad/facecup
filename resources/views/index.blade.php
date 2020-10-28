@@ -542,14 +542,17 @@ if (!c3.error) {
                 <div class="text text-white">
                   @switch($sponsor->type)
                     @case('Diamond')
-                        طرح الماسی
+                        بسته الماس
                         @break
                 
                     @case('Golden')
-                        طرح طلایی
+                        بسته طلایی
                         @break
                     @case('Silver')
-                        طرح نقره‌ای
+                        بسته نقره‌ای
+                    
+                    @case('Spiritual')
+                        حامی معنوی
                   @endswitch
                 </div>
               </div>
