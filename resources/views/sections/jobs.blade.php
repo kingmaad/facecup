@@ -265,7 +265,7 @@ a:hover {
             <div class="row">
               @foreach ($jobs as $key=>$job)
 
-                @if($job->expired)
+                @if(!$job->expired)
                 <div class="col-lg-6 mb-2">
                   <div class="card border-success  p-0">
                     <div class="card-header text-right">{{ $job->title }}</div>
