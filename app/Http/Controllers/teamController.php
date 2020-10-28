@@ -46,7 +46,7 @@ class teamController extends Controller
         # code...
         if(session('user_id'))
         {
-            $team = Team::where('id',session('user_id'));
+            $team = Team::where('id',session('user_id'))->first();
             return view('dashboard',['team_name'=>$team->fa_name]);
         }
         else
