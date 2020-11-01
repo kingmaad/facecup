@@ -119,7 +119,7 @@ class adminController extends Controller
         {
             $job = new Job();
             $job->title= $request->title;
-            $job->description=$request->description;
+            $job->description=nl2br(htmlentities($request->description, ENT_QUOTES, 'UTF-8'));
             $job->company_id = $request->company_id;
             $job->expired = $request->expired ? 1 :0;
             $job->level = json_encode($request->level);
