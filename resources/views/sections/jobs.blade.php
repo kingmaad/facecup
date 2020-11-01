@@ -270,7 +270,7 @@ a:hover {
                   <div class="card border-success  p-0">
                     <div class="card-header text-right">{{ $job->title }}</div>
                     <div class="card-body text-success">
-                      <h5 class="card-title">{{ $job->description }}</h5>
+                      <h5 class="card-title" style="white-space: pre-line">{!! $job->description !!}</h5>
                       <hr>
                       سطح تخصص مورد نیاز
                       <p>
