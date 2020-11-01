@@ -584,7 +584,7 @@ function changeType(selectedObject)
   <div class="modal-dialog modal-lg text-right" role="document">
 
     <form class="form-detail" action="/AddMember" method="post" id="addMemberFrom" enctype="multipart/form-data">
-    <div class="modal-content">
+    <div class="modal-content rtl">
       <div class="modal-header">
         <h4 class="modal-title w-100" id="myModalLabel">اضافه کردن عضو جدید به تیم</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -594,36 +594,37 @@ function changeType(selectedObject)
       <div class="modal-body">
         
           <div class="row">
-            <div class="col-md-6 form-group">
-                <label for="textbox1">نام خانوادگی</label>
-                <input class="form-control" type="text" name="last_name" id="last_name" required/>
-            </div>
+            
             <div class="col-md-6 form-group">
                 <label for="textbox2">نام</label>
                 <input class="form-control" type="text" name="first_name" id="first_name" required />
             </div>
+            <div class="col-md-6 form-group">
+              <label for="textbox1">نام خانوادگی</label>
+              <input class="form-control" type="text" name="last_name" id="last_name" required/>
+          </div>
             <span class="clearfix">
           </div>
           <div class="row">
-            <div class="col-md-6 form-group">
-                <label for="textbox1">رشته</label>
-                <input class="form-control"  type="text" name="field" id="field" required />
-            </div>
             <div class="col-md-6 form-group">
                 <label for="textbox2">مدرک</label>
                 <input class="form-control"  type="text" name="major"  id="major" required/>
             </div>
+            <div class="col-md-6 form-group">
+              <label for="textbox1">رشته</label>
+              <input class="form-control"  type="text" name="field" id="field" required />
+            </div>
             <span class="clearfix">
           </div>
           <div class="row">
             <div class="col-md-6 form-group">
-                <label for="textbox1">رزومه</label>
-                <input class="form-control" type="file" name="resume" id="resume" />
-            </div>
-            <div class="col-md-6 form-group">
                 <label for="textbox2">دانشگاه</label>
                 <input class="form-control" type="text" name="university" id="university" required/>
             </div>
+            <div class="col-md-6 form-group">
+              <label for="textbox1">رزومه</label>
+              <input class="form-control" type="file" name="resume" id="resume" />
+          </div>
             <span class="clearfix">
           </div>
       </div>

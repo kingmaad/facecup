@@ -234,7 +234,7 @@ if (!c3.error) {
                             </div>
                             <div class="form-row text-right">
                                 <label for="mobile">شماره موبایل مسئول تیم</label>
-                                <input type="text" name="mobile" id="mobile" class="input-text" required pattern="09(1[0-9]|3[1-9]|2[1-9])-?[0-9]{3}-?[0-9]{4}">
+                                <input type="text" name="mobile" id="mobile" class="input-text" required pattern="09-?[0-9]{9}">
                             </div>
 
                             {{ csrf_field() }}
