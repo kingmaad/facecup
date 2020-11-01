@@ -42,7 +42,7 @@ class memberController extends Controller
         //dd($request->file('resume')->getMimeType(),$request->file('resume')->getClientOriginalExtension() );
         $cv_url = "";
         $data = $request->all();
-        $team_id=$request->session()->exists('user_id');
+        $team_id=session('user_id');
         $validator = Validator::make($request->all(), [
             'resume' => 'mimes:pdf,xlx,csv,doc,docx',
             'first_name' => 'required',
