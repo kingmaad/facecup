@@ -84,7 +84,10 @@ class adminController extends Controller
         }
         else{
             
-            $level = implode(",", $request->level);
+            if($request->has('level'))
+                $level = implode(",", $request->level);
+            else
+                $level = null;
             $job = Job::where('id',$request->id);
             $job->update([
                 'title' => $request->title,
