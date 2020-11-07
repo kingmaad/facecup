@@ -235,15 +235,35 @@ a:hover {
   padding: .75rem 1.25rem;
   font-weight: 700;
 }
+.hideContent {
+    overflow: hidden;
+    line-height: 1em;
+    height: 2em;
+}
 
+.showContent {
+    line-height: 1em;
+    height: auto;
+}
+.showContent{
+    height: auto;
+}
 
-
+body.modal-open .supreme-container{
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+}
 </style>
 @include('sections.head')
   </head>
 
   <body class="text-center">
+    
     @include('sections.header-menu')
+    <div class="supreme-container">
     <main id="main" class="main-page">
       <!--==========================
       Speaker Details Section
@@ -265,75 +285,51 @@ a:hover {
             <div class="row">
               @foreach ($jobs as $key=>$job)
 
-                @if(!$job->expired)
                 <div class="col-lg-6 mb-2">
-                  <div class="card border-success  p-0">
-                    <div class="card-header text-right">{{ $job->title }}</div>
+                  <div class="card border-{{ $job->expired? "secondary":"success" }}  p-0">
+                    <div class="card-header text-right" id="title-{{ $job->id }}">
+                      {{ $job->title }}
+                    </div>
                     <div class="card-body text-success">
-                      <h5 class="card-title" style="white-space: pre-line">{!! $job->description !!}</h5>
+                      <div  class="content hideContent" style="height: 75px;"><h5 id="description-{{ $job->id }}" class="card-title" style="white-space: pre-line">{!! $job->description !!}</h5></div>
+                      
                       <hr>
                       سطح تخصص مورد نیاز
-                      <p>
+                      <p class="pt-2" id="levels-{{ $job->id }}">
                         @foreach ($job->level as $item)
                           @switch($item)
                             @case('intern')
-                            <span class="btn btn-xs btn-primary rounded">کارآموزی</span>      
+                            <span class="btn-xs btn-primary label p-1 small" style="border-radius: 50px;">کارآموزی</span>      
                               @break
                             @case('junior')
-                            <span class="btn btn-xs btn-warning">جونیور</span>     
+                            <span class="btn-xs btn-warning label p-1 small" style="border-radius: 50px;">جونیور</span>     
                                 @break
                             @case('senior')
-                            <span class="btn btn-xs btn-success">سنیور</span>     
+                            <span class="btn-xs btn-success label p-1 small" style="border-radius: 50px;">سنیور</span>     
                                @break
                             @case('military')
-                            <span class="btn btn-xs btn-danger">دوره سربازی</span>     
+                            <span class="btn-xs btn-danger label p-1 small" style="border-radius: 50px;">دوره سربازی</span>     
                                @break
                            @endswitch
                       @endforeach
                         
                       </p>
                       <hr>
-                      <p class="card-text text-right"><label for="job-{{ $job->id }}" class="btn btn-success">انتخاب<input id="job-{{ $job->id }}" type="checkbox" name="jobs[]" value="{{ $job->id }}"></label></p>
-                    </div>
-                  </div>
-                </div>
-                
-                
-                @else
-                <div class="col-lg-6 mb-2">
-                  <div class="card border-secondary p-0">
-                    <div class="card-header text-right">{{ $job->title }}</div>
-                    <div class="card-body text-secondary">
-
-                      <h5 class="card-title">{{ $job->description }}</h5>
-                      <hr>
-                      سطح تخصص مورد نیاز
-                      <p>
-                        @foreach ($job->level as $item)
-                          @switch($item)
-                            @case('intern')
-                            <span class="btn btn-xs btn-primary">کارآموزی</span>      
-                              @break
-                            @case('junior')
-                            <span class="btn btn-xs btn-warning">جونیور</span>     
-                                @break
-                            @case('senior')
-                            <span class="btn btn-xs btn-success">سنیور</span>     
-                               @break
-                            @case('military')
-                            <span class="btn btn-xs btn-danger">دوره سربازی</span>     
-                               @break
-                           @endswitch
-                      @endforeach
+                      @if($job->expired)
                         
-                      </p>
-                      <hr>
-                      <p class="card-text"><label class="btn btn-light" disabled>منقضی شده</label></p>
+                        <button type="button" class="btn btn-light pull-left m-2 border" disabled>منقضی شده</button>
+                        <button data-id="{{ $job->id }}" type="button" class="btn btn-info pull-left m-2" data-toggle="modal" data-target="#modalAbandonedCart">اطلاعات بیشتر</button>
+                      @else
+                        <p class="card-text text-right">
+                          <label for="job-{{ $job->id }}" class="btn btn-success m-2">
+                            انتخاب<input id="job-{{ $job->id }}" type="checkbox" name="jobs[]" value="{{ $job->id }}">
+                          </label>
+                          <button type="button" data-id="{{ $job->id }}" class="btn btn-info pull-left m-2" data-toggle="modal" data-target="#modalAbandonedCart">اطلاعات بیشتر</button>
+                        </p>
+                      @endif
                     </div>
                   </div>
                 </div>
-                
-                @endif
                 
                
               @endforeach
@@ -404,12 +400,73 @@ a:hover {
     
     </div>
   </footer>
+</div>
+
+  
+  <!-- Modal: modalAbandonedCart-->
+  <div class="modal fade right" id="modalAbandonedCart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true" data-backdrop="true">
+    <div class="modal-dialog modal-side modal-dialog-centered modal-notify modal-info" role="document">
+      <!--Content-->
+      <div class="modal-content rtl">
+        <!--Header-->
+        <div class="modal-header p-0">
+          <p class="heading p-2 mt-2 mb-0" id="job-title">
+
+          </p>
+  
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" class="white-text">&times;</span>
+          </button>
+        </div>
+  
+        <!--Body-->
+        <div class="modal-body">
+  
+          <div class="row">
+            
+            
+            <div class="col-12 text-right" id="job-description" style="white-space: pre-line">
+              
+            </div>
+            
+          </div>
+        </div>
+  
+        <!--Footer-->
+        <div class="modal-footer justify-content-center" id="job-levels">
+          
+        </div>
+      </div>
+      <!--/.Content-->
+    </div>
+  </div>
+  <!-- Modal: modalAbandonedCart-->
   <!-- #footer -->
 
   <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
   <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
   <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+  <script>
+    $(document).ready(function(){
+
+      $("#modalAbandonedCart").on("show.bs.modal", function(event){
+        // Get the button that triggered the modal
+        var button = $(event.relatedTarget);
+        
+        let id = button.data('id')
+        // Extract value from the custom data-* attribute
+        var title = $('#title-'+id).text();
+        var description = $('#description-'+id).text();
+        var levels = $('#levels-'+id).html();
+        $(this).find("#job-title").text(title);
+        $(this).find("#job-description").text(description);
+        $(this).find("#job-levels").html(levels);
+      });
+    });
+</script>
+  
   <script>
       var result;
       $( "#myform" ).validate({
