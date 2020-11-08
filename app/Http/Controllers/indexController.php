@@ -223,7 +223,7 @@ class indexController extends Controller
                 $response = Response::make($file, 200);
                 $response->header('Content-Type', 'application/zip');
                 $response->header("Content-Disposition","attachment");
-                $response->header("Content-length",filesize($file));
+                $response->header("Content-length",File::size(public_path('files/docker.zip')));
                 $response->header("Pragma","no-cache"); 
                 $response->header("Expires","0"); 
                 return $response;
@@ -247,7 +247,7 @@ class indexController extends Controller
                 $response = Response::make($file, 200);
                 $response->header('Content-Type', 'application/zip');
                 $response->header("Content-Disposition","attachment");
-                $response->header("Content-length",filesize($file));
+                $response->header("Content-length",File::size(public_path('files/dataset.zip')));
                 $response->header("Pragma","no-cache"); 
                 $response->header("Expires","0"); 
                 return $response;
