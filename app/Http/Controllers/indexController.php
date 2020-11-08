@@ -246,6 +246,10 @@ class indexController extends Controller
                 $file = File::get(public_path('files/dataset.zip'));
                 $response = Response::make($file, 200);
                 $response->header('Content-Type', 'application/zip');
+                $response->header("Content-Disposition","attachment");
+                $response->header("Content-length",filesize($file));
+                $response->header("Pragma","no-cache"); 
+                $response->header("Expires","0"); 
                 return $response;
             }
          }
