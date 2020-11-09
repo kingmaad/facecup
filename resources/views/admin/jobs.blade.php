@@ -21,6 +21,8 @@
                                     <th><i class="icon-bullhorn"></i>کد</th>
                                     <th class="hidden-phone"><i class="icon-question-sign"></i>عنوان</th>
                                     <th><i class="icon-bookmark"></i>توضیحات</th>
+                                    <th><i class="icon-bookmark"></i>شرکت درخواست کننده شغل</th>
+                                    <th><i class="icon-bookmark"></i>تعداد رزومه ارسالی</th>
                                     <th><i class=" icon-edit"></i>وضعیت</th>
                                     <th></th>
                                 </tr>
@@ -33,6 +35,8 @@
                                     <td>{{ $job->id }}</td>
                                     <td>{{ $job->title }}</td>
                                     <td>{{ $job->description }}</td>
+                                    <td>{{ $job->company->company_name }}</td>
+                                    <td>{{ $job->job_requests->count() }}</td>
                                     <td>
                                         @if ($job->expired)
                                             <span class="label label-default label-mini">منقضی شده</span>    
