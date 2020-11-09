@@ -375,7 +375,7 @@ if (!c3.error) {
                      
                     </h2>
                     <p class="text-center">
-                      <a class="custom-btn" href="/signupTeam">هم اکنون ثبت نام کنید</a>
+                      <a class="custom-btn" href="/signupTeam">اکنون <span class="freespan h5 font-weight-bold">رایگان</span> ثبت نام کنید</a>
                     </p>
                     </div>
                           
@@ -410,9 +410,37 @@ if (!c3.error) {
                       
                     </h1>
                     <p class="text-center">
-                      <a class="custom-btn" href="/signupTeam">هم اکنون ثبت نام کنید</a>
+                      <a class="custom-btn" href="/signupTeam">اکنون <span class="freespan h5 font-weight-bold">رایگان</span> ثبت نام کنید</a>
                     </p>
                     </div>               
+              
+                    </div>
+                </div>
+                <div class="carousel-item pull">
+                  <div class="min-vh-100 slider-three-bg">
+                     <div id="carousel-header-slide2-text-one" class="carousel-header-slide2-text-one rtl" style="width: 600px;">
+                      <h2 class="text-right">
+                        با شرکت در نکسترا <span>جایزه</span> بگیرید
+                      </h2>
+                      <h2 class="text-right">
+                        با شرکت در نکسترا <span>استخدام</span> شوید
+                    
+                      </h2>
+                      <h3 class="text-right">
+                        با شرکت در نکسترا <span>دانش و دقت الگوریتم</span> خود را بسنجید
+
+                  
+                      </h3>
+                      <h3 class="text-right">
+                        با شرکت در نکسترا<span> گواهی رتبه بین رقبا</span> خود دریافت کنید
+
+                      
+                      </h3>
+                      <p class="text-center mt-5">
+                        <a class="custom-btn" href="/signupTeam">اکنون <span class="freespan h5 font-weight-bold">رایگان</span> ثبت نام کنید</a>
+                      </p>
+                     </div>   
+                                 
               
                     </div>
                 </div>
