@@ -239,6 +239,7 @@ if (!c3.error) {
   left: 72%;
   transform: translate(-50%,-50%);
   z-index: 100;
+  width: 100%;
 }
 
 .carousel-header-slide2-text-two{
@@ -283,9 +284,10 @@ if (!c3.error) {
 .carousel-header-slide2-text-one{
   position:absolute;
   top:50%;
-  left: 72%;
+  left: 50%;
   transform: translate(-50%,-50%);
   z-index: 100;
+  width: 100%;
 }
 .carousel-header-slide2-text-five{
   position:absolute;
@@ -385,7 +387,7 @@ if (!c3.error) {
                 </div>
                 <div class="carousel-item pull">
                   <div class="min-vh-100 slider-two-bg">
-                     <div id="carousel-header-slide2-text-one" class="carousel-header-slide2-text-one rtl" style="width: 600px;">
+                     <div id="carousel-header-slide2-text-one" class="carousel-header-slide2-text-one rtl" >
                       <h1 class="text-center">
                         <span class=""> 75 </span>میلیون تومان جایزه  
                       
@@ -402,36 +404,37 @@ if (!c3.error) {
                         <span> 10 </span>میلیون تومان جایزه تیم سوم
                       
                       </h3>
+                      <div >
+                        <h1 class="text-center">
+                          <span> 30</span>میلیون تومان    
+                          <br>جـــــــــایزه ویـــــــــژه
+                        
+                      </h1>
+                      <p class="text-center">
+                        <a class="custom-btn" href="/signupTeam">اکنون <span class="freespan h5 font-weight-bold">رایگان</span> ثبت نام کنید</a>
+                      </p>
+                      </div> 
                      </div>   
-                     <div id="carousel-header-slide2-text-five" class="carousel-header-slide2-text-five rtl">
-                      <h1 class="text-center">
-                        <span> 30</span>میلیون تومان    
-                        <br>جـــــــــایزه ویـــــــــژه
-                      
-                    </h1>
-                    <p class="text-center">
-                      <a class="custom-btn" href="/signupTeam">اکنون <span class="freespan h5 font-weight-bold">رایگان</span> ثبت نام کنید</a>
-                    </p>
-                    </div>               
+              
               
                     </div>
                 </div>
                 <div class="carousel-item pull">
                   <div class="min-vh-100 slider-three-bg">
-                     <div id="carousel-header-slide2-text-one" class="carousel-header-slide2-text-one rtl" style="width: 600px;">
-                      <h2 class="text-right">
+                     <div id="carousel-header-slide2-text-one" class="carousel-header-slide2-text-one rtl" >
+                      <h2 class="text-center">
                         با شرکت در نکسترا <span>جایزه</span> بگیرید
                       </h2>
-                      <h2 class="text-right">
+                      <h2 class="text-center">
                         با شرکت در نکسترا <span>استخدام</span> شوید
                     
                       </h2>
-                      <h3 class="text-right">
+                      <h3 class="text-center">
                         با شرکت در نکسترا <span>دانش و دقت الگوریتم</span> خود را بسنجید
 
                   
                       </h3>
-                      <h3 class="text-right">
+                      <h3 class="text-center">
                         با شرکت در نکسترا<span> گواهی رتبه بین رقبا</span> خود دریافت کنید
 
                       
