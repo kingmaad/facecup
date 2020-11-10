@@ -365,6 +365,15 @@ if (!c3.error) {
     <!-- Table head -->
   
     <!-- Table body -->
+    <?php $array = [ 
+      1 => 'دانشجوی کارشناسی',
+      2 => 'کارشناسی',
+      3 => 'داشنجوی کارشناسی ارشد',
+      4 => 'کارشناسی ارشد',
+      5 => 'داشنجوی دکترا',
+      6 => 'دکترا',
+    ] 
+    ?>
     <tbody>
         @foreach ($members as $key=>$item)
         <tr id="row-{{ $item->id }}">
@@ -376,7 +385,7 @@ if (!c3.error) {
         <td>{{ $item->cv_url? 'دارد':'ندارد' }}</td>
         <td>{{ $item->field }}</td>
         <td>{{ $item->university }}</td>
-        <td>{{ $item->major }}</td>
+        <td>{{ $array[$item->major] }}</td>
         <td>{{ $item->first_name.' '.$item->last_name }}</td>
         <td> {{ ++$key }} </td>
         
@@ -608,7 +617,14 @@ function changeType(selectedObject)
           <div class="row">
             <div class="col-md-6 form-group">
                 <label for="textbox2">مدرک</label>
-                <input class="form-control"  type="text" name="major"  id="major" required/>
+                <select class="form-control input-text text-right rtl" style="height: 55px;width:91%" name="major" tabindex="7" id="major" required>
+                  <option value="1">دانشجوی کارشناسی</option>
+                  <option value="2">کارشناسی</option>
+                  <option value="3">دانشجوی ارشد</option>
+                  <option value="4">ارشد</option>
+                  <option value="5">دانشجوی دکترا</option>
+                  <option value="6">دکترا</option>
+              </select>
             </div>
             <div class="col-md-6 form-group">
               <label for="textbox1">رشته</label>

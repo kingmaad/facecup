@@ -91,7 +91,15 @@
                     </div>
 
                 </div>
-
+                <?php $array = [ 
+                    1 => 'دانشجوی کارشناسی',
+                    2 => 'کارشناسی',
+                    3 => 'داشنجوی کارشناسی ارشد',
+                    4 => 'کارشناسی ارشد',
+                    5 => 'داشنجوی دکترا',
+                    6 => 'دکترا',
+                  ] 
+                  ?>
                 <div class="row">
                     <div class="col-lg-12">
                         <section class="panel">
@@ -122,7 +130,7 @@
                                         <td>{{ $member->last_name }}</td>
                                         <td>{{ $member->university }}</td>
                                         <td>{{ $member->field }}</td>
-                                        <td>{{ $member->major }}</td>
+                                        <td>{{ $array[$member->major] }}</td>
                                         <td>@if($member->cv_url)<a href="{{ asset($member->cv_url) }}" class="btn btn-warning">دانلود</a>@endif</td>
                                         
                                             
