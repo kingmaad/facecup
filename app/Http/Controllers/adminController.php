@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use Morilog\Jalali\Jalalian;
 
 class adminController extends Controller
 {
@@ -319,6 +320,8 @@ class adminController extends Controller
     public function teams()
     {
         $teams = Team::all();
+        foreach($teams as $team)
+            $team->created_at = Jalalian::fromDateTime($team->created_at);
         return view('admin.teams',['teams' => $teams]);
 
     }
