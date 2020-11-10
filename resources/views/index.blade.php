@@ -423,19 +423,19 @@ if (!c3.error) {
                   <div class="min-vh-100 slider-three-bg">
                      <div id="carousel-header-slide2-text-one" class="carousel-header-slide2-text-one rtl" >
                       <h2 class="text-center">
-                        با شرکت در نکسترا <span>جایزه</span> بگیرید
+                        با شرکت در فیس‌کاپ <span>جایزه</span> بگیرید
                       </h2>
                       <h2 class="text-center">
-                        با شرکت در نکسترا <span>استخدام</span> شوید
+                        با شرکت در فیس‌کاپ <span>استخدام</span> شوید
                     
                       </h2>
                       <h3 class="text-center">
-                        با شرکت در نکسترا <span>دانش و دقت الگوریتم</span> خود را بسنجید
+                        با شرکت در فیس‌کاپ <span>دانش و دقت الگوریتم</span> خود را بسنجید
 
                   
                       </h3>
                       <h3 class="text-center">
-                        با شرکت در نکسترا<span> گواهی رتبه بین رقبا</span> خود دریافت کنید
+                        با شرکت در فیس‌کاپ<span> گواهی رتبه بین رقبا</span> خود دریافت کنید
 
                       
                       </h3>
