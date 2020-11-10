@@ -225,11 +225,12 @@ if (!c3.error) {
                           @endif
                             <h2 class="text-right">بازیابی کلمه عبور</h2>
                             <div class="form-row text-right">
-                                <label for="en_name">نام کاربری</label>
+                                <label for="en_name">(نام لاتین تیم)نام کاربری</label>
                                 <input type="text" name="en_name" id="en_name" class="input-text english" placeholder="نام کاربری" required>
                             </div>
                             <div class="form-row text-right">
                               <label for="mobile">شماره موبایل</label>
+                              <label for="mobile"><small class="text-danger">کدفعالسازی و احراز هویت به این شماره ارسال خواهد شد</small></label>
                               <input type="text" name="mobile" id="mobile" class="input-text english" placeholder="شماره موبایل" required>
                           </div>
 
@@ -237,6 +238,7 @@ if (!c3.error) {
                             <div class="form-row-last text-center">
                               
                                 <input type="submit" name="register" class="register" value="بازیابی کلمه عبور">
+                                <label>در صورتیکه نام کاربری خود را فراموش کرده اید و یا در بازیابی کلمه عبور با مشکل مواجه شده اید میتوانید از <a href="/aboutUs#contact" class="font-weight-bold">این فرم</a> با پشتیبانی تماس حاصل فرمایید</label>
                             </div>
                         </form>
                     </div>

@@ -222,25 +222,32 @@ if (!c3.error) {
 
                         </div>
                         <form class="form-detail" action="#" method="post" id="myform" >
-                        
-                            <h2 class="text-right">فرم ثبت نام تیم</h2>
-                            <div class="form-row text-right">
-                                <label for="en_name">نام تیم(لاتین)</label>
-                                <input type="text" name="en_name" id="en_name" class="input-text english" placeholder="نام لاتین بعنوان نام کاربری در نظر گرفته خواهد شد" required>
+                            <div class="row">
+                              <div class="col-2"></div>
+                              <div class="col-10">
+                                <h2 class="text-right">فرم ثبت نام تیم</h2>
+                                <div class="form-row text-right">
+                                    <label for="en_name" class="font-weight-bold">نام تیم(لاتین)</label>
+                                    <label for="en_name" class="label label-sm text-danger"><small >نام لاتین بعنوان نام کاربری شما جهت ورود به سیستم در نظر گرفته خواهد شد</small></label>
+                                    <input type="text" name="en_name" id="en_name" class="input-text english" placeholder="نام لاتین بعنوان نام کاربری در نظر گرفته خواهد شد" required>
+                                </div>
+                                <div class="form-row text-right">
+                                    <label for="fa_name" class="font-weight-bold">نام تیم(فارسی)</label>
+                                    <input type="text" name="fa_name" id="fa_name" placeholder="نام فارسی را صحیح وارد کنید" class="input-text text-right persian" required>
+                                </div>
+                                <div class="form-row text-right">
+                                    <label for="mobile" class="font-weight-bold">شماره موبایل مسئول تیم</label>
+                                    <label for="mobile"><small class="text-danger">کدفعالسازی و احراز هویت به این شماره ارسال خواهد شد</small></label>
+                                    <input type="text" name="mobile" id="mobile" class="input-text" placeholder="مثال: 09123456789" required pattern="09-?[0-9]{9}">
+                                </div>
+    
+                                {{ csrf_field() }}
+                                <div class="form-row-last text-center">
+                                    <input type="submit" name="register" class="register" value="ثبت نام">
+                                </div>
+                              </div>
                             </div>
-                            <div class="form-row text-right">
-                                <label for="fa_name">نام تیم(فارسی)</label>
-                                <input type="text" name="fa_name" id="fa_name" class="input-text text-right persian" required>
-                            </div>
-                            <div class="form-row text-right">
-                                <label for="mobile">شماره موبایل مسئول تیم</label>
-                                <input type="text" name="mobile" id="mobile" class="input-text" required pattern="09-?[0-9]{9}">
-                            </div>
-
-                            {{ csrf_field() }}
-                            <div class="form-row-last text-center">
-                                <input type="submit" name="register" class="register" value="ثبت نام">
-                            </div>
+                            
                         </form>
                         <form class="form-detail" action="*" method="post" id="otp-validation" style="display: none;">
 

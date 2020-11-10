@@ -225,7 +225,7 @@ if (!c3.error) {
                           @endif
                             <h2 class="text-right">فرم ورود تیم</h2>
                             <div class="form-row text-right">
-                                <label for="en_name">نام کاربری</label>
+                                <label for="en_name">نام کاربری(نام لاتین تیم)</label>
                                 <input type="text" name="en_name" id="en_name" class="input-text english" placeholder="نام کاربری" required>
                             </div>
                             <div class="form-row text-right">

@@ -26,7 +26,7 @@ body {
 }
 .form-v2-content  {
 	background: #fff;
-	width: 851px;
+	width: 90%;
 	border-radius: 15px;
 	-o-border-radius: 15px;
 	-ms-border-radius: 15px;
@@ -49,6 +49,7 @@ body {
 .form-v2-content .form-left img {
 	border-top-left-radius: 15px;
 	border-bottom-left-radius: 15px;
+	height: 100%;
 }
 .form-v2-content .form-left .text-1,
 .form-v2-content .form-left .text-2 {
