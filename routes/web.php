@@ -156,6 +156,7 @@ Route::prefix('administrator')->middleware(['checkAdmin'])->group(function(){
         // Team
         Route::get('/team/list','adminController@teams');
         Route::get('/team/detail/{id}','adminController@team_detail');
+        Route::get('/team/remove/{id}','adminController@team_delete');
 });
 Route::get('/administrator/login',function(){
     return view('admin.login');

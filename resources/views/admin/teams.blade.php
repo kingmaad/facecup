@@ -13,7 +13,7 @@
                     <section class="panel">
                         <header class="panel-heading">
                             لیست تیمهای ثبت شده
-                            <div class="pull-left m-4"><a href="/administrator/company/add" class="btn btn-info">اضافه کردن شرکت جدید</a></div>
+                            
                         </header>
                         <table class="table table-striped table-advance table-hover">
                             <thead>
@@ -46,7 +46,7 @@
                                     <td>
                                         
                                         <a class="btn btn-primary btn-xs" href="/administrator/team/detail/{{ $team->id }}"><i class="icon-pencil"></i></a>
-                                        <a class="btn btn-danger btn-xs" href="/administrator/team/remove/{{ $team->id }}"><i class="icon-trash "></i></a>
+                                        <a class="btn btn-danger btn-xs" onclick="return confirm('آیای از حذف اطلاعات این تیم اطمینان دارید؟');" href="/administrator/team/remove/{{ $team->id }}"><i class="icon-trash "></i></a>
                                     </td>
                                 </tr>
                                 @endforeach

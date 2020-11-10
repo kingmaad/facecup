@@ -328,6 +328,20 @@ class adminController extends Controller
         $team = Team::where('id',$id)->first();
         return view('admin.team_detail',['team'=>$team]);
     }
+
+    public function team_delete($id)
+    {
+        $team = Team::where('id',$id);
+        if($team)
+        {
+            
+            $team->delete();
+            return back();
+        }
+        else{
+            return back();
+        }
+    }
     /**
      * Display a listing of the resource.
      *
