@@ -15,13 +15,15 @@
           <li class="buy-tickets"><a href="/login">ورود</a></li>
           <li class="buy-tickets"><a href="/signupTeam">ثبت نام تیم ها</a></li>
           @else
-          <li class="bg-orange text-white rounded dropdown rtl">
+          <li class="bg-orange text-white rounded dropdown rtl desktop-nav-item">
             <a href="#">سلام {{ session('fa_name') }}</a>
             <ul class="dropdown-menu dropdown-menu-right rtl">
               <li><a href="/dashboard">پنل کاربری</a></li>
               <li><a href="/logout">خروج</a></li>
-          </ul>
+            </ul>
           </li>
+          <li class="mobile-nav-item"><a href="/dashboard">پنل کاربری</a></li>
+          <li class="mobile-nav-item"><a href="/logout">خروج</a></li>
           @endif
           
           <li><a href="/aboutUs">تماس با ما</a></li>
@@ -31,7 +33,9 @@
 
           <li><a href="awards">جوایز</a></li>
           <li><a href="/#supporters">حامیان</a></li>
-          <li class="dropdown rtl">
+          <li class="mobile-nav-item"><a href="/generalRules">قوانین عمومی</a></li>
+          <li class="mobile-nav-item"><a href="/techRules">قوانین فنی</a></li>
+          <li class="dropdown rtl desktop-nav-item">
             <a href="#">درباره مسابقه</a>
             <ul class="dropdown-menu dropdown-menu-right">
               <li><a href="/generalRules">قوانین عمومی</a></li>
