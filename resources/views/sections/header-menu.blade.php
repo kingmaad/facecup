@@ -22,8 +22,8 @@
               <li><a href="/logout">خروج</a></li>
             </ul>
           </li>
-          <li class="mobile-nav-item"><a href="/dashboard">پنل کاربری</a></li>
           <li class="mobile-nav-item"><a href="/logout">خروج</a></li>
+          <li class="mobile-nav-item"><a href="/dashboard">پنل کاربری</a></li>
           @endif
           
           <li><a href="/aboutUs">تماس با ما</a></li>

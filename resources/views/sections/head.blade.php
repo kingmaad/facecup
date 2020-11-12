@@ -1,20 +1,4 @@
-<style>
-	.mobile-nav-item{
-		display: none;
-	}
-	desktop-nav-item{
-		display: inline;
-	}
-	
-	@media (max-width: 768px) {
-		.mobile-nav-item{
-			display: inline;
-		}
-		.desktop-nav-item{
-			display: none;
-		}
-	}
-</style>
+
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180802356-1"></script>
 <script>

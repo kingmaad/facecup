@@ -1711,7 +1711,21 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-size: 13px;
   color: #ddd;
 }
+.mobile-nav-item{
+  display: none;
+}
+.desktop-nav-item{
+  display: inline;
+}
 
+@media (max-width: 768px) {
+  .mobile-nav-item{
+    display: inline;
+  }
+  .desktop-nav-item{
+    display: none;
+  }
+}
 /*--------------------------------------------------------------
 # Responsive Media Queries
 --------------------------------------------------------------*/
