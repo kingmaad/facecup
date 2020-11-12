@@ -235,42 +235,57 @@ a:hover {
   padding: .75rem 1.25rem;
   font-weight: 700;
 }
+a{
+  color:indianred;
+}
+a:hover{
+  color: rgb(86, 128, 218);
+}
 
-
+.progress { position:relative; width:100%; }
+.bar { background-color: #008000; width:0%; height:20px; }
+.percent { position:absolute; display:inline-block; left:50%; color: #7F98B2;}
 
 </style>
   </head>
 
-  <body class="body-bg text-center">
+  <body class="body-bg text-right">
     @include('sections.header-menu')    <main id="main" class="main-page">
       <!--==========================
       Speaker Details Section
     ============================-->
   
-<section class="home-blog bg-sand rtl">
-    <div class="container bg-white p-5" >
-      <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+<section class="home-blog bg-sand mt-5 pt-5">
+    <div class="container bg-white p-2 mt-2 mb-2" >
+      <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column mt-3 mb-3">
   
 
         <main role="main" class="inner cover mb-5">
-          <h1 class="cover-heading">داشبورد تیم</h1>
-          <p class="lead">تیم {{ $team_name }} عزیز، خوش آمدید</p>
-          <p class="text-justify h5" style="line-height: 40px;">
-            شما میتوانید پس از تکمیل ثبت نام، فایلهای راهنما و داده های نمونه را دانلود کنید. پس از نهایی سازی کدهای خود تا تاریخ 15 بهمن ماه فرصت دارید که فایل های موتور خود را در قالب داکر با فرمت مشخص شده در بخش <a href="/techRules" class="text-info">قوانین فنی</a> از طریق دکمه ارسال کد ارسال فرمایید. تا قبل از ساعت <span class="text-danger">24 تاریخ روز 14 بهمن ماه 99</span> می توانید به دفعات کد خود را حذف و ویرایش نمایید. ولی در این تاریخ دسترسی بسته خواهد. شد و آخرین کد شما جهت ارزیابی با داده های واقعی روی سیستم مشخص شده اجرا و نتایج آن مورد ارزیابی قرار می گیرد. پس از بررسی تمامی کدهای ارسال شده تمامی تیم‏ ها، نتایج تیم شما از طریق دکمه مشاهده نتایج رتبه بندی قابل دسترس خواهد بود. همچنین جهت دریافت گواهی شرکت در مسابقه و گواهی رتبه نیز در تاریخ مشخص شده می توانید به همین پنل خود مراجعه فرمایید
-            <br>
-
-          </p>
-          <p class="text-success h5">مشخصات سیستم اجرایی مسابقه به شرح زیر است. جهت آشنایی با<a href="/techRules" class="text-success"> قوانین فنی و نحوه استفاده از داکر ها کلیک کنید</a></p>
-          <p class="h3 text-danger mb-3">مشخصات سیستم<br>
-            Geforce 1080<br>
-            Core i7 3.2GHz<br>
-            RAM 16G</p>
-          <p class="lead">
-            <a href="/TeamInfo" class="btn btn-lg btn-success dashboard-btn">تکمیل ثبت نام تیم</a>
-            <a href="/get-files" class="btn btn-lg btn-warning dashboard-btn">دریافت کد راهنما</a>
-            <a href="/changePassword" class="btn btn-lg btn-info dashboard-btn">تغییر رمز</a>
-            <a href="/fileupload" class="btn btn-lg btn-primary dashboard-btn" >ارسال کد</a>
-          </p>
+          <div id="validation-errors"></div>
+          <h1 class="cover-heading text-center">فرم آپلود فایل مسابقه</h1>
+          <hr>
+          <div class="col-lg-6" style="margin: auto;">
+            <form method="POST" action="{{ action('FileUploadController@fileStore') }}" enctype="multipart/form-data">
+              {{ csrf_field() }}
+              
+              <label for="description" class="bg-warning p-1 h6" style="border-radius: 50px;">توضیحات</label>
+              <textarea id="description" name="description" class="form-control" placeholder="لطفا توضیحات خود را وارد نمایید"></textarea><br>
+              <div class="form-group">
+                <label for="description" class="bg-warning p-1 h6" style="border-radius: 50px;">فایل داکر مسابقه</label>  
+                <input type="file" name="file" class="form-control"><br>
+                    <div class="progress progress-bar-striped ">
+                      
+                        <div class="bar"></div >
+                        <div class="percent">0%</div >
+                    </div>
+                    <br>
+                    <p class="text-center"><input type="submit"  value="آپلود" class="btn btn-success"></p>
+              </div>
+          </form>    
+              
+          </div>
+          
+          
         </main>
       
       
@@ -321,6 +336,48 @@ a:hover {
 
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
+   <script type="text/javascript">
+    $(function() {
+         $(document).ready(function()
+         {
+            var bar = $('.bar');
+            var percent = $('.percent');
 
+      $('form').ajaxForm({
+        beforeSend: function() {
+            var percentVal = '0%';
+            bar.width(percentVal)
+            percent.html(percentVal);
+        },
+        uploadProgress: function(event, position, total, percentComplete) {
+            var percentVal = percentComplete + '%';
+            bar.width(percentVal)
+            percent.html(percentVal);
+        },
+        complete: function(xhr) {
+          if(xhr.responseJSON.status == 200)
+            {
+              $('#validation-errors').append('<div class="alert alert-success">'+xhr.responseJSON.success+'</div');
+              //window.location.href = "/fileupload";
+            }
+            else
+            {
+              
+              $('#validation-errors').html('');
+              $.each(xhr.responseJSON.errors, function(key,value) {
+                  $('#validation-errors').append(
+                    '<div class="alert alert-danger">'+value[0]+'<button type="button" class="close pull-left" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+              });
+            }
+          
+            
+            //
+        }
+      });
+   }); 
+ });
+</script>
 </body>
 </html>

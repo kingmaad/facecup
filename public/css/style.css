@@ -1784,6 +1784,9 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 @media (max-width: 991px) {
+  .dashboard-btn{
+    width: 100%;
+  }
   #header {
     background: rgba(6, 12, 34, 0.98);
     height: 70px;

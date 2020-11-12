@@ -30,6 +30,7 @@
                                         <th>نام دانشگاه</th>
                                         <th>رشته تحصیلی</th>
                                         <th>فایل رزومه</th>
+                                        <th class="hidden-phone"><i class="icon-question-sign"></i>فایل داکر</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -84,6 +85,7 @@
                                         <td>{{ $team->university }}</td>
                                         <td>{{ $team->major }}</td>
                                         <td>@if($team->cv_url)<a href="{{ asset($team->cv_url) }}" class="btn btn-warning">دانلود</a>@endif</td>
+                                        <td>@if($team->file)<a href="{{ asset($team->file->file_url) }}" class="btn btn-warning">دانلود</a>@endif</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -100,6 +102,22 @@
                     6 => 'دکترا',
                   ] 
                   ?>
+                  @if ($team->file)
+                  <div class="row">
+                    <div class="col-lg-12">
+                        <section class="panel">
+                            <header class="panel-heading">
+                                توضیحات مربوط به فایل داکر آپلود شده ی این تیم
+                                
+                            </header>
+                        <div class="panel-body">
+                            {{ $team->file->description }}
+                        </div>
+                        </section>
+                    </div>
+                </div>   
+                  @endif
+                   
                 <div class="row">
                     <div class="col-lg-12">
                         <section class="panel">

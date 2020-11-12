@@ -13,4 +13,9 @@ class Team extends Model
         return $this->hasMany('App\Member');
 
     }
+
+    public function file()
+    {
+        return $this->hasOne('App\TeamFile');
+    }
 }

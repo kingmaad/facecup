@@ -24,6 +24,7 @@
                                     <th class="hidden-phone"><i class="icon-question-sign"></i>شماره موبایل</th>
                                     <th class="hidden-phone"><i class="icon-question-sign"></i>تاریخ ثبت نام</th>
                                     <th class="hidden-phone"><i class="icon-question-sign"></i>فایل رزومه</th>
+                                    <th class="hidden-phone"><i class="icon-question-sign"></i>فایل داکر</th>
                                     <th class="hidden-phone"><i class="icon-question-sign"></i>احراز هویت شده؟</th>
                                     <th></th>
                                 </tr>
@@ -39,6 +40,7 @@
                                     <td>{{ $team->mobile }}</td>
                                     <td>{{ $team->created_at }}</td>
                                     <td>@if($team->cv_url)<a href="{{ asset($team->cv_url) }}" class="btn btn-warning">دانلود</a>@endif</td>
+                                    <td>@if($team->file)<a href="{{ asset($team->file->file_url) }}" class="btn btn-warning">دانلود</a>@endif</td>
                                     <td>
                                         @if($team->isVerified)
                                             <a href="#" class="btn btn-xs btn-success"><i class="icon-ok"></i></a></td>
