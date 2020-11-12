@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Company;
 use App\Job;
 use App\Jobrequest;
+use App\Post;
 use App\Sponsor;
 use App\Team;
 use App\User;
@@ -344,6 +345,145 @@ class adminController extends Controller
         else{
             return back();
         }
+    }
+    public function team_exports($type)
+    {
+        $teams = Team::all($type);
+        $contents = '';
+        foreach($teams as $team)
+            $contents.=$team->mobile.",";
+        
+        $filename = 'mobile_numbers.txt';
+        return response()->streamDownload(function () use ($contents) {
+            echo $contents;
+        }, $filename);
+    }
+    public function posts()
+    {
+        $posts = Post::all();
+        return view('admin.blog_list',['posts' => $posts]);
+    }
+    public function post_add()
+    {
+        return view('admin.blog_new');
+    }
+    
+    public function post_create(Request $request)
+    {
+
+        $validate = Validator::make($request->all(),[
+            'title' => 'required',
+            'body' => 'required',
+            'abstract' => 'required',
+            'img' => 'required|mimes:jpg,jpeg,png,svg|dimensions:ratio=1/1',
+        ],[
+            'title.required' => 'لطفا عنوان پست را وارد نمایید',
+            'body.required' => 'لطفا متن پست را وارد نمایید',
+            'abstract.required' => 'لطفا چکیده متن پست را وارد نمایید',
+            'img.required' => 'لطفا تصویری برای پست انتخاب کنید',
+            'mimes' => '(jpg,jpeg,png,svg) لطفا فایل با فرمت مناسب وارد نمایید',
+            'dimensions' => 'لطفا یک تصویر با طول و عرض برابر(مربعی شکل) وارد نمایید'
+        ]);
+        if($validate->fails())
+        {
+            return back()->withErrors($validate->messages());
+        }
+        else{
+            $post = new Post();
+            $post->title = $request->title;
+            $post->body = $request->body;
+            $post->abstract = $request->abstract;
+            $post->permalink = $request->permalink;
+            $post->img = 'url';
+            if($request->img)
+            {
+                File::delete($post->img);
+                $fileName = time().'.'.$request->file('img')->getClientOriginalExtension();  
+                $request->file('img')->move(public_path('img/posts/'), $fileName);
+                $img_url='img/posts/'.$fileName;
+                $post->img=$img_url;
+            }
+            $post->save();
+            return back();
+        }
+        
+    }
+
+    public function post_edit($id)
+    {
+        $post = Post::where('id',$id)->first();
+        return view('admin.blog_edit',['post' => $post]);
+    }
+
+    public function post_update(Request $request)
+    {
+        $validate = Validator::make($request->all(),[
+            'id' => 'required',
+            'title' => 'required',
+            'body' => 'required',
+            'abstract' => 'required',
+            'img' => 'mimes:jpg,jpeg,png,svg|dimensions:ratio=1/1',
+            
+        ],[
+            'title.required' => 'لطفا عنوان پست را وارد نمایید',
+            'body.required' => 'لطفا متن پست را وارد نمایید',
+            'abstract.required' => 'لطفا چکیده متن پست را وارد نمایید',
+            'mimes' => '(jpg,jpeg,png,svg) لطفا فایل با فرمت مناسب وارد نمایید',
+            'dimensions' => 'لطفا یک تصویر با طول و عرض برابر(مربعی شکل) وارد نمایید'
+        ]);
+
+        if($validate->fails())
+        {
+            return back()->withErrors($validate->messages());
+        }
+        else{
+            $post = Post::where('id',$request->id)->first();
+            $post->title = $request->title;
+            $post->body = $request->body;
+            $post->abstract = $request->abstract;
+            $post->permalink = $request->permalink;
+            if($request->img)
+            {
+
+                $fileName = time().'.'.$request->file('img')->getClientOriginalExtension();  
+                $request->file('img')->move(public_path('img/posts/'), $fileName);
+                $img_url='img/posts/'.$fileName;
+                $post->img=$img_url;
+            }
+            $post->save();
+            return redirect('/administrator/post/list');
+        }
+    }
+
+    public function post_delete($id)
+    {
+        $post = Post::where('id',$id);
+        if($post)
+        {
+            $post->delete();
+            return back();
+        }
+        else{
+            return back();
+        }
+    }
+    public function newsletter()
+    {
+        $newsletters = DB::table('newsletter')->select()->get();
+        return view('admin.newsletter',['newsletters' => $newsletters]);
+    }
+
+    public function newsletter_exports($type)
+    {
+        $newsletters = DB::table('newsletter')->select($type)->get();
+        $contents = '';
+        foreach($newsletters as $newsletter)
+            $contents.=$newsletter->email.",";
+        
+        $filename = 'newsletters.txt';
+        return response()->streamDownload(function () use ($contents) {
+            echo $contents;
+        }, $filename);
     }
     /**
      * Display a listing of the resource.

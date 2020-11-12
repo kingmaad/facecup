@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Job;
 use App\Jobrequest;
+use App\Post;
 use App\Sponsor;
 use App\Team;
 use Illuminate\Http\Request;
@@ -258,5 +259,16 @@ class indexController extends Controller
              redirect('/');
          }
          
+     }
+     public function blog()
+     {
+         $posts = Post::all();
+         return view('blog',['posts'=>$posts]);
+     }
+
+     public function post_detail($id)
+     {
+         $post = Post::where('id',$id)->first();
+         return view('sections.blog-post',['post' => $post]);
      }
 }

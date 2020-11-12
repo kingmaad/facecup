@@ -93,10 +93,8 @@ Route::get('/generalRules',function(){
     return view('singlePages.generalRules');
 });
 
-Route::get('/blog',function(){
-    return view('blog');
-});
-
+Route::get('/blog','indexController@blog');
+Route::get('/blog/{id}/{permalink}','indexController@post_detail');
 Route::get('/how-face-recognition-works',function(){
     return view('sections.blog1');
 });
@@ -157,6 +155,18 @@ Route::prefix('administrator')->middleware(['checkAdmin'])->group(function(){
         Route::get('/team/list','adminController@teams');
         Route::get('/team/detail/{id}','adminController@team_detail');
         Route::get('/team/remove/{id}','adminController@team_delete');
+        Route::get('/team/export/{type}','adminController@team_exports');
+        // Post
+        Route::get('/post/list','adminController@posts');
+        Route::get('/post/add','adminController@post_add');
+        Route::post('/post/add','adminController@post_create');
+        Route::get('/post/edit/{id}','adminController@post_edit');
+        Route::get('/post/remove/{id}','adminController@post_delete');
+        Route::post('/post/update','adminController@post_update');
+
+        //newsletters
+        Route::get('/newsletter/list','adminController@newsletter');
+        Route::get('/newsletter/export/{type}','adminController@newsletter_exports');
 });
 Route::get('/administrator/login',function(){
     return view('admin.login');

@@ -9,8 +9,8 @@
     <meta content="" name="description" />
 
     <!-- Favicons -->
-    <link href="img/favicon.png" rel="icon" />
-    <link href="img/apple-touch-icon.png" rel="apple-touch-icon" />
+    <link href="{{ asset('img/favicon.png') }}" rel="icon" />
+    <link href="{{ asset('img/apple-touch-icon.png') }}" rel="apple-touch-icon" />
 
     <!-- Google Fonts -->
     <link
@@ -19,36 +19,36 @@
     />
 
     <!-- Bootstrap CSS File -->
-    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="{{ asset('/lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
 
     <!-- Libraries CSS Files -->
-    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="lib/animate/animate.min.css" rel="stylesheet" />
-    <link href="lib/venobox/venobox.css" rel="stylesheet" />
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link href="{{ asset('/lib/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('/lib/animate/animate.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('/lib/venobox/venobox.css') }}" rel="stylesheet" />
+    <link href="{{ asset('/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet" />
 
     <!-- registration form -->
-    <link rel="stylesheet" type="text/css" href="lib/registrationform/css/roboto-font.css">
-	<link rel="stylesheet" type="text/css" href="lib/registrationform/fonts/line-awesome/css/line-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/lib/registrationform/css/roboto-font.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('/lib/registrationform/fonts/line-awesome/css/line-awesome.min.css') }}">
 	<!-- Jquery -->
 	<link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
 	<!-- Main Style Css -->
-    <link rel="stylesheet" href="lib/registrationform/css/style.css"/>
+    <link rel="stylesheet" href="{{ asset('/lib/registrationform/css/style.css') }}"/>
 
 
 
 
     <!-- Main Stylesheet File -->
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="{{ asset('/css/style.css') }}" rel="stylesheet" />
     <!-- rtl style -->
-    <link rel="stylesheet" href="css/rtl.css" />
+    <link rel="stylesheet" href="{{ asset('/css/rtl.css') }}" />
     <!-- =======================================================
     Theme Name: TheEvent
     Theme URL: https://bootstrapmade.com/theevent-conference-event-bootstrap-template/
     Author: BootstrapMade.com
     License: https://bootstrapmade.com/license/
   ======================================================= -->
-  <script src="lib/countup/countUp.js"></script>
+  <script src="{{ asset('/lib/countup/countUp.js') }}"></script>
 <script>
 var isShown = false;
   window.addEventListener('scroll', function() {
@@ -214,40 +214,24 @@ if (!c3.error) {
     <div class="container">
         <!-- section title -->
         <br><br><br><br>
-		<div class="row justify-content-md-center mb-5">
-			<div class="col-xl-5 col-lg-6 col-md-8">
-				<div class="section-title text-center title-ex1">
-					<h2>وبلاگ</h2>
-					<p>آخرین اخبار دنیای هوش مصنوعی را اینجا دنبال کنید</p>
-				</div>
-			</div>
-		</div>
-		<!-- section title ends -->
+
 		<div class="row mb-5">
-
-
-            @foreach ($posts as $post)
-                <div class="col-md-6 p-2">
-                  <div class="media blog-media bg-white p-2 rounded">
-                    <a href="/{{ $post->id }}/artificial-intelligence-progress"><img class="d-flex" src="{{ url($post->img) }}" alt="Generic placeholder image" height="200"></a>  
-                    <div class="media-body text-right">
-                      <a href="/blog/{{ $post->id."/".$post->permalink }}"><h5 class="mt-0">{{ $post->title }}</h5></a>
-                      <div style="overflow: hidden;height: 100px;">
-                      {{ $post->abstract }}
-                      </div>
-                      <a href="/blog/{{ $post->id."/".$post->permalink }}" class="post-link p-1 rounded pull-left" style="background-color: #fb6834;color:#fff;">ادامه مطلب</a>
-                      
-                    </div>
-                  </div>
-                </div>
-            @endforeach
-           
-			
-			
-		</div>
+			<div class="col-md-12">
+				<div class="media blog-media bg-white p-2 rounded">
+				  <a href="blog-post-left-sidebar.html"><img class="d-flex" height="200" src="{{ url($post->img) }}" alt="Generic placeholder image"></a>
+				  <div class="circle">
+				  	<h5 class="day"></h5>
+				  	<span class="month"></span>
+				  </div>
+				  <div class="media-body text-right p-4">
+            <h1>{{ $post->title }}</h1>
+            {!! $post->body !!}
+          </div>
+				</div>
+      </div>
+    </div>
 	</div>
-</section>
-     
+</section> 
     </main>
 
      <!--==========================
@@ -270,26 +254,25 @@ if (!c3.error) {
   <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
 
   <!-- JavaScript Libraries -->
-  <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/jquery/jquery-migrate.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
-  <script src="lib/superfish/hoverIntent.js"></script>
-  <script src="lib/superfish/superfish.min.js"></script>
-  <script src="lib/wow/wow.min.js"></script>
-  <script src="lib/venobox/venobox.min.js"></script>
-  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="{{ asset('/lib/jquery/jquery.min.js') }}"></script>
+  <script src="{{ asset('/lib/jquery/jquery-migrate.min.js') }}"></script>
+  <script src="{{ asset('/lib/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('/lib/easing/easing.min.js') }}"></script>
+  <script src="{{ asset('/lib/superfish/hoverIntent.js') }}"></script>
+  <script src="{{ asset('/lib/superfish/superfish.min.js') }}"></script>
+  <script src="{{ asset('/lib/wow/wow.min.js') }}"></script>
+  <script src="{{ asset('/lib/venobox/venobox.min.js') }}"></script>
+  <script src="{{ asset('/lib/owlcarousel/owl.carousel.min.js') }}"></script>
 
-  <!-- Contact Form JavaScript File -->
-  <script src="contactform/contactform.js"></script>
+
 
   <!-- colorlib form registration -->
-      <script src="lib/colorlib/js/jquery.steps.js"></script>
-      <script src="lib/colorlib/js/main.js"></script>
+      <script src="{{ asset('/lib/colorlib/js/jquery.steps.js') }}"></script>
+      <script src="{{ asset('/lib/colorlib/js/main.js') }}"></script>
   
 
   <!-- Template Main Javascript File -->
-  <script src="js/main.js"></script>
+  <script src="{{ asset('/js/main.js') }}"></script>
 
 </body>
 </html>

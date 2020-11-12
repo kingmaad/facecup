@@ -35,9 +35,21 @@
                 </a>
             </li>
             <li>
+                <a class="" href="/administrator/post/list">
+                    <i class="icon-user"></i>
+                    <span>وبلاگ</span>
+                </a>
+            </li>
+            <li>
                 <a class="" href="/administrator/resume/list">
                     <i class="icon-user"></i>
                     <span>رزومه های ارسالی</span>
+                </a>
+            </li>
+            <li>
+                <a class="" href="/administrator/newsletter/list">
+                    <i class="icon-user"></i>
+                    <span>خبرنامه</span>
                 </a>
             </li>
         </ul>

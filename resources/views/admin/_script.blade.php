@@ -15,11 +15,15 @@
 <!--script for this page-->
 <script src="{{ asset('admin/js/sparkline-chart.js') }}"></script>
 <script src="{{ asset('admin/js/easy-pie-chart.js') }}"></script>
+<script src="{{ asset('lib/WYSIWYG/editor.js') }}"></script>
+
 <script>
 
     //owl carousel
 
     $(document).ready(function() {
+        $("#body_editor").Editor();
+        $('.Editor-editor').append($('#body_editor').val())
         $("#owl-demo").owlCarousel({
             navigation : true,
             slideSpeed : 300,
@@ -28,7 +32,16 @@
 
         });
     });
-
+    $(function()
+    {
+    $('#savepost').click(function () 
+    {
+    //get text in div and assign to textarea
+        var str = $( '.Editor-container .Editor-editor' ).html();
+        $('#body_editor').val(str);
+        $('#new_post_form').submit();
+    });
+    });
     //custom select box
 
     $(function(){

@@ -48,7 +48,7 @@
                                     <td>
                                         
                                         <a class="btn btn-primary btn-xs" href="/administrator/job/edit/{{ $job->id }}"><i class="icon-pencil"></i></a>
-                                        <a class="btn btn-danger btn-xs" href="/administrator/job/remove/{{ $job->id }}"><i class="icon-trash "></i></a>
+                                        <a class="btn btn-danger btn-xs" onclick="return confirm('آیای از حذف اطلاعات این فرصت شغلی اطمینان دارید؟');" href="/administrator/job/remove/{{ $job->id }}"><i class="icon-trash "></i></a>
                                     </td>
                                 </tr>
                                 @endforeach

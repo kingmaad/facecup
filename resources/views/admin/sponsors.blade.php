@@ -56,7 +56,7 @@
                                     <td>
                                         
                                         <a class="btn btn-primary btn-xs" href="/administrator/sponsor/edit/{{ $sponsor->id }}"><i class="icon-pencil"></i></a>
-                                        <a class="btn btn-danger btn-xs" href="/administrator/sponsor/remove/{{ $sponsor->id }}"><i class="icon-trash "></i></a>
+                                        <a class="btn btn-danger btn-xs" onclick="return confirm('آیای از حذف اطلاعات این اسپانسر اطمینان دارید؟');" href="/administrator/sponsor/remove/{{ $sponsor->id }}"><i class="icon-trash "></i></a>
                                     </td>
                                 </tr>
                                 @endforeach
