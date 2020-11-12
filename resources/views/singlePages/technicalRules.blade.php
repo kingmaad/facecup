@@ -307,13 +307,92 @@ if (!c3.error) {
               <p class="text-left">P2: {(Gallery2, 0.8505), (Gallery3, 0.5130), (Gallery1, 0.0134)}
               </p>
               <p>دقت داشته باشید که در Document ها حتماً باید امتیاز شباهت درج شود و هرگونه عبارت دیگر نظیر NaN یا inf قابل قبول نیست و به عنوان خطا محسوب خواهد شد. مجدداً یادآوری میگردد، اگر الگوریتم به هر دلیلی قادر به استخراج و ساخت الگو از یک تصویر گالری نبود، برای آن تصویر گالری نباید امتیاز شباهت وجود داشته باشد و به عنوان خطای عدم ثبت نام منظور خواهد شد. علاوه بر این، اگر الگوریتم از یک تصویر پروب نیز نتواند الگو استخراج نماید، نباید لیست متناظر با این تصویر تولید شود و به عنوان خطای عدم اکتساب منظور میشود. در این حالت نیازی به تولید لیست کاندید با امتیاز تماماً صفر وجود ندارد. به عنوان مثال اگر الگوریتم شما نتواند الگوی تصویر Gallery4.jpg را استخراج کند، در فایل‏های خروجی نباید هیچ سطری برای این تصویر  وجود داشته باشد. اگر هم الگوریتم قادر به استخراج الگو از یک تصویر پروب نباشد، اصلاً نباید document متناظر با آن تصویر تولید شود. بدیهی است در صورت عدم رعایت هر یک از موارد فوق، شرکت کننده از چرخه مسابقه حذف خواهد شد. </p>
+              
+              
               <h2>	نحوه استفاده از داکرها</h2>
-              <p>برای استفاده راحت از داکر ها اسکریپت docker.sh در اختیار شرکت کنندگان قرار میگیرد. یک نمونه کد به زبان پایتون نیز نوشته شده است تا نحوه برقراری ارتباط با داکر ها نشان داده شود. لازم به یادآوری مجدد است که طریقه ساخت داکر و تست آن در آموزشی جداگانه در وب سایت قرار خواهد گرفت.</p>
-              <p> با اجرای دستور زیر داکر های nginx و mongodb اجرا میشوند:
-              </p>
-              <p class="text-left">docker.sh <span class="text-danger">run</span></p>
-              <p>با اجرای دستور زیر نیز تصاویر گالری و پروب از درون داکر nginx داخل آدرسی که هر الگوریتم نیاز دارد”path_to_copy_image”  کپی میشود:</p>
-              <p class="text-left">docker.sh <span class="text-danger bold">copy_image</span> <span class="text-info bold">path_to_copy_image</span></p>
+                <h4 dir="rtl" class="text-danger" role="presentation">نصب و اجرای داکرهای تست</h4>
+
+                <p dir="rtl">برای نصب docker مراحل لینک زیر دنبال شود.</p>
+                <p dir="ltr">&nbsp;<a href="https://docs.docker.com/engine/install/">https://docs.docker.com/engine/install/</a></p>
+                <p dir="rtl">در صورتی که از سیستم عامل غیر از ویندوز استفاده می&rlm;شود، باید docker compose نیز از لینک زیر نصب شود. در نسخه ویندوزی به صورت پیش فرض docker compose نصب شده است.</p>
+                <p dir="ltr"><a href="https://docs.docker.com/compose/install/">https://docs.docker.com/compose/install/</a></p>
+                <p dir="rtl">همچنین برای اجرای اسکریپت&rlm;های مورد نیاز در سیستم عامل ویندوز، باید از مسیر زیر git نصب شود.</p>
+                <p dir="ltr"><a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
+                <p dir="rtl">پس از نصب موارد بالا، در داخل پوشه docker راست کلیک نموده، سپس بر روی git bash here کلیک کرده و درون صفحه باز شده اسکریپت docker.sh را همانند شکل زیر اجرا نمایید.</p>
+                <div class="d-flex justify-content-center border border-light p-5"><img src="/img/docker-commandline.png" class="img-fluid"  /></div>
+                <p dir="rtl">توجه نمایید که به جای team_name باید اسم لاتین تیم (که در سایت ثبت&lrm;&zwnj;نام کرده&rlm;اید) و به جای team_pass باید شماره موبایل سرگروه تیم را وارد کنید. با این کار در MongoDB پایگاه داده&rlm;ای با نام کاربری اسم تیم و رمز عبور شماره موبایل سرگروه ساخته می&lrm;شود. این امر جهت ارزیابی نتایج الگوریتم شما بسیار حائز اهمیت است چرا که تیم داوری به داده&rlm;های شما با همین نام کاربری و رمز عبور دسترسی خواهد یافت.</p>
+                <p dir="rtl">در صورت بروز هر گونه مشکل در وارد کردن این موارد می&lrm;توانید دستور زیر را اجرا&nbsp; کرده و سپس دستور start را دوباره اجرا نمایید.</p>
+                <p dir="ltr">./docker.sh stop</p>
+                <p dir="rtl">برای اطمینان از اجرای درست ایمیج&zwnj;ها، می&rlm;توانید با استفاده از مرورگر سیستم خود آدرس&lrm;های زیر را باز کنید.</p>
+                <p dir="ltr"><a href="http://localhost/images/gallery/images.txt" aria-invalid="true">http://localhost/images/gallery/images.txt</a></p>
+                <p dir="ltr"><a href="http://localhost/images/probe/images.txt" aria-invalid="true">http://localhost/images/probe/images.txt</a></p>
+                <p dir="rtl">در این دو آدرس نام تمام فایل&rlm;های عکس probe و gallery آمده است. برای مشاهده هر عکس با داشتن اسم آن می&rlm;توانید از آدرس&rlm;های زیر استفاده کنید.</p>
+                <p dir="ltr"><a href="http://localhost/images/gallery/S000001.jpg" aria-invalid="true">http://localhost/images/gallery/S000001.jpg</a></p>
+                <p dir="ltr"><a href="http://localhost/images/probe/S000029.jpg" aria-invalid="true">http://localhost/images/probe/S000029.jpg</a></p>
+
+                <h4 dir="rtl" role="presentation" class="text-danger">2- یک نمونه کد تست جهت کار با داکرها</h4>
+
+                <p dir="rtl">در صورت موفقیت در تست مرحله قبل، می&rlm;توانید کد خود را برای کار با ایمیج&zwnj;&zwj;&zwnj;ها بنویسید. جهت راحتی شما، در پوشه nextera_test یک نمونه کد پایتون برای برقراری ارتباط با پایگاه داده و دریافت عکس&lrm;ها نوشته شده است.&nbsp;</p>
+                <div class="d-flex justify-content-center border border-light p-5"><img src="/img/python-file.png" class="img img-fluid" /></div>
+                <p dir="rtl">برای اجرای این کد باید نکات زیر لحاظ شود:&nbsp;</p>
+                <ol>
+                <li dir="rtl" style="list-style-type: decimal;">
+                <p dir="rtl" role="presentation">در خط 9 به جای nextera_db باید اسم لاتین تیم و به جای 1199 باید شماره موبایل سرگروه تیم وارد شود.</p>
+                </li>
+                <li dir="rtl" style="list-style-type: decimal;">
+                <p dir="rtl" role="presentation">کد فوق بر روی ماشین شما اجرا می&zwnj;شود. برای نسخه نهایی کد باید localhost را در خط 8 به mongodb و در خطوط 14 و 17 به nginx تغییر دهید و برای ساخت ایمیج نهایی از کد خود و ارسال به مسابقه نیز نباید از localhost استفاده شود. بنابراین برای حالت تست و بررسی از localhost استفاده کنید و برای ساخت ایمیج نهایی، localhost را در خط 8 به mongodb و در خطوط 14 و 17 به nginx تغییر دهید.</p>
+                </li>
+                </ol>
+                <p dir="rtl">قبل از اجرای کد تست، دستور زیر را اجرا نمایید تا پیش&lrm;نیاز&lrm;های کد نصب شوند. فرض شده است که پایتون نسخه 2 یا 3 قبلا بر روی سیستم شما نصب شده است.</p>
+                <p dir="ltr">pip install -r requirements.txt</p>
+
+                <h4 dir="rtl" role="presentation" class="text-danger">3- تهیه داکر از موتور خودتان جهت ارسال برای مسابقه</h4>
+
+                <p dir="rtl">بعد از این که کد خود را نوشتید باید آن را در قالب داکر ایمیج برای مسابقه ارسال کنید. برای ساخت داکر ایمیج باید یک Dockerfile فایل نوشته شود. در پوشه nextera_test یک نمونه Dockerfile برای ساخت داکر ایمیج وجود دارد.</p>
+                <div class="d-flex justify-content-center border border-light p-5"><img src="/img/docker.png" class="img img-fluid" /></div>
+                <ul>
+                <li dir="rtl" style="list-style-type: disc;">
+                <p dir="rtl" role="presentation">دستور FROM مشخص می&rlm;کند ایمیج از چه ایمیجی پایه&rlm;ای ساخته خواهد شد یا اصطلاحا ایمیج بیس ایمیج جدید چه چیزی باشد. در این مثال چون کد نمونه به زبان پایتون نوشته شده است، از ایمیج بیس python:3 استفاده شده است. از طریق آدرس <a href="https://hub.docker.com">https://hub.docker.com</a> می&rlm;توانید ایمیج بیس مورد نیاز خود را پیدا نمایید.</p>
+                </li>
+                <li dir="rtl" style="list-style-type: disc;">
+                <p dir="rtl" role="presentation">دستور WORKDIR یک دایرکتوری در /usr کانتینر به وجود می&rlm;آورد. همچنین داخل کانتینر دایرکتوری را به همین دایرکتوری ساخته شده تغییر می&lrm;دهد و از آن به بعد تمام کار&zwnj;ها در این دایرکتوری انجام می&lrm;شود.</p>
+                </li>
+                <li dir="rtl" style="list-style-type: disc;">
+                <p dir="rtl" role="presentation">دستور COPY فایل requirements.txt را در آدرس /. کپی می&lrm;نماید. این فایل برای نصب پیش&lrm;نیاز&zwnj;های اجرای کد لازم است.</p>
+                </li>
+                <li dir="rtl" style="list-style-type: disc;">
+                <p dir="rtl" role="presentation">دستور RUN برای اجرای دستورات به کار می&rlm;رود. به عنوان مثال، پیش&lrm;نیاز&lrm;ها با اجرای دستور زیر بر روی داکر ایمیج نصب می&rlm;شوند.</p>
+                </li>
+                </ul>
+                <p dir="ltr">pip install --no-cache-dir -r requirements.txt</p>
+                <ul>
+                <li dir="rtl" style="list-style-type: disc;">
+                <p dir="rtl" role="presentation">دستور CMD برای اجرای فرمان&zwnj;های داکر در زمان آغاز به کار آن است. در مثال فوق، می&zwnj;خواهیم وقتی داکر ایمیج اجرا شد، اسکریپت ما با استفاده از پایتون اجرا شود.</p>
+                </li>
+                </ul>
+                <p dir="rtl">بعد از تکمیل فایل داکر، برای ساخت داکر ایمیج لازم است دستور زیر را در پوشه شامل فایل داکر اجرا نماییم.</p>
+                <p dir="ltr">docker build --tag nextera_test /path/to/dockerfile</p>
+                <p dir="rtl">شما به هنگام ساخت داکر ایمیج باید به جای nextera_test از اسم لاتین تیم خود استفاده نمایید تا اسم داکر ایمیج اسم تیم خودتان باشد.&nbsp;</p>
+                <p dir="rtl">سپس برای اجرای داکر ایمیج خود و ساخته شدن یک کانتینر می&zwnj;توانید از دستورات زیر استفاده نمایید.</p>
+                <ul>
+                <li dir="rtl" style="list-style-type: disc;">
+                <p dir="rtl" role="presentation">حالت تست و آزمایشی (در سیستم خودتان). توجه کنید که در این حالت باید از localhost در کد پایتون خود جهت اتصال به سرور و دیتابیس استفاده کنید.</p>
+                </li>
+                </ul>
+                <p dir="ltr">docker run --name nextera_test1 --network host -d nextera_test</p>
+                <ul>
+                <li dir="rtl" style="list-style-type: disc;">
+                <p dir="rtl" role="presentation">ساخت ایمیج نهایی و بررسی و ثبت آن. این حالت زمانی است که شما نتایج خود را در حالت تست، نهایی کردید و قصد ساخت ایمیج نهایی را دارید. برای ساخت ایمیج نهایی، localhost را برای اتصال به سرور به nginx و برای اتصال به دیتابیس به mongodb&nbsp; تغییر دهید.</p>
+                </li>
+                </ul>
+                <p dir="ltr">docker run --name nextera_test1 --network docker_default -d nextera_test</p>
+                <p dir="rtl">باید بجای nextera_test از اسم تیم خود استفاده نمایید. همچنین می&rlm;توانید به جای nextera_test1&nbsp; از یک اسم دلخواه استفاده نمایید. از اجرای این دستورات برای بررسی درست بودن داکر ایمیج خود استفاده نمایید.&nbsp;</p>
+                <p dir="rtl">انتظار ما این است که پس از اجرای این دستور برنامه شما درون کانتینر اجرا شده تصاویر را از nginx گرفته و هر یک از تصاویر probe را با تمام تصاویر gallery مقایسه نماید و نتیجه مقایسه را درون پایگاه داده&rlm;ای به نام اسم تیم شما در MongoDB وارد نماید. نمونه کد مربوطه در شکل بخش دوم آمده است.</p>
+                <p dir="rtl">فراموش نکنید که برای دسترسی به nginx بر روی سیستم خود از آدرس localhost و پورت 80 استفاده نمایید و برای دسترسی به MongoDB از آدرس localhost و پورت 27017 استفاده نمایید.</p>
+                <p dir="rtl">نهایتا برای ذخیره کردن ایمیج نهایی خود به صورت یک فایل از دستور زیر استفاده کنید.</p>
+                <p dir="ltr">docker save -o team_name.tar team_name</p>
+                <p dir="rtl">مقادیر team_name را با نام تیم خود جایگزین کنید. اجرای دستور فوق یک فایل با نام team_name.tar در محل فعلی ایجاد می&zwnj;کند که در آن ایمیج team_name ذخیره شده است. بعد از آرگومان &ndash;o می&zwnj;توانید آدرس دلخواهی برای ذخیره ایمیج تعیین کنید.&nbsp;</p>
+                <p><br /><br /><br /></p>
 
                 
             </div>
