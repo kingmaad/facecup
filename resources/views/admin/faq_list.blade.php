@@ -13,7 +13,7 @@
                     <section class="panel">
                         <header class="panel-heading">
                             لیست سوالات متداول
-                            <div class="pull-left m-4"><a href="/administrator/company/add" class="btn btn-info">اضافه کردن شرکت جدید</a></div>
+                            <div class="pull-left m-4"><a href="/administrator/faq/add" class="btn btn-info">اضافه کردن سوال جدید</a></div>
                         </header>
                         <table class="table table-striped table-advance table-hover">
                             <thead>
