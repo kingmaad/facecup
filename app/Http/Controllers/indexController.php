@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Faq;
 use App\Job;
 use App\Jobrequest;
 use App\Post;
@@ -26,7 +27,8 @@ class indexController extends Controller
     {
         //
         $sponsors = Sponsor::all();
-        return view('index',['sponsors' => $sponsors]);
+        $faqs = Faq::all();
+        return view('index',['sponsors' => $sponsors,'faqs'=>$faqs]);
     }
 
     /**
@@ -158,6 +160,11 @@ class indexController extends Controller
         foreach($jobs as $job)
             $job->level = explode(',',$job->level);
         return view('sections.jobs',['jobs'=>$jobs]);
+     }
+
+     public function faq(){
+        $faqs= Faq::all();
+        return view('sections.faq',['faqs'=>$faqs]);
      }
 
      public function saveCV(Request $request)

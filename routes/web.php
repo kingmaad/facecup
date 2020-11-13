@@ -106,6 +106,7 @@ Route::get('/artificial-intelligence-progress',function(){
 
 
 Route::get('/jobs','indexController@jobs');
+Route::get('/faq','indexController@faq');
 Route::post('/saveCV', "indexController@saveCV");
 
 
@@ -164,6 +165,16 @@ Route::prefix('administrator')->middleware(['checkAdmin'])->group(function(){
         Route::get('/post/edit/{id}','adminController@post_edit');
         Route::get('/post/remove/{id}','adminController@post_delete');
         Route::post('/post/update','adminController@post_update');
+
+
+        // faq
+        Route::get('/faq/list','adminController@faqs');
+        Route::get('/faq/add','adminController@faq_add');
+        Route::post('/faq/add','adminController@faq_create');
+        Route::get('/faq/edit/{id}','adminController@faq_edit');
+        Route::get('/faq/remove/{id}','adminController@faq_delete');
+        Route::post('/faq/update','adminController@faq_update');
+
 
         //newsletters
         Route::get('/newsletter/list','adminController@newsletter');

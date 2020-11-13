@@ -33,13 +33,16 @@
 
           <li><a href="awards">جوایز</a></li>
           <li><a href="/#supporters">حامیان</a></li>
+          <li class="mobile-nav-item"><a href="/faq">سوالات متداول</a></li>
           <li class="mobile-nav-item"><a href="/generalRules">قوانین عمومی</a></li>
           <li class="mobile-nav-item"><a href="/techRules">قوانین فنی</a></li>
+          
           <li class="dropdown rtl desktop-nav-item">
             <a class="desktop-nav-item" href="#">درباره مسابقه</a>
             <ul class="dropdown-menu dropdown-menu-right">
               <li><a href="/generalRules">قوانین عمومی</a></li>
               <li><a href="/techRules">قوانین فنی</a></li>
+              <li><a href="/faq">سوالات متداول</a></li>
             </ul>
           </li>
           <li class="menu-active"><a href="/">خانه</a></li>

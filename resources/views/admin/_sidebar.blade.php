@@ -52,6 +52,12 @@
                     <span>خبرنامه</span>
                 </a>
             </li>
+            <li>
+                <a class="" href="/administrator/faq/list">
+                    <i class="icon-user"></i>
+                    <span>سوالات متداول</span>
+                </a>
+            </li>
         </ul>
         <!-- sidebar menu end-->
     </div>

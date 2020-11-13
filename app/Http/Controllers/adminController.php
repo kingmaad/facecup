@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Company;
+use App\Faq;
 use App\Job;
 use App\Jobrequest;
 use App\Post;
@@ -223,6 +224,89 @@ class adminController extends Controller
             return back();
         }
     }
+
+    public function faqs()
+    {
+        $faqs = Faq::all();
+        return view('admin.faq_list',['faqs' => $faqs]);
+    }
+
+    public function faq_edit($id)
+    {
+        $faq = Faq::where('id',$id)->first();
+        if($faq)
+        {
+            return view('admin.faq_edit',['faq'=>$faq]);
+        }
+        else{
+            return back();
+        }
+    }
+
+    public function faq_update(Request $request)
+    {
+        $validate = Validator::make($request->all(),[
+            'id' => 'required',
+            'answer' => 'required',
+            'question' => 'required',
+            
+        ]);
+        if($validate->fails())
+        {
+            return back();
+        }
+        else{
+            
+            $faq = Faq::where('id',$request->id);
+            $faq->update([
+                'question' => $request->question,
+                'answer' => $request->answer,
+            ]);
+            return redirect('/administrator/faq/list');
+        }
+    }
+
+    public function faq_add()
+    {
+        return view('admin.faq_add');
+    }
+
+    public function faq_create(Request $request)
+    {
+        $validate = Validator::make($request->all(),[
+            'answer' => 'required',
+            'question' => 'required',
+            
+        ]);
+
+        if($validate->fails())
+        {
+            return back();
+        }
+        else
+        {
+            $faq = new Faq();
+            $faq->question= $request->question;
+            $faq->answer= $request->answer;
+            $faq->save();
+            return redirect('/administrator/faq/list');
+        }
+        
+    }
+
+    public function faq_delete($id)
+    {
+        $faq = Faq::where('id',$id)->first();
+        if($faq)
+        {
+            $faq->delete();
+            return back();
+        }
+        else{
+            return back();
+        }
+    }
+
     public function resumes()
     {
         # code...

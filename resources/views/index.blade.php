@@ -609,8 +609,33 @@ if (!c3.error) {
       </div>
     </section>
 
-
-         
+    @if($faqs->count())
+    <section id="faq" class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+      <div class="container">
+        <div class="section-header">
+          <h2>سوالات متداول</h2>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-9">
+            <ul id="faq-list">
+              @foreach ($faqs as $key=>$value)
+              <li>
+                <a data-toggle="collapse" class="collapsed" href="#faq{{ $key+1 }}">{{ $value->question }}
+                  <i class="fa fa-minus-circle"></i></a>
+                <div id="faq{{ $key+1 }}" class="collapse" data-parent="#faq-list">
+                  <p class="pr-5 rtl">
+                    {{ $value->answer }}
+                  </p>
+                </div>
+              </li>
+              @endforeach
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section> 
+    @endif
+  
 
     
       <!--==========================
