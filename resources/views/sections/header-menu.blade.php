@@ -52,6 +52,6 @@
       </nav>
       <!-- #nav-menu-container -->
     </div>
-    <div class="whatsapp"><a class="text-white mx-auto" href="https://web.whatsapp.com/send?phone=989362804206&text=" >ارتباط با پشتیبانی از طریق واتس اپ <i class="fa fa-whatsapp"></i></a></div>
+    <div class="whatsapp"><a class="text-white mx-auto" href="https://wa.me/989362804206" >ارتباط با پشتیبانی از طریق واتس اپ <i class="fa fa-whatsapp"></i></a></div>
   </header>
   <!-- #header -->
