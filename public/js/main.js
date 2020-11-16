@@ -1,5 +1,9 @@
 jQuery(document).ready(function( $ ) {
-
+  if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+		document.getElementById("whatsapp-btn").href="https://wa.me/989362804206"; 
+	}else{
+		document.getElementById("whatsapp-btn").href="https://web.whatsapp.com/send?phone=989330072121&text=hi"; 
+	}
   // Back to top button
   $(window).scroll(function() {
     if ($(this).scrollTop() > 100) {
