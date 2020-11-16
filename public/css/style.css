@@ -1717,7 +1717,18 @@ body.mobile-nav-active #mobile-nav-toggle {
 .desktop-nav-item{
   display: inline;
 }
-
+.whatsapp{
+  position: fixed;
+  top:auto;
+  bottom: 0;
+  padding: 20px;
+  margin: 40px;
+  border-radius: 50px;
+  background-color: #f3632a;
+  color: whitesmoke;
+  border:solid 3px #e74707;
+  left: 0;
+}
 @media (max-width: 768px) {
   .mobile-nav-item{
     display: inline;
@@ -1784,6 +1795,19 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 @media (max-width: 991px) {
+  .whatsapp{
+    position: fixed;
+    top:auto;
+    bottom: 0;
+    padding: 10px;
+    margin: 60px 20px 60px 20px;
+    border-radius: 50px;
+    background-color: #f3632a;
+    color: whitesmoke;
+    border:solid 3px #e74707;
+    left: 0;
+    font-size: 14px;
+  } 
   .dashboard-btn{
     width: 100%;
   }
