@@ -256,30 +256,28 @@ a:hover {
 
         <main role="main" class="inner cover mb-5 rtl text-right">
           <img src="/img/Award-Winners.jpg" class="img-fluid">
-          <h1 class="cover-heading text-center">جوایز</h1>
+          <h1 class="cover-heading text-center">جوایز فیس کاپ</h1>
           <p class="lead">
 
-          <h4 class=" text-right text-justify">•	پکیج نکسترا برای تیم اول شامل یک سال فضای کار نکسترا + جایزه نقدی  200.000.000 ریال +حمایت از مقالات و پایان نامه ها است.</h4>
+          <h4 class=" text-right text-justify">پکیج نکسترا برای تیم اول شامل یک سال فضای کار نکسترا + جایزه نقدی 200.000.000 ریال +حمایت از مقالات و پایان نامه ها است.</h4>
           </p>
           <p class="lead">
 
-            <h4 class=" text-right text-justify">•	پکیج نکسترا برای تیم دوم شامل 6 ماه فضای کار نکسترا +جایزه نقدی 150.000.000 ریال  + حمایت از مقالات و پایان نامه ها است.</h4>
+            <h4 class=" text-right text-justify">پکیج نکسترا برای تیم دوم شامل 6 ماه فضای کار نکسترا +جایزه نقدی 150.000.000 ریال + حمایت از مقالات و پایان نامه ها است.</h4>
             </p>
             <p class="lead">
 
-              <h4 class=" text-right text-justify">•	پکیج نکسترا برای تیم سوم شامل 3 ماه فضای کار نکسترا +جایزه نقدی  100.000.000 ریال + حمایت از مقالات و پایان نامه ها است.</h4>
+              <h4 class=" text-right text-justify">پکیج نکسترا برای تیم سوم شامل 3 ماه فضای کار نکسترا +جایزه نقدی 100.000.000 ریال + حمایت از مقالات و پایان نامه ها است.</h4>
+              </p>
+
+              <p class="lead">
+              <h1 class="cover-heading text-center">جایزه ویژه توسط حامیان فیس کاپ</h1>
+                  <h4 class="text-success text-justify">30 میلیون تومان جایزه نقدی در صورتیکه تیم برتر با FTE<0.001 در FMR=0.0001 میزان خطای FNMR<0.02 بدست آورد</h4>
               </p>
               <p class="lead">
-                <h4 class="text-success text-justify">
-                  جایزه ویژه: در صورتیکه تیم برتر با FTE<0.001 در FMR=0.0001 میزان خطای FNMR<0.02  بدست آورد، جایزه اضافی 30 میلیون تومان توسط شرکت طرح و پردازش غدیر به تیم برتر اعطا می گردد
-                </h4>
+                <h4 class="text-success text-justify">20 میلیون یارانه استفاده از خدمات استفاده از فضای کار اشتراکی و شتابدهی</h4>
               </p>
-              <p class="lead">
-                  <h4 class="text-success text-justify">
-                    شرکت سپید سیستم شریف در جهت حمایت از رویداد جزو حامیان مادی 
-    '' بسته الماس'' قرار گرفت.
-                  </h4>
-              </p>
+              
               <hr>
               <p class="text-center h3 text-info">
                 شما هم مي توانيد جوايز خاص با اهداف خاص تعريف كنيد
