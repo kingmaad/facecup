@@ -22,6 +22,8 @@
                                     <th class="hidden-phone"><i class="icon-question-sign"></i>نام لاتین تیم</th>
                                     <th class="hidden-phone"><i class="icon-question-sign"></i>نام فارسی</th>
                                     <th class="hidden-phone"><i class="icon-question-sign"></i>شماره موبایل</th>
+                                    <th>نوع تیم</th>
+                                    <th>وابستگی سازمانی/دانشگاه</th>
                                     <th class="hidden-phone"><i class="icon-question-sign"></i>تاریخ ثبت نام</th>
                                     <th class="hidden-phone"><i class="icon-question-sign"></i>تعداد اعضای تیم</th>
                                     <th class="hidden-phone"><i class="icon-question-sign"></i>فایل رزومه</th>
@@ -39,6 +41,21 @@
                                     <td>{{ $team->en_name }}</td>
                                     <td>{{ $team->fa_name }}</td>
                                     <td>{{ $team->mobile }}</td>
+                                    <td>
+                                            @switch($team->team_type)
+                                            @case('1')
+                                                آزاد
+                                                @break
+                                        
+                                            @case('2')
+                                                دانشجویی
+                                                @break
+                                            @case('3')
+                                                شرکتی
+                                          @endswitch
+
+                                        </td>
+                                    <td>{{ $team->organ_dependence }}</td>
                                     <td>{{ $team->created_at }}</td>
                                     <td>{{ $team->members->count() }}</td>
                                     <td>@if($team->cv_url)<a href="{{ asset($team->cv_url) }}" class="btn btn-warning">دانلود</a>@endif</td>
