@@ -232,7 +232,7 @@ if (!c3.error) {
                     <a href="/{{ $post->id }}/artificial-intelligence-progress"><img class="d-flex" src="{{ url($post->img) }}" alt="Generic placeholder image" height="200"></a>  
                     <div class="media-body text-right mr-2">
                       <a href="/blog/{{ $post->id."/".$post->permalink }}"><h5 class="mt-0">{{ $post->title }}</h5></a>
-                      <div style="overflow: hidden;height: 100px;">
+                      <div style="overflow: hidden;height: 125px;">
                       {{ $post->abstract }}
                       </div>
                       <a href="/blog/{{ $post->id."/".$post->permalink }}" class="post-link p-1 rounded pull-left" style="background-color: #fb6834;color:#fff;">ادامه مطلب</a>
