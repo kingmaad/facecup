@@ -269,7 +269,7 @@ class indexController extends Controller
      }
      public function blog()
      {
-         $posts = Post::all();
+         $posts = Post::orderBy('created_at', 'DESC')->get();
          return view('blog',['posts'=>$posts]);
      }
 
