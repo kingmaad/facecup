@@ -267,11 +267,11 @@ a:hover {
             Core i7 3.2GHz<br>
             RAM 16G</p>
           <p class="lead">
-            <a href="/TeamInfo" class="btn btn-lg btn-success dashboard-btn">تکمیل ثبت نام تیم</a>
-            <a href="/get-files" class="btn btn-lg btn-warning dashboard-btn">دریافت محتوی مورد نیاز مسابقه</a>
-            <a href="/changePassword" class="btn btn-lg btn-info dashboard-btn">تغییر رمز</a>
-            <a href="/fileupload" class="btn btn-lg btn-primary dashboard-btn" >ارسال کد</a>
-            <a href="/fileupload" class="btn btn-lg btn-info disabled dashboard-btn" >دریافت نتایج ارزیابی</a>
+            <a href="/TeamInfo" class="btn btn-lg btn-success dashboard-btn mt-2">تکمیل ثبت نام تیم</a>
+            <a href="/get-files" class="btn btn-lg btn-warning dashboard-btn mt-2">دریافت محتوی مورد نیاز مسابقه</a>
+            <a href="/changePassword" class="btn btn-lg btn-info dashboard-btn mt-2">تغییر رمز</a>
+            <a href="/fileupload" class="btn btn-lg btn-primary dashboard-btn mt-2" >ارسال کد</a>
+            <a href="#" class="btn btn-lg btn-secondary disabled dashboard-btn mt-2"  >دریافت نتایج ارزیابی</a>
           </p>
         </main>
       
