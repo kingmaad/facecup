@@ -184,3 +184,9 @@ Route::get('/administrator/login',function(){
     return view('admin.login');
 });
 Route::post('/administrator/login','adminController@login');
+
+Route::domain('upload.facecup.ir')->group(function () {
+    Route::get('uploader', function () {
+        echo "this is a test for uploader";
+    });
+});
