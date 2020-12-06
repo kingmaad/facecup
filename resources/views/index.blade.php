@@ -448,6 +448,17 @@ if (!c3.error) {
                     </div>
                 </div>
                 
+                <div class="carousel-item pull">
+                  <div class="min-vh-100 slider-four-bg">
+                     <div id="carousel-header-slide2-text-one" class="carousel-header-slide2-text-one rtl" >
+                      
+                     
+                     </div>   
+                                 
+              
+                    </div>
+                </div>
+
             </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
