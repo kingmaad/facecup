@@ -31,7 +31,11 @@ Route::group(['middleware' => ['isVerified']], function () {
     Route::get('/get-files/get-dataset-file','indexController@get_dataset_file');
     Route::get('/fileupload', 'FileUploadController@fileUpload');
     Route::post('/fileupload', 'FileUploadController@fileStore');
-    
+    Route::domain('upload.facecup.ir')->group(function () {
+        Route::get('uploader2', function () {
+            echo "this is a test for uploader";
+        });
+    });
 });
 Route::get('/signupTeam', function () {
     return view('team_registration');
