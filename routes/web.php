@@ -16,26 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'indexController@index');
 
 
-Route::group(['middleware' => ['isVerified']], function () {
-    //
-    Route::get('/dashboard','teamController@Dashboard');
-    Route::get('/TeamInfo', "teamController@index");
-    Route::post('/TeamInfo', "teamController@update");
-    Route::get('/AddMember', "memberController@create");
-    Route::post('/AddMember', "memberController@store");
-    Route::get('/changePassword','teamController@changePassword');
-    Route::post('/changePassword','teamController@doChangePassword');
-    Route::get('/removeMember/{id}', "memberController@destroy");
-    Route::get('/get-files','indexController@get_files');
-    Route::get('/get-files/get-docker-file','indexController@get_docker_file');
-    Route::get('/get-files/get-dataset-file','indexController@get_dataset_file');
-    
-    //Route::domain('upload.facecup.ir')->group(function () {
-        Route::get('/fileupload', 'FileUploadController@fileUpload');
-        Route::post('/fileupload', 'FileUploadController@fileStore');
-        Route::post('/upload','DependencyUploadController@uploadFile');
-    //});
-});
+
 Route::get('/signupTeam', function () {
     return view('team_registration');
 });
@@ -188,3 +169,23 @@ Route::get('/administrator/login',function(){
 });
 Route::post('/administrator/login','adminController@login');
 
+Route::group(['middleware' => ['isVerified']], function () {
+    //
+    Route::get('/dashboard','teamController@Dashboard');
+    Route::get('/TeamInfo', "teamController@index");
+    Route::post('/TeamInfo', "teamController@update");
+    Route::get('/AddMember', "memberController@create");
+    Route::post('/AddMember', "memberController@store");
+    Route::get('/changePassword','teamController@changePassword');
+    Route::post('/changePassword','teamController@doChangePassword');
+    Route::get('/removeMember/{id}', "memberController@destroy");
+    Route::get('/get-files','indexController@get_files');
+    Route::get('/get-files/get-docker-file','indexController@get_docker_file');
+    Route::get('/get-files/get-dataset-file','indexController@get_dataset_file');
+    
+    //Route::domain('upload.facecup.ir')->group(function () {
+        Route::get('/fileupload', 'FileUploadController@fileUpload');
+        Route::post('/fileupload', 'FileUploadController@fileStore');
+        Route::post('/chunkedupload','DependencyUploadController@uploadFile');
+    //});
+});
