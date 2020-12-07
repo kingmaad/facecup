@@ -284,7 +284,12 @@ a:hover{
           </form>    
               
           </div>
-          
+          <div class="text-center">
+          <input id="fileupload" type="file" name="file" data-url="{{ action('DependencyUploadController@uploadFile') }}" style="display: inline;">
+          <ul id="file-upload-list" class="list-unstyled">
+
+          </ul>
+    </div>
           
         </main>
       
@@ -338,7 +343,55 @@ a:hover{
   <script src="js/main.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
-   <script type="text/javascript">
+<script src="https://blueimp.github.io/jQuery-File-Upload/js/vendor/jquery.ui.widget.js"></script>
+<script src="js/jquery.fileupload.js"></script>
+<script>
+
+      var $uploadList = $("#file-upload-list");
+      var $fileUpload = $('#fileupload');
+      var bar = $('.bar');
+      var percent = $('.percent');
+      if ($uploadList.length > 0 && $fileUpload.length > 0) {
+      var idSequence = 0;
+
+      // A quick way setup - url is taken from the html tag
+      $fileUpload.fileupload({
+        maxChunkSize: 1000000,
+        method: "POST",
+        // Not supported yet
+        sequentialUploads: true,
+        formData: function (form) {
+            // Append token to the request - required for web routes
+            return [{
+              name: '_token', 
+              value: $('input[name=_token]').val()},
+              {
+                name : 'description',
+                value: $('textarea[name=description]').val(),
+              }  
+              ];
+        },
+        progressall: function (e, data) {
+            var progress = parseInt(data.loaded / data.total * 100, 10);
+            bar.width(progress+"%");
+            percent.html(progress + '%');
+            $("#" + data.theId).text('Uploading ' + progress + '%');
+        },
+        add: function (e, data) {
+            data._progress.theId = 'id_' + idSequence;
+            idSequence++;
+            //$uploadList.append($('<li id="' + data.theId + '"></li>').text('Uploading'));
+            data.submit();
+        },
+        done: function (e, data) {
+            //console.log(data, e);
+            //$uploadList.append($('<li></li>').text('Uploaded: ' + data.result.path + ' ' + data.result.name));
+        }
+    });
+}
+
+</script>
+   <!-- <script type="text/javascript">
     $(function() {
          $(document).ready(function()
          {
@@ -378,6 +431,6 @@ a:hover{
       });
    }); 
  });
-</script>
+</script> -->
 </body>
 </html>
