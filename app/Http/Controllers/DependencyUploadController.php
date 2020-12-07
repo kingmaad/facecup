@@ -35,7 +35,18 @@ class DependencyUploadController extends Controller
      */
     public function uploadFile(Request $request)
     {
-        
+        $validate = Validator::make($request->all(),[
+                'description' => 'required',
+                'file' => 'required|mimes:zip,tar',
+            ],[
+                'description.required' => 'لطفا توضیحات را وارد نمایید',
+                'file.required' => 'لطفا فایل مورد نظر برای آپلود را انتخاب کنید',
+                'mimes' => '(پسوندهای مجاز: tarو zip) لطفا فایل با پسوند مجاز انتخاب کنید'
+            ]);
+            if($validate->fails())
+            {
+                return response()->json(['status'=>422,'errors' => $validate->messages()]);
+            }
         $receiver = new FileReceiver("file", $request, HandlerFactory::classFromRequest($request));
         // check if the upload is success, throw exception or return response you need
         if ($receiver->isUploaded() === false) {

@@ -265,27 +265,28 @@ a:hover{
           <h1 class="cover-heading text-center">فرم آپلود فایل مسابقه</h1>
           <hr>
           <div class="col-lg-6" style="margin: auto;">
-            <form method="POST" action="{{ action('FileUploadController@fileStore') }}" enctype="multipart/form-data">
+            
               {{ csrf_field() }}
               
               <label for="description" class="bg-warning p-1 h6" style="border-radius: 50px;">توضیحات</label>
               <textarea id="description" name="description" class="form-control" placeholder="لطفا توضیحات خود را وارد نمایید"></textarea><br>
               <div class="form-group">
                 <label for="description" class="bg-warning p-1 h6" style="border-radius: 50px;">فایل داکر مسابقه</label>  
-                <input type="file" name="file" class="form-control"><br>
+                <input id="fileupload" type="file" name="file" data-url="{{ action('DependencyUploadController@uploadFile') }}" class="form-control"><br>
                     <div class="progress progress-bar-striped ">
                       
                         <div class="bar"></div >
                         <div class="percent">0%</div >
                     </div>
                     <br>
-                    <p class="text-center"><input type="submit"  value="آپلود" class="btn btn-success"></p>
+                    <p class="text-center"><button id="up_btn" class="btn btn-success">آپلود</button></p>
               </div>
-          </form>    
+          
               
           </div>
           <div class="text-center">
-          <input id="fileupload" type="file" name="file" data-url="{{ action('DependencyUploadController@uploadFile') }}" style="display: inline;">
+          
+          <!-- <input id="fileupload" type="file" name="file" data-url="{{ action('DependencyUploadController@uploadFile') }}" style="display: inline;"> -->
           <ul id="file-upload-list" class="list-unstyled">
 
           </ul>
@@ -353,7 +354,9 @@ a:hover{
       var percent = $('.percent');
       if ($uploadList.length > 0 && $fileUpload.length > 0) {
       var idSequence = 0;
-
+      var percentVal = '0%';
+      bar.width(percentVal)
+      percent.html(percentVal);
       // A quick way setup - url is taken from the html tag
       $fileUpload.fileupload({
         maxChunkSize: 1000000,
@@ -380,12 +383,29 @@ a:hover{
         add: function (e, data) {
             data._progress.theId = 'id_' + idSequence;
             idSequence++;
-            //$uploadList.append($('<li id="' + data.theId + '"></li>').text('Uploading'));
+            $("#up_btn").off('click').on('click', function () {
             data.submit();
+          });
+            //$uploadList.append($('<li id="' + data.theId + '"></li>').text('Uploading'));
+            //data.submit();
         },
         done: function (e, data) {
             //console.log(data, e);
             //$uploadList.append($('<li></li>').text('Uploaded: ' + data.result.path + ' ' + data.result.name));
+            if(data.result.status == 200)
+            {
+              $('#validation-errors').append('<div class="alert alert-success">'+data.result.success+'</div');
+              //window.location.href = "/fileupload";
+            }
+            else
+            {
+              
+              $('#validation-errors').html('');
+              $.each(data.result.errors, function(key,value) {
+                  $('#validation-errors').append(
+                    '<div class="alert alert-danger">'+value[0]+'<button type="button" class="close pull-left" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+              });
+            }
         }
     });
 }
