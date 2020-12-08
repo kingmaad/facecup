@@ -359,7 +359,7 @@ a:hover{
       percent.html(percentVal);
       // A quick way setup - url is taken from the html tag
       $fileUpload.fileupload({
-        maxChunkSize: 100000000,
+        maxChunkSize: 1000000,
         method: "POST",
         // Not supported yet
         sequentialUploads: true,
