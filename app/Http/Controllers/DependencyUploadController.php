@@ -37,11 +37,11 @@ class DependencyUploadController extends Controller
     {
         $validate = Validator::make($request->all(),[
                 'description' => 'required',
-                'file' => 'required|mimes:zip,tar',
+                'file' => 'required',
             ],[
                 'description.required' => 'لطفا توضیحات را وارد نمایید',
                 'file.required' => 'لطفا فایل مورد نظر برای آپلود را انتخاب کنید',
-                'mimes' => '(پسوندهای مجاز: tarو zip) لطفا فایل با پسوند مجاز انتخاب کنید'
+                //'mimes' => '(پسوندهای مجاز: tarو zip) لطفا فایل با پسوند مجاز انتخاب کنید'
             ]);
             if($validate->fails())
             {

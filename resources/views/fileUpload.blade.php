@@ -269,17 +269,23 @@ a:hover{
               {{ csrf_field() }}
               
               <label for="description" class="bg-warning p-1 h6" style="border-radius: 50px;">توضیحات</label>
-              <textarea id="description" name="description" class="form-control" placeholder="لطفا توضیحات خود را وارد نمایید"></textarea><br>
+              <textarea id="description" name="description" class="form-control" placeholder="لطفا توضیحات خود را وارد نمایید" required></textarea><br>
               <div class="form-group">
                 <label for="description" class="bg-warning p-1 h6" style="border-radius: 50px;">فایل داکر مسابقه</label>  
-                <input id="fileupload" type="file" name="file" data-url="{{ action('DependencyUploadController@uploadFile') }}" class="form-control"><br>
+                <input id="fileupload" type="file" name="file" accept=".zip" data-url="{{ action('DependencyUploadController@uploadFile') }}" class="form-control"><br>
                     <div class="progress progress-bar-striped ">
                       
                         <div class="bar"></div >
                         <div class="percent">0%</div >
                     </div>
+                    
+                    
+                    
                     <br>
-                    <p class="text-center"><button id="up_btn" class="btn btn-success">آپلود</button></p>
+                    <p class="text-center">
+                    <img src="img/loading.gif" id="img" style="display:none" width="50" ><br>
+                    <button id="up_btn" class="btn btn-success">آپلود</button>
+                    </p>
               </div>
           
               
@@ -352,14 +358,14 @@ a:hover{
       var $fileUpload = $('#fileupload');
       var bar = $('.bar');
       var percent = $('.percent');
-      if ($uploadList.length > 0 && $fileUpload.length > 0) {
+      if ($fileUpload.length > 0) {
       var idSequence = 0;
       var percentVal = '0%';
       bar.width(percentVal)
       percent.html(percentVal);
       // A quick way setup - url is taken from the html tag
       $fileUpload.fileupload({
-        maxChunkSize: 1000000,
+        maxChunkSize: 10000000,
         method: "POST",
         // Not supported yet
         sequentialUploads: true,
@@ -378,13 +384,23 @@ a:hover{
             var progress = parseInt(data.loaded / data.total * 100, 10);
             bar.width(progress+"%");
             percent.html(progress + '%');
+            
             $("#" + data.theId).text('Uploading ' + progress + '%');
         },
         add: function (e, data) {
             data._progress.theId = 'id_' + idSequence;
             idSequence++;
+            
             $("#up_btn").off('click').on('click', function () {
-            data.submit();
+              if($('textarea[name=description]').val()==="")
+              {
+                $('textarea[name=description]').focus();
+              }
+              else{
+                $('#img').show();
+                data.submit();
+              }
+              
           });
             //$uploadList.append($('<li id="' + data.theId + '"></li>').text('Uploading'));
             //data.submit();
@@ -392,6 +408,7 @@ a:hover{
         done: function (e, data) {
             //console.log(data, e);
             //$uploadList.append($('<li></li>').text('Uploaded: ' + data.result.path + ' ' + data.result.name));
+            $("#img").hide();
             if(data.result.status == 200)
             {
               $('#validation-errors').append('<div class="alert alert-success">'+data.result.success+'</div');
@@ -399,7 +416,7 @@ a:hover{
             }
             else
             {
-              
+              console.log(data.result);
               $('#validation-errors').html('');
               $.each(data.result.errors, function(key,value) {
                   $('#validation-errors').append(
