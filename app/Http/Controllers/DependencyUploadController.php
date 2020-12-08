@@ -84,10 +84,12 @@ class DependencyUploadController extends Controller
                     $file->file_url=$file_url;
                     $file->team_id = $team_id;
                     $file->description =$request->description;
+                    $filesize = File::size($file_url)/1024/1024;
+                    $filesize = number_format($filesize, 2);
                     if($file->save())
                         {
                             File::delete($old_file);
-                            return response()->json(['status'=>200,'success'=>'فایل با موفقیت آپلود شد']);
+                            return response()->json(['status'=>200,'size'=>$filesize,'success'=>'فایل با موفقیت آپلود شد']);
                         }
                 }
                 else
@@ -96,11 +98,13 @@ class DependencyUploadController extends Controller
                     $fileupload = new TeamFile();
                     //$request->file->move(public_path('uploads/resume/'.$team_id."/"), $fileName);
                     $file_url='uploads/resume/'.$team_id."/".$fileName;
+                    $filesize = File::size($file_url)/1024/1024;
+                    $filesize = number_format($filesize, 2);
                     $fileupload->file_url=$file_url;
                     $fileupload->team_id = $team_id;
                     $fileupload->description = $request->description;
                     if($fileupload->save())
-                        return response()->json(['status'=>200,'success'=>'فایل با موفقیت آپلود شد']);
+                        return response()->json(['status'=>200,'size'=>$filesize,'success'=>'فایل با موفقیت آپلود شد']);
                 }
                 
             //}

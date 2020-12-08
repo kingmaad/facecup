@@ -245,7 +245,17 @@ a:hover{
 .progress { position:relative; width:100%; }
 .bar { background-color: #008000; width:0%; height:20px; }
 .percent { position:absolute; display:inline-block; left:50%; color: #7F98B2;}
-
+#upload_button {
+    display: none;
+    text-align: center;
+    border: 0px;
+    background: linear-gradient(180deg, #f3632a, #e74707);
+    border-radius: 5px;
+    
+    color: #fff;
+    
+    padding: 10px;
+}
 </style>
   </head>
 
@@ -273,6 +283,7 @@ a:hover{
               <div class="form-group">
                 <label for="description" class="bg-warning p-1 h6" style="border-radius: 50px;">فایل داکر مسابقه</label>  
                 <input id="fileupload" type="file" name="file" accept=".zip" data-url="{{ action('DependencyUploadController@uploadFile') }}" class="form-control"><br>
+                <p class="text-center"><button id="upload_button">برای انتخاب فایل داکر اینجا راکلیک کنید <i class="fa fa-upload" aria-hidden="true"></i></button></p>
                     <div class="progress progress-bar-striped ">
                       
                         <div class="bar"></div >
@@ -354,6 +365,27 @@ a:hover{
 <script src="js/jquery.fileupload.js"></script>
 <script>
 
+var button = document.getElementById('upload_button');
+var input  = document.getElementById('fileupload');
+
+// Making input invisible, but leaving shown fo graceful degradation
+input.style.display = 'none';
+button.style.display = 'initial';
+
+button.addEventListener('click', function (e) {
+    e.preventDefault();
+    
+    input.click();
+});
+
+input.addEventListener('change', function () {
+  var _size = this.files[0].size;
+            var fSExt = new Array('Bytes', 'KB', 'MB', 'GB'),
+        	i=0;while(_size>900){_size/=1024;i++;}
+            var exactSize = (Math.round(_size*100)/100)+' '+fSExt[i];
+                
+   button.innerText = this.value+"("+exactSize+")"; 
+});
       var $uploadList = $("#file-upload-list");
       var $fileUpload = $('#fileupload');
       var bar = $('.bar');
@@ -411,7 +443,7 @@ a:hover{
             $("#img").hide();
             if(data.result.status == 200)
             {
-              $('#validation-errors').append('<div class="alert alert-success">'+data.result.success+'</div');
+              $('#validation-errors').append('<div class="alert alert-success">'+data.result.success+".حجم فایل آپلود شده: "+data.result.size+" مگابایت"+'</div');
               //window.location.href = "/fileupload";
             }
             else
