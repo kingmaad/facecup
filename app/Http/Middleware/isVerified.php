@@ -7,6 +7,11 @@ use Closure;
 
 class isVerified
 {
+    protected $except = [
+        //
+        
+        'chunkedupload',
+    ];
     /**
      * Handle an incoming request.
      *
