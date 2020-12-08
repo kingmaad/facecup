@@ -282,8 +282,8 @@ a:hover{
               <textarea id="description" name="description" class="form-control" placeholder="لطفا توضیحات خود را وارد نمایید" required></textarea><br>
               <div class="form-group">
                 <label for="description" class="bg-warning p-1 h6" style="border-radius: 50px;">فایل داکر مسابقه</label>  
-                <input id="fileupload" type="file" name="file" accept=".zip" data-url="{{ action('DependencyUploadController@uploadFile') }}" class="form-control"><br>
-                <p class="text-center"><button id="upload_button">برای انتخاب فایل داکر اینجا راکلیک کنید <i class="fa fa-upload" aria-hidden="true"></i></button></p>
+                <input id="fileupload" type="file" name="file" accept=".zip,.tar" data-url="{{ action('DependencyUploadController@uploadFile') }}" class="form-control"><br>
+                <p class="text-center rtl"><button id="upload_button"><i class="fa fa-upload" aria-hidden="true"></i> برای انتخاب فایل داکر اینجا راکلیک کنید(فایلهای مجاز: zip و tar) </button></p>
                     <div class="progress progress-bar-striped ">
                       
                         <div class="bar"></div >
