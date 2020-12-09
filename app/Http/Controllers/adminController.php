@@ -396,9 +396,19 @@ class adminController extends Controller
         }
     }
 
-    public function sponsor_delete()
+    public function sponsor_delete($id)
     {
-
+        
+        $sponsor = $sponsor = Sponsor::where('id',$id)->first();
+        if($sponsor)
+        {
+            
+            $sponsor->delete();
+            return back();
+        }
+        else{
+            return back();
+        }
     }
 
 
