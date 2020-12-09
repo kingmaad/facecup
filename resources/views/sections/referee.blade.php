@@ -388,6 +388,23 @@ a:hover {
                   </a></td>
               </tr>
               <tr>
+                <td rowspan="2" class="vertical"><div class="vertical">کمیته فنی</div></td>
+                <td>
+                دکتر حمید صادقی
+                </td>
+                <td>عضو تیم تخصصی هوش مصنوعی مرکز نوآوری نکسترا 
+                  </td>
+                
+              </tr>
+              <tr>
+                <td>
+                دکتر ندا داداشی
+                  </td>
+                <td>عضو تیم تخصصی هوش مصنوعی مرکز نوآوری نکسترا</td>
+               
+              </tr>
+             
+              <tr>
                 <td rowspan="3" class="vertical"><div class="vertical">مدعوین</div></td>
                 <td>
                   مهندس رضا باقری اصل
