@@ -315,8 +315,9 @@ if (!c3.error) {
                                       <div class="form-row text-right">
                                         <label for="cv_url">
                                         فایل رزومه
-                                        <span class="text-danger">(فایل رزومه با سایز {{ $file_size }} مگابایت قبلا آپلود شده است)</span>
-                                        
+                                        @if($file_size>0)
+                                         <span class="text-danger">(فایل رزومه با سایز {{ $file_size }} مگابایت قبلا آپلود شده است)</span>
+                                        @endif
                                         </label>
                                         
                                             <div class="file-field">
