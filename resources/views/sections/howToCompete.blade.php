@@ -243,6 +243,8 @@ if (!c3.error) {
 <p class="text-center"><img src="/img/howtocompete-5.jpg" class="img-fluid"></p>
 <br>
 <p style="text-align: right;"><h4>مرحله 4: از قسمت "دریافت داکرهای تست" میتوانید داکرهای مورد نیاز و همچنین یک نمونه کد به زبان پایتون را دریافت نمایید. این داکرها به شکل زیر کار می&rlm;کنند: (گیف داکر)</h4></p>
+<p class="text-center"><img src="/img/docker.gif" class="img-fluid"></p>
+<br>
 <p class="text-center"><img src="/img/howtocompete-6.jpg" class="img-fluid"></p>
 <br>
 <p style="text-align: right;"><h4>مرحله 6: پس از تکمیل الگوریتم و کد خودتان، از قسمت "ارسال کد" ، داکر کدهای خود را داخل داشبورد</h4> <span style="font-weight: 400;">بارگزاری کنید.</span></p>
