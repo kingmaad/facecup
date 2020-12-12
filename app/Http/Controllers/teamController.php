@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use PhpParser\Node\Stmt\Return_;
-
+use Illuminate\Support\Facades\File;
 class teamController extends Controller
 {
     /**
@@ -24,6 +24,8 @@ class teamController extends Controller
         if($team_id)
         {
             $team = Team::where('id',$team_id)->first();
+            $size =File::size($team->cv_url)/1024/1024;
+            $size = number_format($size, 2);
             return view('team_information',[
             'team_id'=>$team_id,
             'en_name' => $team->en_name,
@@ -36,6 +38,8 @@ class teamController extends Controller
             'major' => $team->major,
             'university' => $team->university,    
             'members' => $team->members,
+            'cv_url' => $team->cv_url,
+            'file_size' => $size
             ]);
         }
         

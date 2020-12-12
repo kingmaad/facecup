@@ -591,6 +591,15 @@ body.mobile-nav-active #mobile-nav-toggle {
   overflow: hidden;
   position: relative;
 }
+.slider-five-bg
+{
+  width: 100%;
+  height: 120vh;
+  background: url(../img/intro-bg6.jpg) top center;
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+}
 #gallery h1 {
   color: #fff;
   font-family: "Raleway", sans-serif;

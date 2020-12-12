@@ -452,6 +452,27 @@ class adminController extends Controller
             echo $contents;
         }, $filename);
     }
+    public function team_update(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'en_name' => 'required|unique:teams,en_name,'.$request->id,
+            'id' => 'required'
+            ]
+            ,[
+                'en_name.unique' => 'این اسم تکراری می باشد'
+            ]);
+        if($validator->fails())
+        {
+            return response()->json(['hasError'=> true,'errors'=>$validator->messages()], 200);
+        }
+        else
+        {
+            $team = Team::where('id',$request->id)->first();
+            $team->en_name = $request->en_name;
+            $team->save();
+            return response()->json(['hasError'=> false], 200);
+        }
+    }
     public function posts()
     {
         $posts = Post::all();

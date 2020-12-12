@@ -97,7 +97,9 @@ Route::post('/saveCV', "indexController@saveCV");
 Route::get('/awards',function(){
     return view('sections.awards');
 });
-
+Route::get('/howToCompete',function(){
+    return view('sections.howToCompete');
+});
 Route::get('/sponsor',function(){
     return view('sections.sponsor');
 });
@@ -142,6 +144,7 @@ Route::prefix('administrator')->middleware(['checkAdmin'])->group(function(){
         Route::get('/team/detail/{id}','adminController@team_detail');
         Route::get('/team/remove/{id}','adminController@team_delete');
         Route::get('/team/export/{type}','adminController@team_exports');
+        Route::post('/team/update','adminController@team_update');
         // Post
         Route::get('/post/list','adminController@posts');
         Route::get('/post/add','adminController@post_add');

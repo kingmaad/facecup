@@ -38,7 +38,8 @@
                                     <tr>
                                         <td>#</td>
                                         <td>{{ $team->fa_name }}</td>
-                                        <td>{{ $team->en_name }}</td>
+                                        {{ csrf_field() }}
+                                        <td><input type="text" class="form-control" value="{{ $team->en_name }}" name="team_name" id="txt-team-{{$team->id}}"><a class="btn btn-success team-btn" data-id="{{ $team->id }}" id="btn-team-{{$team->id}}">تغییرنام</a></td>
                                         <td>{{ $team->mobile }}</td>
                                         <td>
                                             @switch($team->team_type)

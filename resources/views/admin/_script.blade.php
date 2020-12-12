@@ -31,6 +31,37 @@
             singleItem : true
 
         });
+
+        $('.team-btn').on('click',function(){
+            let team_id = $(this).data("id");
+            let team_name = $('#txt-team-'+team_id).val();
+            let _token   =  $("input[name=_token]").val();
+            $.ajax({
+                                url: "/administrator/team/update",
+                                type:"POST",
+                                data:{
+                                id:team_id,
+                                en_name:team_name,
+                                _token: _token
+                                },
+                                success:function(response){
+                                console.log(response);
+                                if(response) {
+                                    result = response;
+                                    console.log(response.hasError==false);
+                                    if(response.hasError == false)
+                                    {
+                                      alert('با موفقیت انجام شد');
+                                    }
+                                    else
+                                    {
+                                      
+                                      alert(response.errors.en_name);                                      
+                                    }                                    
+                                }
+                                },
+                            });
+        })
     });
     $(function()
     {

@@ -313,7 +313,11 @@ if (!c3.error) {
                                     </div>
                                     <div class="col-lg-6">
                                       <div class="form-row text-right">
-                                        <label for="cv_url">فایل رزومه</label>
+                                        <label for="cv_url">
+                                        فایل رزومه
+                                        <span class="text-danger">(فایل رزومه با سایز {{ $file_size }} مگابایت قبلا آپلود شده است)</span>
+                                        
+                                        </label>
                                         
                                             <div class="file-field">
                                               <div class="btn btn-sm float-left">

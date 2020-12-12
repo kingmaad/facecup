@@ -2,7 +2,7 @@
     Header
   ============================-->
   <header id="header">
-    <div class="container">
+    <div class="container" style="max-width:1250px;">
       <div id="logo" class="pull-left">
         <!-- Uncomment below if you prefer to use a text logo -->
         
@@ -25,7 +25,7 @@
           <li class="mobile-nav-item"><a href="/logout">خروج</a></li>
           <li class="mobile-nav-item"><a href="/dashboard">پنل کاربری</a></li>
           @endif
-          
+          <li><a href="/howToCompete">راهنمای شرکت در مسابقه</a></li>
           <li><a href="/aboutUs">تماس با ما</a></li>
           <li><a href="/blog">وبلاگ</a></li>
           <li><a href="/referee">کمیته علمی</a></li>
