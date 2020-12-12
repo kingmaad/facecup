@@ -242,7 +242,7 @@ if (!c3.error) {
 <p style="text-align: right;"><span style="font-weight: 400;">ابتدا با "دریافت دیتاست نمونه" می&zwnj;توانید تعدادی 600 نمونه عکس مشابه عکس&zwnj;های مورد استفاده در ارزیابی نهایی، را دریافت نمایید و الگوریتم خود را با آنها تطبیق دهید.</span></p>
 <p class="text-center"><img src="/img/howtocompete-5.jpg" class="img-fluid"></p>
 <br>
-<p style="text-align: right;"><h4>مرحله 4: از قسمت "دریافت داکرهای تست" میتوانید داکرهای مورد نیاز و همچنین یک نمونه کد به زبان پایتون را دریافت نمایید. این داکرها به شکل زیر کار می&rlm;کنند: (گیف داکر)</h4></p>
+<p style="text-align: right;"><h4>مرحله 4: از قسمت "دریافت داکرهای تست" میتوانید داکرهای مورد نیاز و همچنین یک نمونه کد به زبان پایتون را دریافت نمایید. این داکرها به شکل زیر کار می&rlm;کنند: </h4></p>
 <p class="text-center"><img src="/img/docker.gif" class="img-fluid"></p>
 <br>
 <p class="text-center"><img src="/img/howtocompete-6.jpg" class="img-fluid"></p>
