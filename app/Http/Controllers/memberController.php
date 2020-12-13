@@ -70,7 +70,7 @@ class memberController extends Controller
             if ($team_id) {
                 $member = new Member();
                 $member->first_name = $request->first_name;
-                $member->last_name = $request->first_name;
+                $member->last_name = $request->last_name;
                 $member->field = $request->field;
                 $member->major = $request->major;
                 $member->university = $request->university;
