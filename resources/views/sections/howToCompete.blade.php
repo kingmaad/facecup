@@ -242,11 +242,15 @@ if (!c3.error) {
 <p style="text-align: right;"><span style="font-weight: 400;">ابتدا با "دریافت دیتاست نمونه" می&zwnj;توانید تعدادی 600 نمونه عکس مشابه عکس&zwnj;های مورد استفاده در ارزیابی نهایی، را دریافت نمایید و الگوریتم خود را با آنها تطبیق دهید.</span></p>
 <p class="text-center"><img src="/img/howtocompete-5.jpg" class="img-fluid"></p>
 <br>
-<p style="text-align: right;"><h4>مرحله 4: از قسمت "دریافت داکرهای تست" میتوانید داکرهای مورد نیاز و همچنین یک نمونه کد به زبان پایتون را دریافت نمایید. این داکرها به شکل زیر کار می&rlm;کنند: </h4></p>
-<p class="text-center"><img src="/img/docker.gif" class="img-fluid"></p>
+<p style="text-align: right;"><h4>مرحله 4: از قسمت "دریافت داکرهای تست" میتوانید داکرهای مورد نیاز و همچنین یک نمونه کد به زبان پایتون را دریافت نمایید. </h4></p>
+
 <br>
 <p class="text-center"><img src="/img/howtocompete-6.jpg" class="img-fluid"></p>
 <br>
+<p>
+<h4>مرحله 5: این داکرها به شکل زیر کار می‏کنند: </h4>
+</p>
+<p class="text-center"><img src="/img/docker.gif" class="img-fluid"></p>
 <p style="text-align: right;"><h4>مرحله 6: پس از تکمیل الگوریتم و کد خودتان، از قسمت "ارسال کد" ، داکر کدهای خود را داخل داشبورد</h4> <span style="font-weight: 400;">بارگزاری کنید.</span></p>
 <p style="text-align: right;"><span style="font-weight: 400;">شایان ذکر است که فایل ارسالی را تا تاریخ 15 بهمن می&zwnj;توانید ویرایش کنید.</span></p>
 <p class="text-center"><img src="/img/howtocompete-7.jpg" class="img-fluid"></p>
