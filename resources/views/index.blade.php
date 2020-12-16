@@ -28,7 +28,7 @@
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
 
     <!-- Main Stylesheet File -->
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/style.css?expired=1525452552" rel="stylesheet" />
     <!-- rtl style -->
     <link rel="stylesheet" href="css/rtl.css" />
     <!-- =======================================================
