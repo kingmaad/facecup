@@ -459,27 +459,7 @@ if (!c3.error) {
                     </div>
                 </div>
                 
-                <div class="carousel-item pull">
-                  <div class="min-vh-100 slider-five-bg">
-                     <div id="carousel-header-slide2-text-one" class="carousel-header-slide2-text-one rtl" >
-                      
-                     
-                     </div>   
-                                 
-              
-                    </div>
-                </div>
 
-                <div class="carousel-item pull">
-                  <div class="min-vh-100 slider-six-bg">
-                     <div id="carousel-header-slide2-text-one" class="carousel-header-slide2-text-one rtl" >
-                      
-                     
-                     </div>   
-                                 
-              
-                    </div>
-                </div>
 
             </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
