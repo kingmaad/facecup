@@ -607,7 +607,7 @@ if (!c3.error) {
                         حامی معنوی
                         @break
                     @case('Media')
-                        رسانه ای
+                        حامی رسانه ای
                         @break
                   @endswitch
                 </div>
