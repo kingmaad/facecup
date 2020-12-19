@@ -34,7 +34,7 @@
                                                 <option value="Diamond" @if($sponsor->type=="Diamond") selected @endif>الماسی</option>
                                                 <option value="Golden" @if($sponsor->type=="Golden") selected @endif>طلایی</option>
                                                 <option value="Silver" @if($sponsor->type=="Silver") selected @endif>نقره ای</option>
-                                                
+                                                <option value="Media" @if($sponsor->type=="Media") selected @endif>رسانه ای</option>
                                                 
                                             </select>
                                         </div>

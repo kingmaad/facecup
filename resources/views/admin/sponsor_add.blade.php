@@ -34,6 +34,7 @@
                                                 <option value="Diamond">الماسی</option>
                                                 <option value="Golden">طلایی</option>
                                                 <option value="Silver">نقره ای</option>
+                                                <option value="Media">رسانه ای</option>
                                             </select>
                                         </div>
                                     </div>

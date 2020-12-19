@@ -36,19 +36,23 @@
                                     <td><a href="{{ $sponsor->website_url}}">کلیک کنید</td>
                                     <td>
                                         @switch($sponsor->type)
-                                        @case('Spiritual')
-                                            معنوی
-                                            @break
-                                    
-                                        @case('Diamond')
-                                             الماسی
-                                            @break
-                                    
-                                        @case('Golden')
-                                             طلایی
-                                            @break
-                                        @case('Silver')
-                                             نقره‌ای
+                                            @case('Spiritual')
+                                                معنوی
+                                                @break
+                                        
+                                            @case('Diamond')
+                                                الماسی
+                                                @break
+                                        
+                                            @case('Golden')
+                                                طلایی
+                                                @break
+                                            @case('Silver')
+                                                نقره‌ای
+                                                @break
+                                            @case('Media')
+                                                رسانه ای
+                                                @break
                                       @endswitch
                                        
                                     </td>

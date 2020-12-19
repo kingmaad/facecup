@@ -338,7 +338,11 @@ if (!c3.error) {
 }
 .Spiritual
 {
-  background-color: #0aa832
+  background-color: #0aa832;
+}
+.Media
+{
+  background-color: #CEA2D2;
 }
 </style>
 @include('sections.head')
@@ -601,6 +605,9 @@ if (!c3.error) {
                         @break
                     @case('Spiritual')
                         حامی معنوی
+                        @break
+                    @case('Media')
+                        رسانه ای
                         @break
                   @endswitch
                 </div>
