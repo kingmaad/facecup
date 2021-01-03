@@ -283,7 +283,7 @@ a:hover {
                   </td>
                 <td><a href="
                   http://teacher.qodsiau.ac.ir/sabri-introduction" class="text-info">
-                  عضو هیات عملی
+                  عضو هیات علمی
                   دانشگاه آزاد اسلامی
                   </a></td>
               </tr>
@@ -293,7 +293,7 @@ a:hover {
                 <td>
                   دکتر سید امیر اصغری
                   </td>
-                <td><a href="https://eng.khu.ac.ir/cv/330/%d8%b3%db%8c%d8%af%d8%a7%d9%85%db%8c%d8%b1-%d8%a7%d8%b5%d8%ba%d8%b1%db%8c-%d8%aa%d9%88%da%86%d8%a7%d8%a6%db%8c?&cv=330&mod=scv" class="text-info">عضو هیات عملی دانشگاه خوارزمی</a> 
+                <td><a href="https://eng.khu.ac.ir/cv/330/%d8%b3%db%8c%d8%af%d8%a7%d9%85%db%8c%d8%b1-%d8%a7%d8%b5%d8%ba%d8%b1%db%8c-%d8%aa%d9%88%da%86%d8%a7%d8%a6%db%8c?&cv=330&mod=scv" class="text-info">عضو هیات علمی دانشگاه خوارزمی</a> 
                   
                   </td>
               </tr>
@@ -302,7 +302,7 @@ a:hover {
                 <td>
                   دکتر محمد اکبری
                   </td>
-                <td><a href="https://aut.ac.ir/cv/2046/%D9%85%D8%AD%D9%85%D8%AF-%D8%A7%DA%A9%D8%A8%D8%B1%DB%8C?slc_lang=fa&&cv=2046&mod=scv" class="text-info">عضو هیات عملی
+                <td><a href="https://aut.ac.ir/cv/2046/%D9%85%D8%AD%D9%85%D8%AF-%D8%A7%DA%A9%D8%A8%D8%B1%DB%8C?slc_lang=fa&&cv=2046&mod=scv" class="text-info">عضو هیات علمی
                   دانشگاه امیرکبیر</a>
                   </td>
               </tr>
@@ -311,7 +311,7 @@ a:hover {
                 <td>
                   دکتر کاوه پاشایی
                   </td>
-                <td><a href="http://shdu.ac.ir/web/37855/174" class="text-info">عضو هیات عملی
+                <td><a href="http://shdu.ac.ir/web/37855/174" class="text-info">عضو هیات علمی
                   دانشگاه شهاب دانش</a>
                   </td>
               </tr>
@@ -320,7 +320,7 @@ a:hover {
                 <td>
                   دکتر فربد رزازی
                   </td>
-                <td><a href="http://faculty.srbiau.ac.ir/f-razazi/fa" class="text-info">عضو هیات عملی
+                <td><a href="http://faculty.srbiau.ac.ir/f-razazi/fa" class="text-info">عضو هیات علمی
                   دانشگاه آزاد اسلامی
                   </a></td>
               </tr>
@@ -329,7 +329,7 @@ a:hover {
                 <td>
                   دکتر سعید صدیقیان
                   </td>
-                <td><a href="https://ce.kntu.ac.ir/Index.aspx?page_=professor&lang=1&sub=93&PageID=478&PageIDF=66&tempname=template261" class="text-info">عضو هیات عملی
+                <td><a href="https://ce.kntu.ac.ir/Index.aspx?page_=professor&lang=1&sub=93&PageID=478&PageIDF=66&tempname=template261" class="text-info">عضو هیات علمی
                   دانشگاه خواجه نصیر
                   </a></td>
               </tr>
@@ -338,7 +338,7 @@ a:hover {
                 <td>
                   دکتر عماد الدین فاطمی زاده
                   </td>
-                <td><a href="http://ee.sharif.edu/~web/faculties/%D8%AF%DA%A9%D8%AA%D8%B1-%D9%81%D8%A7%D8%B7%D9%85%DB%8C-%D8%B2%D8%A7%D8%AF%D9%87%D8%8C%D8%B9%D9%85%D8%A7%D8%AF%D8%A7%D9%84%D8%AF%DB%8C%D9%86/" class="text-info">عضو هیات عملی
+                <td><a href="http://ee.sharif.edu/~web/faculties/%D8%AF%DA%A9%D8%AA%D8%B1-%D9%81%D8%A7%D8%B7%D9%85%DB%8C-%D8%B2%D8%A7%D8%AF%D9%87%D8%8C%D8%B9%D9%85%D8%A7%D8%AF%D8%A7%D9%84%D8%AF%DB%8C%D9%86/" class="text-info">عضو هیات علمی
                   دانشگاه شریف
                   </a></td>
               </tr>
@@ -363,7 +363,7 @@ a:hover {
                 <td>
                   دکتر شهره کسایی
                   </td>
-                <td><a href="http://ce.sharif.edu/faculty/shohre-kasaei/" class="text-info">عضو هیات عملی
+                <td><a href="http://ce.sharif.edu/faculty/shohre-kasaei/" class="text-info">عضو هیات علمی
                   دانشگاه شریف
                   </a></td>
               </tr>
@@ -372,7 +372,7 @@ a:hover {
                 <td>
                   دکتر محمد شهرام معین
                   </td>
-                <td><a href="https://www.itrc.ac.ir/itrc-science-committee/56727" class="text-info">عضو هیات عملی
+                <td><a href="https://www.itrc.ac.ir/itrc-science-committee/56727" class="text-info">عضو هیات علمی
                   پژوهشگاه ارتباطات و فناوری اطلاعات
                   </a></td>
               </tr>
@@ -383,7 +383,7 @@ a:hover {
                   </td>
                 <td><a href="
                   https://fnst.ut.ac.ir/~h.veisi
-                  " class="text-info">عضو هیات عملی
+                  " class="text-info">عضو هیات علمی
                   دانشگاه تهران
                   </a></td>
               </tr>
