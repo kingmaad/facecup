@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Member;
+use App\Team;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
 class memberController extends Controller
@@ -55,29 +57,43 @@ class memberController extends Controller
 
         
         if ($validator->fails()) {
-            return response()->json(['errorCode'=>0,'hasError'=> true,'errors'=>$validator->messages()], 200);
+            //return response()->json(['errorCode'=>0,'hasError'=> true,'errors'=>$validator->messages()], 200);
             return back()->withInput();
         }
         else
         {
-            if($request->file('resume')){
-                $fileName = time().'.'.$request->file('resume')->getClientOriginalExtension();  
-       
-                $request->file('resume')->move(public_path('uploads/resume/'.$team_id."/"."members/"), $fileName);
-                $cv_url='uploads/resume/'.$team_id."/"."members/".$fileName;
+            $team = Team::where('id',$team_id)->first();
+            if($team->members()->count()>=6)
+            {
+                //return response()->json(['errorCode'=>-1,'hasError'=> true,'errors'=>"بدلیل تکمیل تعداد اعاضی تیم، شما نمیتوانید عضو جدیدی اضافه کنید(حداکثر تعداد اعضای هر تیم 6 نفر میباشد)"], 200);
+                Session::flash('type', "danger");
+                Session::flash('message', "بدلیل تکمیل تعداد اعضای تیم امکان اضافه کردن عضو جدید وجود ندارد(حداکثر تعداد اعضای هر تیم 6 نفر میباشد)");
+                return back();
                 
             }
-            if ($team_id) {
-                $member = new Member();
-                $member->first_name = $request->first_name;
-                $member->last_name = $request->last_name;
-                $member->field = $request->field;
-                $member->major = $request->major;
-                $member->university = $request->university;
-                $member->cv_url = $cv_url;
-                $member->team_id = $team_id;
-                $member->save();
-                return back()->withInput(['status' => 'saved']);
+            else
+            {
+                if($request->file('resume')){
+                    $fileName = time().'.'.$request->file('resume')->getClientOriginalExtension();  
+           
+                    $request->file('resume')->move(public_path('uploads/resume/'.$team_id."/"."members/"), $fileName);
+                    $cv_url='uploads/resume/'.$team_id."/"."members/".$fileName;
+                    
+                }
+                if ($team_id) {
+                    $member = new Member();
+                    $member->first_name = $request->first_name;
+                    $member->last_name = $request->last_name;
+                    $member->field = $request->field;
+                    $member->major = $request->major;
+                    $member->university = $request->university;
+                    $member->cv_url = $cv_url;
+                    $member->team_id = $team_id;
+                    $member->save();
+                    Session::flash('type', "success");
+                    Session::flash('message', "عضو جدید با موفقیت ثبت شد");
+                    return back();
+                }
             }
     }
     }

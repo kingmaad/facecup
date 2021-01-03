@@ -383,7 +383,7 @@ if (!c3.error) {
         @foreach ($members as $key=>$item)
         <tr id="row-{{ $item->id }}">
         <th>
-          <button class="btn btn-danger" data-id="{{ $item->id }}" id ="linkdelete"><i class="fa fa-trash"></i></button>
+          <button class="btn btn-danger linkdelete" data-id="{{ $item->id }}" id ="linkdelete"><i class="fa fa-trash"></i></button>
 
            
         </th>
@@ -440,7 +440,7 @@ if (!c3.error) {
                   var obj;
 var modalConfirm = function(callback){
   
-  $("#linkdelete").on("click", function(){
+  $(".linkdelete").on("click", function(){
     obj = $(this); // first store $(this) in obj
     id = $(this).data('id'); // get id of data using this 
     $("#mi-modal").modal('show');
