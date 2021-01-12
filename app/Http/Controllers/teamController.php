@@ -108,7 +108,13 @@ class teamController extends Controller
                     'fa_name' => $data['fa_name'],
                     'mobile' => $data['mobile']
                 ]);
-                SmsSender::verificationCode($otp, $data['mobile']);
+                try {
+                    //code...
+                    SmsSender::verificationCode($otp, $data['mobile']);
+                } catch (\Throwable $th) {
+                    //throw $th;
+                }
+                
                 return response()->json([
                     'hasError' => false,
                 ]);

@@ -80,13 +80,6 @@ Route::get('/generalRules',function(){
 
 Route::get('/blog','indexController@blog');
 Route::get('/blog/{id}/{permalink}','indexController@post_detail');
-Route::get('/how-face-recognition-works',function(){
-    return view('sections.blog1');
-});
-
-Route::get('/artificial-intelligence-progress',function(){
-    return view('sections.blog2');
-});
 
 
 Route::get('/jobs','indexController@jobs');
