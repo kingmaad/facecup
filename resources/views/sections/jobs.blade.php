@@ -296,6 +296,7 @@ body.modal-open .supreme-container{
                       <hr>
                       سطح تخصص مورد نیاز
                       <p class="pt-2" id="levels-{{ $job->id }}">
+                       &nbsp;
                         @foreach ($job->level as $item)
                           @switch($item)
                             @case('intern')
