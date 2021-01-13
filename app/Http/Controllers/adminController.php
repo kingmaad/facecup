@@ -128,7 +128,11 @@ class adminController extends Controller
             $job->description=$request->description;
             $job->company_id = $request->company_id;
             $job->expired = $request->expired ? 1 :0;
-            $job->level = json_encode($request->level);
+            if($request->has('level'))
+                $level = implode(",", $request->level);
+            else
+                $level = null;
+            $job->level = $level;
             $job->save();
             return redirect('/administrator/job/list');
         }
