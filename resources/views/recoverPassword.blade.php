@@ -243,9 +243,9 @@ if (!c3.error) {
                         </form>
                     </div>
                 </div>
-                <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-                <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-                <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+                <script src="js/jquery-1.11.1.min.js"></script>
+                <script src="js/jquery.validate.min.js"></script>
+                <script src="js/additional-methods.min.js"></script>
                 <script>
                     var result;
                     $( "#myform" ).validate({
