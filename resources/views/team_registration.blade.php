@@ -221,7 +221,7 @@ if (!c3.error) {
                             <img src="lib/registrationform/images/form-v1.jpg" alt="form">
 
                         </div>
-                        <form class="form-detail" method="post" id="myform" >
+                        <form class="form-detail" action="#" method="post" id="myform" >
                             <div class="row">
                               <div class="col-2"></div>
                               <div class="col-10">
