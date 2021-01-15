@@ -182,6 +182,7 @@ Route::group(['middleware' => ['isVerified']], function () {
     //Route::domain('upload.facecup.ir')->group(function () {
         Route::get('/fileupload', 'FileUploadController@fileUpload');
         Route::post('/fileupload', 'FileUploadController@fileStore');
-        Route::post('/chunkedupload','DependencyUploadController@uploadFile')->middleware('cors');;
+        Route::post('/chunkedupload','DependencyUploadController@uploadFile')->middleware('cors');
+        Route::get('/removeDocker','DependencyUploadController@removeDockerFile');
     //});
 });

@@ -308,7 +308,24 @@ a:hover{
 
           </ul>
     </div>
-          
+    <hr>
+    @if(isset($size) && $size>0)
+    <span class="bg-info text-white">شما قبلا فایل داکر را آپلود کرده اید، مشخصات فایل آپلود شده را در زیر میتوانید مشاهده کنید</span>
+          <table class="table table-bordered mt-2" dir="rtl">
+            <tr>
+              <th>نام فایل آپلود شده</th>
+              <th>توضیحات</th>
+              <th>حجم فایل</th> 
+              <th>حذف فایل</th>
+            </tr>
+            <tr>
+              <td>{{$name}}</td>
+              <td>{{$description}}</td>
+              <td>{{$size}} مگابایت</td>
+              <td><a href="/removeDocker" class="btn btn-danger linkdelete" onclick="return confirm('آیای از حذف فایل آپلود شده اطمینان دارید؟');" id="linkdelete"><i class="fa fa-trash"></i></button></td>
+            </tr>
+          </table>
+      @endif
         </main>
       
       
@@ -444,7 +461,8 @@ input.addEventListener('change', function () {
             if(data.result.status == 200)
             {
               $('#validation-errors').append('<div class="alert alert-success">'+data.result.success+".حجم فایل آپلود شده: "+data.result.size+" مگابایت"+'</div');
-              //window.location.href = "/fileupload";
+              alert(data.result.success+".حجم فایل آپلود شده: "+data.result.size+" مگابایت")
+              window.location.href = "/fileupload";
             }
             else
             {

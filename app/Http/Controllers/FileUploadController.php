@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\TeamFile;
+use App\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
@@ -12,7 +13,20 @@ class FileUploadController extends Controller
     //
     public function fileUpload()
     {
-        return view('fileUpload');
+        $team= Team::where('id',session('user_id'))->first();
+        
+        if($team->file)
+        {
+            $description = $team->file->description;
+            $file_name = explode("/",$team->file->file_url);
+            $size =File::size($team->file->file_url)/1024/1024;
+            $size = number_format($size, 2);
+            return view('fileUpload',['name' => $file_name[count($file_name)-1],'size' => $size,'description' => $description]);
+        }
+        else
+            return view('fileUpload');
+
+        
     }
 
     public function fileStore(Request $request)

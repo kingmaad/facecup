@@ -88,7 +88,9 @@ class DependencyUploadController extends Controller
                     $filesize = number_format($filesize, 2);
                     if($file->save())
                         {
-                            File::delete($old_file);
+                            $old_file_name = explode("/",$old_file);
+                            $old_file_name = $old_file_name[count($old_file_name)-1];
+                            strcmp($old_file_name,$fileName)!==0 ? File::delete($old_file): "";
                             return response()->json(['status'=>200,'size'=>$filesize,'success'=>'فایل با موفقیت آپلود شد']);
                         }
                 }
@@ -155,8 +157,21 @@ class DependencyUploadController extends Controller
         $filename = str_replace(".".$extension, "", $file->getClientOriginalName()); // Filename without extension
 
         // Add timestamp hash to name of the file
-        $filename .= "_" . md5(time()) . "." . $extension;
+        $filename .= "." . $extension;
 
         return $filename;
+    }
+
+    public function removeDockerFile()
+    {
+        $team_id = session('user_id');
+        $file = TeamFile::where('team_id',$team_id)->first();
+                if($file)
+                {
+                    $old_file = $file->file_url;
+                    File::delete($old_file);
+                    $file->delete();
+                }
+        return back();
     }
 }
