@@ -344,6 +344,11 @@ if (!c3.error) {
 {
   background-color: #CEA2D2;
 }
+.draw-line-through {
+   -webkit-text-decoration-line: line-through; /* Safari */
+   text-decoration-line: line-through; 
+}
+
 </style>
 @include('sections.head')
   </head>
@@ -373,11 +378,18 @@ if (!c3.error) {
                        
                      </h1>
                      
-                     <h2 class="text-center rtl">
+                     <h2 class="text-center draw-line-through rtl">
                       <span> 15 </span>
                       بهمن ماه
                       <span> 99 </span>
-                      
+                     
+                     
+                    </h2>
+                    <h2 class="text-center rtl">
+                      <span> 24 </span>
+                      بهمن ماه
+                      <span> 99 </span>
+                      <span class="h6 bg-success text-white p-1 rounded"> تمدید شد </span>
                      
                     </h2>
                     <p class="text-center">
