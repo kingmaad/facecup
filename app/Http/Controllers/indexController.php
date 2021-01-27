@@ -267,6 +267,30 @@ class indexController extends Controller
          }
          
      }
+     public function get_second_dataset_file()
+     {
+         # code...
+         if(session('user_id')!=null)
+         {
+            $team = Team::where('id',session('user_id'))->first();
+            if($team->team_type!=null)
+            {
+                $file = File::get(public_path('files/dataset2.zip'));
+                $response = Response::make($file, 200);
+                $response->header('Content-Type', 'application/zip');
+                $response->header("Content-Disposition","attachment");
+                $response->header("Content-length",File::size(public_path('files/dataset2.zip')));
+                $response->header("Pragma","no-cache"); 
+                $response->header("Expires","0"); 
+                return $response;
+            }
+         }
+         else
+         {
+             redirect('/');
+         }
+         
+     }
      public function blog()
      {
          $posts = Post::orderBy('created_at', 'DESC')->get();

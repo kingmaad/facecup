@@ -261,7 +261,9 @@ a:hover{
             @if ($updated)
                 <p class="lead text-center">
                     <a href="/get-files/get-docker-file" class="btn btn-lg btn-warning">دریافت داکرهای تست</a>
-                    <a href="/get-files/get-dataset-file" class="btn btn-lg btn-info">دریافت دیتاست نمونه</a>
+                    <a href="/get-files/get-second-dataset-file" class="btn btn-lg btn-info">دریافت دیتاست نمونه دوم</a>
+                    <a href="/get-files/get-dataset-file" class="btn btn-lg btn-info">دریافت دیتاست نمونه اول</a>
+                    
                 </p>
                 <h2>	نحوه استفاده از داکرها</h2>
                 <h4 dir="rtl" class="text-danger" role="presentation">نصب و اجرای داکرهای تست</h4>
