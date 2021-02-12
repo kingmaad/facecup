@@ -16,7 +16,7 @@ class isPast
     public function handle($request, Closure $next)
     {
         $now = Carbon::now('GMT')->timestamp;
-        $dead_line = Carbon::create(2021, 02, 12, 21, 30, 0, 'GMT')->timestamp;
+        $dead_line = Carbon::create(2021, 02, 12, 20, 30, 0, 'GMT')->timestamp;
         if($now > $dead_line)
             return back();
         return $next($request);
