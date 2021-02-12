@@ -181,9 +181,9 @@ Route::group(['middleware' => ['isVerified']], function () {
     Route::get('/get-files/get-second-dataset-file','indexController@get_second_dataset_file');
     
     //Route::domain('upload.facecup.ir')->group(function () {
-        Route::get('/fileupload', 'FileUploadController@fileUpload');
+        Route::get('/fileupload', 'FileUploadController@fileUpload')->middleware('isPast');
         Route::post('/fileupload', 'FileUploadController@fileStore');
         Route::post('/chunkedupload','DependencyUploadController@uploadFile')->middleware('cors');
-        Route::get('/removeDocker','DependencyUploadController@removeDockerFile');
+        Route::get('/removeDocker','DependencyUploadController@removeDockerFile')->middleware('isPast');
     //});
 });

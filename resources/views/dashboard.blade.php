@@ -270,7 +270,13 @@ a:hover {
             <a href="/TeamInfo" class="btn btn-lg btn-success dashboard-btn mt-2">تکمیل ثبت نام تیم</a>
             <a href="/get-files" class="btn btn-lg btn-warning dashboard-btn mt-2">دریافت محتوای مورد نیاز مسابقه</a>
             <a href="/changePassword" class="btn btn-lg btn-info dashboard-btn mt-2">تغییر رمز</a>
-            <a href="{{ action('FileUploadController@fileUpload') }}" class="btn btn-lg btn-primary dashboard-btn mt-2" >ارسال کد</a>
+            
+            @if(!$isPast)
+              <a href="{{ action('FileUploadController@fileUpload') }}" class="btn btn-lg btn-primary dashboard-btn mt-2" >ارسال کد</a>
+            @else
+              <a href="#" class="btn btn-lg btn-primary dashboard-btn mt-2" title="مهلت ارسال کد به اتمام رسیده است" >ارسال کد</a>
+            @endif
+
             <a href="#" class="btn btn-lg btn-secondary disabled dashboard-btn mt-2"  >دریافت نتایج ارزیابی</a>
           </p>
         </main>

@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use PhpParser\Node\Stmt\Return_;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Carbon;
+
 class teamController extends Controller
 {
     /**
@@ -51,7 +53,9 @@ class teamController extends Controller
         if(session('user_id'))
         {
             $team = Team::where('id',session('user_id'))->first();
-            return view('dashboard',['team_name'=>$team->fa_name]);
+            $now = Carbon::now('GMT')->timestamp;
+            $dead_line = Carbon::create(2021, 02, 12, 21, 30, 0, 'GMT')->timestamp;
+            return view('dashboard',['team_name'=>$team->fa_name, 'isPast' => $now > $dead_line]);
         }
         else
         {

@@ -7,6 +7,7 @@ use App\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Carbon;
 
 class FileUploadController extends Controller
 {
@@ -17,11 +18,14 @@ class FileUploadController extends Controller
         
         if($team->file)
         {
+            $now = Carbon::now('GMT')->timestamp;
+            $dead_line = Carbon::create(2021, 02, 12, 21, 30, 0, 'GMT')->timestamp;
+
             $description = $team->file->description;
             $file_name = explode("/",$team->file->file_url);
             $size =File::size($team->file->file_url)/1024/1024;
             $size = number_format($size, 2);
-            return view('fileUpload',['name' => $file_name[count($file_name)-1],'size' => $size,'description' => $description]);
+            return view('fileUpload',['name' => $file_name[count($file_name)-1],'size' => $size,'description' => $description, 'isPast' => $now > $dead_line]);
         }
         else
             return view('fileUpload');

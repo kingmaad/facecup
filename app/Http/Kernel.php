@@ -64,6 +64,7 @@ class Kernel extends HttpKernel
         'checkAdmin' => \App\Http\Middleware\checkAdmin::class,
         'isVerified' => \App\Http\Middleware\isVerified::class,
         'cors' => \App\Http\Middleware\Cors::class, 
+        'isPast' => \App\Http\Middleware\isPast::class, 
     ];
 
     /**

@@ -316,13 +316,19 @@ a:hover{
               <th>نام فایل آپلود شده</th>
               <th>توضیحات</th>
               <th>حجم فایل</th> 
-              <th>حذف فایل</th>
+              @if(!$isPast)
+                <th>حذف فایل</th>
+              @endif 
             </tr>
             <tr>
               <td>{{$name}}</td>
               <td>{{$description}}</td>
               <td>{{$size}} مگابایت</td>
-              <td><a href="/removeDocker" class="btn btn-danger linkdelete" onclick="return confirm('آیای از حذف فایل آپلود شده اطمینان دارید؟');" id="linkdelete"><i class="fa fa-trash"></i></button></td>
+              @if(!$isPast)
+                <td>
+                  <a href="/removeDocker" class="btn btn-danger linkdelete" onclick="return confirm('آیای از حذف فایل آپلود شده اطمینان دارید؟');" id="linkdelete"><i class="fa fa-trash"></i></button>
+                </td>
+              @endif  
             </tr>
           </table>
       @endif
