@@ -19,7 +19,7 @@ class FileUploadController extends Controller
         if($team->file)
         {
             $now = Carbon::now('GMT')->timestamp;
-            $dead_line = Carbon::create(2021, 02, 12, 20, 30, 0, 'GMT')->timestamp;
+            $dead_line = Carbon::create(2021, 02, 29, 20, 30, 0, 'GMT')->timestamp;
 
             $description = $team->file->description;
             $file_name = explode("/",$team->file->file_url);
