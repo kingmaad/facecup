@@ -365,7 +365,12 @@ if (!c3.error) {
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 
             <div id="carouselDiv" class="carousel-inner slider-default-bg"  role="listbox">
-                <div class="carousel-item active">
+            <div class="carousel-item active">
+                  <div class="min-vh-100 slider-seven-bg">
+                    <img src="../img/intro-bg8.jpg" style="width:100%;height:100% position:absolute;z-index:-1;" />
+                    </div>
+                </div>
+                <div class="carousel-item pull">
                   <div class=" min-vh-100 slider-one-bg">
 
                     <div class="carousel-header">
