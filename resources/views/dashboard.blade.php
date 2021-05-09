@@ -277,7 +277,7 @@ a:hover {
               <a href="#" class="btn btn-lg btn-primary dashboard-btn mt-2" title="مهلت ارسال کد به اتمام رسیده است" >ارسال کد</a>
             @endif
 
-            <a href="#" class="btn btn-lg btn-secondary disabled dashboard-btn mt-2"  >دریافت نتایج ارزیابی</a>
+            <a href="uploads/cert/{{ session('user_id') }}/cert.pdf" class="btn btn-lg btn-dark dashboard-btn mt-2"  >دریافت نتایج ارزیابی</a>
           </p>
         </main>
       
